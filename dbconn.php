@@ -1,6 +1,7 @@
 <?php
 // 1- Connect to database
 $myconn= mysqli_connect("localhost","root","","airressystem");
+
 // 2- Run SQL Query
 //$myquery = "SELECT * FROM student";
 // 3- Run Query
