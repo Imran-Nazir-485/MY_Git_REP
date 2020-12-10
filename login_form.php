@@ -3,11 +3,13 @@
 <head>
 	<title>Login Form</title>
 	<style type="text/css">
+		*{margin: 0;padding: 0;box-sizing: border-box;}
 		body{
+
 			/*background-color: black;*/
 			
 		}
-		#login{
+		/*#login{
 			border:0px solid red ;
 			margin-top:  5%;
 			width: 20%;
@@ -75,42 +77,54 @@ border-bottom: 1px solid white;
 			color: white;
 			font-size: 20px;
 		}
-		#head{
-			palace-item:center;
-			justify-content: center;
-			margin-left: 40%;
+		*/
+
+		main{
+			display: flex;
+border: 1px solid red;
+width: 80%;
+height: 90%;
+
 		}
 	</style>
 </head>
 <body>
-	<div id="head">
+	
+
+
+
+	<main>
+		<center>
 	<h1>Web Ticket Reservation System</h1>
-	<form method="POST" action="membersreal.php ">
+	<!-- <form method="POST" action="membersreal.php "> -->
+<form method="POST" >
 <div id="login">
+
 	<img src="download.png">
 <h3>Login</h3 >
 <h4>UserName</h4>
-<input class="input"  type="text" name="username" placeholder="username....">
+<input class="input"  type="text" name="usermail" placeholder="usermail@gmail.com....">
 
 <h4>Password</h4>
 <input class="input" type="password" name="password" placeholder="password....">
 <br>
-<input class="button" type="submit" name="submit"  value="Login">
+<input class="button" type="submit" name="login"  value="Login">
 <br>
 
 <h6>
 	No Account then SignUp
 </h6>
-<input class="button" type="submit" name="submit"  value="Sign Up">
+<input class="button" type="submit" name="signup"  value="Sign Up">
 <br>
 </div>
 
 
 	
 </form>
-
-	</div>
-	
+		
+		</center>
+		
+	</main>
 
 </body>
 </html>
@@ -119,21 +133,39 @@ border-bottom: 1px solid white;
 
 
 
-
-
-
 <?php
-
-
-// include 'dbconn.php';
-// if(isset($_POST['submit']))
-// {
-// $myfile = fopen("membersreal.php", "w") or die("Unable to open file!");
-// echo fread($myfile,filesize("membersreal.php"));
-// fclose($myfile);
-
-// }
-
-
-
+include 'dbconn.php';
+if(isset($_POST['signup']))
+{
+$myfile = fopen("membersreal.php", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("membersreal.php"));
+fclose($myfile);
+}
+if (isset($_POST['login'])) {
+$email=$_POST['usermail'];
+$password=$_POST['password'];
+$insertquery="SELECT `memid`, `fname`, `lname`, `email`, `password` FROM `members` WHERE memid='1'";
+$res=mysqli_query($myconn,$insertquery);
+if ($res) {
+	echo "datafounded"."<br>";
+	echo $res['lname'];
+	?>
+<script type="text/javascript">
+	alert("Data Inserted Successfully");	
+</script>
+<?php
+}else{
+	?>
+<script type="text/javascript">
+	alert("Data Not Inserted Successfully");
+</script>
+<?php
+}
+}
 ?>
+
+
+
+
+
+
