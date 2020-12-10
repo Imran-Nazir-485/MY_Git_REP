@@ -89,8 +89,11 @@ if(isset($_POST['submit']))
 	$cnic=$_POST['cnic'];
 	$passport=$_POST['passport'];
 	
-	$insertquery="INSERT INTO `passenger`(`pid`, `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$pid','$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
-$res=mysqli_query($myconn,$insertquery);
+echo "$fname";
+
+
+// 	$insertquery="INSERT INTO `passenger`(`pid`, `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$pid','$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
+// $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 	?>
 <script type="text/javascript">
