@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin</title>
+	<title>Admin1</title>
 </head>
 <body>
 
 
-<main>
-	<form method="POST">
-	<div id="login"><input type="submit" name="submit" value="LOGIN"></div>
-	<div id="signup"><input type="submit" name="submit" value="SIGNUP"></div>	
+<main id="main">
+	<form method="POST" id="iform">
+<div id="loginorsignup"><input class="header" type="submit" name="loginorsignup" value="LOGIN OR SIGNUP"></div>
+<div id="availableflights"><input class="header" type="submit" name="submit" value="AvailableFlights"></div>
+		
 	</form>
-	
-	
+
 </main>
 
 
 
 <style type="text/css">
-	*{margin: 0;padding: 0;box-sizing: border-box;}
-	main{
-		margin: 5% 10%;
-		border: 1px solid red;
-padding: 10px;
-display: flex;
-	}
-	#login{
-		border: 1px solid black;
-		width: 40%;
-	}
-#signup{
-	border: 1px solid black;
-width: 40%;
+	*{margin: 0px;padding: 0px;box-sizing: border-box;}
+#main{
+			border: 1px solid red;
+			margin: 50px auto;
+			width: 75%;
+			/*display: grid;
+			grid-template-rows: 50px  ;
+			grid-template-columns: repeat(2,1fr)  ;*/
+		}
+/*#login{border: 1px solid red;}
+#signup{border: 1px solid red;
+/*margin-left: 40%;}*/
+#iform{display: grid;
+			grid-template-rows: 50px  ;
+			grid-template-columns: repeat(2,1fr)  ;}
+#loginorsignup{border: 1px solid black;
 }
-input{width: 100%;}
+#availableflights{border: 1px solid black;}
+.header{width: 100%;
+height: 100%;}
+
 </style>
 </body>
 </html>
@@ -43,25 +48,13 @@ input{width: 100%;}
 <?php
 $bid=2;
 include 'dbconn.php';
-if(isset($_POST['submit']))
+if(isset($_POST['loginorsignup']))
 {
-$myfile = fopen("booking_form.php", "r") or die("Unable to open file!");
-echo fread($myfile,filesize("booking_form.php"));
+$myfile = fopen("login_form.php", "r") or die("Unable to open file!");
+echo fread($myfile,filesize("login_form.php"));
 fclose($myfile);
 
-	// $fname=$_POST['fname'];
-	// $lname=$_POST['lname'];
-	// $gender=$_POST['gender'];
-	// $passportnum=$_POST['passportnum'];
-	// $dateofissue=$_POST['dateofissue'];
-	// $dateofexpirey=$_POST['dateofexpirey'];
-	// $placeofbirth=$_POST['placeofbirth'];
-	// $phonenum=$_POST['phonenum'];
-	// $email=$_POST['email'];
-	// $country=$_POST['country'];
 	
-	// $insertquery="INSERT INTO `booking`(`bid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$bid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
-
 
 }
 

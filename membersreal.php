@@ -4,10 +4,10 @@
 	<title>SignUp Form</title>
 <style type="text/css">
 body{
-background-color: black;
+/*background-color: black;*/
 
 }
-#login{
+/*#login{
 border:0px solid red ;
 margin-top:  5%;
 width: 20%;
@@ -79,13 +79,14 @@ font-size: 20px;
 palace-item:center;
 justify-content: center;
 margin-left: 40%;
-}
+}*/
 </style>
 </head>
 <body>
+	<center>
 <div id="head">
 <h1>Web Ticket Reservation System</h1>
-<form method="POST">
+<form method="POST" >
 <div id="login">
 <img src="download.png">
 <h3>SignUp</h3 >
@@ -102,7 +103,9 @@ margin-left: 40%;
 <br>
 </div>
 </form>
-</div>
+</div>		
+	</center>
+
 </body>
 </html>
 
@@ -121,14 +124,19 @@ if(isset($_POST['signup']))
 	$lname=$_POST['lastname'];
 	$email=$_POST['usermail'];
 	$password=$_POST['password'];
-	$insertquery="INSERT INTO `members`(`memid`, `fname`, `lname`, `email`, `password`) VALUES ('2','$fname','$lname','$email','$password')";
+	$insertquery="INSERT INTO `members`(`memid`, `fname`, `lname`, `email`, `password`) VALUES ('7','$fname','$lname','$email','$password')";
 $res=mysqli_query($myconn,$insertquery);
-if ($res) {
+
+if ($res) {header("Location:admin1.php");
+	// $myfile = fopen("admin1.php", "r") or die("Unable to open file!");
+// echo fread($myfile,filesize("admin1.php"));
+// fclose($myfile);
 	?>
 <script type="text/javascript">
 	alert("Data Inserted Successfully");	
 </script>
 <?php
+
 }else{
 	?>
 <script type="text/javascript">
@@ -136,7 +144,7 @@ if ($res) {
 </script>
 <?php
 }
-}
+
 ?>
 
 
