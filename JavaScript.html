@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>JavaSccript</title>
+        <script>
+            function Swap()
+            {
+                v1=document.getElementById("t1").value;
+                v2=document.getElementById("t2").value;
+                v3=document.getElementById("t3").value;
+
+                document.getElementById("t1").value =v3;
+                document.getElementById("t2").value =v1;
+                document.getElementById("t3").value =v2;
+
+                var emji=document.querySelector("#emoji");
+                emji.innerHTML =String.fromCodePoint(0x1F60A);
+            }
+        </script>
+    </head>
+    <body style="font-family: Arial, Helvetica, sans-serif;">
+        <div style="background-color: #F8F8F8; height: 800px;">
+            <div style="height: 100px;">
+                <a href="#"><img style="width: 80px; height: 80px; margin-left: 20px; margin-top: 20px; display: inline;" src="logo.jpg"></a>
+                
+            </div>
+            <div style="width: 35%; border-radius: 10px; height: 550px; box-shadow: 2px 2px 2px 2px #BBC1C4; text-align: center; margin-left: 30%; background-color: white;">
+                <center><h1 style="font-size: 42px; margin-top: 10px;">JavaScript</h1></center>
+                <form>
+                    <input id="t1" type="text" autocomplete="off" placeholder="First Text" style="border-top: none; border-left: none; border-right: none; font-size: 26px; margin-right: 5%; padding: 10px; padding-left: 20px; width: 85%;">
+                    <input id="t2" type="text" autocomplete="off" placeholder="Second Text" style="margin-top: 20px; border-top: none; border-left: none; border-right: none; font-size: 26px; margin-right: 5%; padding: 10px; padding-left: 20px; width: 85%;">
+                    <input id="t3" type="text" autocomplete="off" placeholder="Third Text" style="margin-top: 20px; border-top: none; border-left: none; border-right: none; font-size: 26px; margin-right: 5%; padding: 10px; padding-left: 20px; width: 85%;">
+                    <input type="button" onclick="Swap()" value="Swap" id="button" style="border-radius: 20px; width: 40%; padding: 10px; margin-top: 30px; font-size: 30px; border: none; font-weight: bold; color: white; background-color: #F7DF1D;">
+                    <h1 id="emoji" style="font-size: 60px; border: none;"></h1>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

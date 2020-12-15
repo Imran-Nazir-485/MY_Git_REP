@@ -1,0 +1,34 @@
+	#moto{
+		margin-left: 10%;
+		margin-top: -6%;
+         font-family: arial;
+font-size: 130%;
+
+	}
+#to{font-family: arial;font-size: 75%;margin-left: 1%}
+#main{
+	margin-left: 10% 
+}
+#f{
+	padding: 10px 10px;margin: 20px auto
+}
+#pic{
+	float: right;
+}
+#l{
+	padding: 10px 10px;margin: 20px auto;
+}
+#em{
+	padding: 10px 10px;margin: 20px auto; width: 400px
+}
+#gid1{
+	margin-top: -5%
+}
+#gid2{font-family: arial; font-size: 90%}
+#pass{padding: 10px 10px;margin: 20px auto}
+#cpass{padding: 10px 10px;margin: 20px auto}
+#gid3{margin-top: -5%}
+#gid4{font-family: arial;font-size: 90%}
+#signinstead{color: blue}
+#next_button_d{margin-left: 60%;margin-top: -5%}
+#next_button_i{color: white;background-color: blue;padding: 7px 7px;}
