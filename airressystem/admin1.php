@@ -11,7 +11,7 @@
 <div id="login"><input class="header" type="submit" name="login" value="LOGIN"></div>
 <div id="signup"><input class="header" type="submit" name="signup" value="SIGNUP"></div>
 
-<div id="availableflights"><input class="header" type="submit" name="submit" value="AvailableFlights"></div>
+<div id="availableflights"><input class="header" type="submit" name="availableflights" value="AvailableFlights"></div>
 		
 	</form>
 
@@ -57,6 +57,12 @@ if(isset($_POST['signup']))
 {
 header("Location:signup_form.php");
 }
+if(isset($_POST['availableflights']))
+{
+header("Location:availableflights.php");
+}
+
+
 
 ?>
 
