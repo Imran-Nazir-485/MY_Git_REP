@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reservation</title>
+	<title>Searching</title>
 </head>
 <body>
 
 <main>
 <form method="POST">
 	
-<input type="text" name="dep-city" placeholder="From:Airport & City">
-<input type="text" name="dest-city" placeholder="To Airport & City">
+<input type="text" name="depcity" placeholder="From:Airport & City">
+<input type="text" name="destcity" placeholder="To Airport & City">
 <br>
 <label>Departure Date</label>
 <br>
-<input type="date" name="dep-date" placeholder="Select Daparture Date">
+<input type="date" name="depdate" placeholder="Select Daparture Date">
 <br>
 <label>Passengers</label>
 <br>
@@ -42,28 +42,37 @@
 
 
 
+
 <?php
+include 'dbconn.php';
+if (isset($_POST['submit'])) {
 
-$connection=mysqli_connect("localhost","root","","airressystem");
-// $db=mysqli_select_db($connection,"airressystem");
+$fromcity=$_POST['depcity'];
+$destcity=$_POST['destcity'];
+$dateofdep=$_POST['depdate'];
+$passengers=$_POST['passengers'];
+$cabin=$_POST['cabin'];
 
-if(isset($_POST['submit']))
-{
-	$fromcity=$_POST['dep-city'];
-	// $destcity=$_POST['dest-city'];
-	// $dateofdep=$_POST['dep-date'];
-	// $passengers=$_POST['passengers'];
-	// $cabin=$_POST['cabin'];
-// echo "$totcity";
-$query = "SELECT * FROM `flightschedule` WHERE depcity='$fromcity'";
-// 3- Run Query
-$query_run = mysqli_query($connection,$query);
-// 4- Show results
-// $row=myslqi_fetch_assoc($query_run);
-echo $query_run['price'];
+$myquery = "SELECT * FROM flightschedule ";
+
+$myresult=mysqli_query($myconn,$myquery);
+while($myrow = mysqli_fetch_assoc($myresult)){
+if($myrow['depcity']==$fromcity){
+	echo $myrow['depcity']."&nbsp&nbsp&nbsp&nbsp&nbsp".$myrow['destcity']."&nbsp&nbsp&nbsp&nbsp".$myrow['depdate']."<br>"."<hr>";
+}
 
 }
+}
+
+
 ?>
+
+
+
+
+
+
+
 
 
 
