@@ -10,7 +10,7 @@
 	<form method="POST" id="iform">
 <div id="login"><input class="header" type="submit" name="login" value="LOGIN"></div>
 <div id="signup"><input class="header" type="submit" name="signup" value="SIGNUP"></div>
-
+<div id="reservation"><input class="header" type="submit" name="reservation" value="RESERRVATION"></div>
 <div id="availableflights"><input class="header" type="submit" name="availableflights" value="AvailableFlights"></div>
 		
 	</form>
@@ -33,8 +33,8 @@
 #signup{border: 1px solid red;
 /*margin-left: 40%;}*/
 #iform{display: grid;
-			grid-template-rows: 50px  ;
-			grid-template-columns: repeat(3,1fr)  ;}
+			grid-template-rows: 50px 50px;
+			grid-template-columns: repeat(2,1fr)  ;}
 #loginorsignup{border: 1px solid black;
 }
 #availableflights{/*border: 1px solid black;*/}
@@ -61,7 +61,10 @@ if(isset($_POST['availableflights']))
 {
 header("Location:availableflights.php");
 }
-
+if(isset($_POST['reservation']))
+{
+header("Location:searching.php");
+}
 
 
 ?>

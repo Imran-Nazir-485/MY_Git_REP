@@ -56,12 +56,36 @@ $cabin=$_POST['cabin'];
 $myquery = "SELECT * FROM flightschedule ";
 
 $myresult=mysqli_query($myconn,$myquery);
+echo "<center>";
+echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
+echo "<tr> ";
+echo "<td>FlightId</td>  ";
+echo "<td>DepartureCity</td>  ";
+echo "<td>DestinationCity</td>  ";
+echo "<td>DepartureTime</td>  ";
+echo "<td>DepartureDate</td>  ";
+echo "<td>DestinationDate</td>  ";
+echo "<td>Price</td>  ";
+echo "<td>FlightDuration</td>  ";
+echo "<td>SelectFlight</td>  ";
+
+echo "</tr> ";
+echo "<tr>";
 while($myrow = mysqli_fetch_assoc($myresult)){
-if($myrow['depcity']==$fromcity){
-	echo $myrow['depcity']."&nbsp&nbsp&nbsp&nbsp&nbsp".$myrow['destcity']."&nbsp&nbsp&nbsp&nbsp".$myrow['depdate']."<br>"."<hr>";
+if ($myrow["depcity"]==$fromcity) 
+{
+echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>"."<td>". "<input type=\"checkbox\"  value=\"Booked\" style=\" width:\" 30px\">"."</td>";
+echo "</tr>";
 }
 
+
+
 }
+
+
+echo "</table>  ";
+echo "</center>";
+
 }
 
 
