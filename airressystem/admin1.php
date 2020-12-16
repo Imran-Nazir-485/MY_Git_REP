@@ -8,7 +8,9 @@
 
 <main id="main">
 	<form method="POST" id="iform">
-<div id="loginorsignup"><input class="header" type="submit" name="loginorsignup" value="LOGIN OR SIGNUP"></div>
+<div id="login"><input class="header" type="submit" name="login" value="LOGIN"></div>
+<div id="signup"><input class="header" type="submit" name="signup" value="SIGNUP"></div>
+
 <div id="availableflights"><input class="header" type="submit" name="submit" value="AvailableFlights"></div>
 		
 	</form>
@@ -32,10 +34,10 @@
 /*margin-left: 40%;}*/
 #iform{display: grid;
 			grid-template-rows: 50px  ;
-			grid-template-columns: repeat(2,1fr)  ;}
+			grid-template-columns: repeat(3,1fr)  ;}
 #loginorsignup{border: 1px solid black;
 }
-#availableflights{border: 1px solid black;}
+#availableflights{/*border: 1px solid black;*/}
 .header{width: 100%;
 height: 100%;}
 
@@ -46,16 +48,14 @@ height: 100%;}
 
 
 <?php
-$bid=2;
-include 'dbconn.php';
-if(isset($_POST['loginorsignup']))
+
+if(isset($_POST['login']))
 {
-$myfile = fopen("login_form.php", "r") or die("Unable to open file!");
-echo fread($myfile,filesize("login_form.php"));
-fclose($myfile);
-
-	
-
+header("Location:login_form.php");
+}
+if(isset($_POST['signup']))
+{
+header("Location:signup_form.php");
 }
 
 ?>
