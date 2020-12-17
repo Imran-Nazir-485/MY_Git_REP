@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Searching</title>
+	<title>Searching In One Way</title>
 </head>
 <body>
-
 <main>
 <form method="POST">
-	
+	One Way<input type="radio" name="triptype" value="v1"  checked="checked" > 
+	Return<input type="radio" id="return" value="v2" name="triptype" onclick="location.href='returnsearching.php'">
+	<br>
 <input type="text" name="depcity" placeholder="From:Airport & City">
 <input type="text" name="destcity" placeholder="To Airport & City">
 <br>
@@ -28,6 +29,11 @@
 </main>
 
 
+
+
+
+
+
 <style >
 	*{margin: 0;padding: 0;box-sizing: border-box;}
 	main{
@@ -45,6 +51,17 @@
 
 <?php
 include 'dbconn.php';
+
+
+
+if(isset($_POST['return']))
+{
+	header("Location:admin1.php");
+}
+
+
+
+
 if (isset($_POST['submit'])) {
 
 $fromcity=$_POST['depcity'];
