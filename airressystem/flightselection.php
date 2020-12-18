@@ -4,7 +4,11 @@
 	<title>Flight Selection</title>
 </head>
 <body>
+
+<center>
+
 <main>
+
 <form method="POST" action="">
 
 
@@ -12,7 +16,7 @@
 <label>FlightId</label>
 <input type="text" name="flightid" placeholder="FlightId">
 <label>Departure Date</label>
-<input type="date" name="depdate" placeholder="Departure Date"    value="$dateofdep">
+<input type="date" name="depdate" placeholder="Departure Date"    >
 <br>
 <label>Departure Time</label>
 <br>
@@ -20,7 +24,7 @@
 <br>
 <label>Departure City</label>
 <br>
-<input type="text" name="depcity" placeholder="DepartureCity" value="$fromcity">
+<input type="text" name="depcity" placeholder="DepartureCity" >
 <br>
 <label>Tickets</label>
 <br>
@@ -48,7 +52,9 @@
 
 
 </form>
-</main>
+</main>	
+</center>
+
 
 
 
@@ -77,27 +83,59 @@
 </style>
 </body>
 </html>
-<?php
-// include 'dbconn.php';
- if (isset($_POST['submit'])) {
-// $fromcity=$_POST['depcity'];
-// $destcity=$_POST['destcity'];
-// $dateofdep=$_POST['depdate'];
-// // $passengers=$_POST['passengers'];
-// $cabin=$_POST['cabin'];
-// require "adsmin1.php";
+<?php 
+session_start();
+echo $_SESSION["depcity"];
+echo $_SESSION["destcity"];
+echo $_SESSION["depdate"];
+echo $_SESSION["returndate"];
+
+$fromcity=$_SESSION["depcity"];
+$destcity=$_SESSION["destcity"];
+$dateofdep=$_SESSION["depdate"];
+$count=1;
+include 'dbconn.php';
+ $myquery = "SELECT * FROM flightschedule ";
+ $myresult=mysqli_query($myconn,$myquery);
+while($myrow = mysqli_fetch_assoc($myresult)){
+if ($myrow["depcity"]==$fromcity) {	
+if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$dateofdep  ) 
+{
+if ($count===1) {
+echo "<center>";
+echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
+echo "<tr> ";
+echo "<td>FlightId</td>  ";
+echo "<td>DepartureCity</td>  ";
+echo "<td>DestinationCity</td>  ";
+echo "<td>DepartureTime</td>  ";
+echo "<td>DepartureDate</td>  ";
+echo "<td>DestinationDate</td>  ";
+echo "<td>Price</td>  ";
+echo "<td>FlightDuration</td>  ";
+echo "<td>BusinessClass</td>  ";
+echo "<td>EconomyClass</td>  ";
+// echo "<td>SelectFlight</td>  ";
+echo "</tr> ";
+echo "<tr>";
+$count=$count+1;
+}
+echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>"."<td>".$myrow['rbseats']."</td>"."<td>".$myrow['reseats']."</td>";
+echo "</tr>";
+
+
+}
+echo "</table>  ";
+echo "</center>";
 
 }
 
-// session_start();
-// $_SESSION["depcity"]=$fromcity;
-// $_SESSION["destcity"]=$destcity;
-// $_SESSION["depdate"]=$dateofdep;
-// $_SESSION["cabin"]=$cabin;
 
 
-// $myquery = "SELECT * FROM flightschedule ";
-// $myresult=mysqli_query($myconn,$myquery);
+// if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$dateofdep ) 
+// {
+
+// 	if ($count===1) {
 // echo "<center>";
 // echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
 // echo "<tr> ";
@@ -109,37 +147,35 @@
 // echo "<td>DestinationDate</td>  ";
 // echo "<td>Price</td>  ";
 // echo "<td>FlightDuration</td>  ";
+// echo "<td>BusinessClass</td>  ";
+// echo "<td>EconomyClass</td>  ";
 // // echo "<td>SelectFlight</td>  ";
 // echo "</tr> ";
 // echo "<tr>";
+// $count=$count+1;
+// }
+// echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>"."<td>".$myrow['rbseats']."</td>"."<td>".$myrow['reseats']."</td>";
+// echo "</tr>";
 
-// while($myrow = mysqli_fetch_assoc($myresult)){
-// if ("Economy"==$cabin) {	
-// if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$dateofdep && $myrow["reseats"]>0) 
-// {
-// echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>";
-// echo "</tr>";
-// }
-// }
-// if ("Business"==$cabin) {
-// if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$depdate && $myrow["rbseats"]>0) 
-// {
-// echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>"."<td>";
-// echo "</tr>";
 // }
 // echo "</table>  ";
 // echo "</center>";
+ }
 
-// }
-// }
 // echo "<br>";echo "<br>";
 // echo "<center>";
 
-// echo    "Flightid" ."<input type=\"text\" name=\"flightid\"   value=\"\" placeholder=\"FlightId\" >". "Flightid" ."DapartureDate"."<input type=\"date\" name=\"depdate\"   value=\"DapartureDate\" >"."<br>" ;
-// echo    "DepartureTime" ."<input type=\"time\" name=\"deptime\"   value=\"DapartureTimw\" >". "Tickets" ."<input type=\"number\" name=\"tickets\"  max=\"5\"  min=\"1\" value=\"Tickets\" >"."<br>" ;
-
-// echo "</center>";
 
 
-// }
-?>
+
+
+
+ ?>
+
+
+
+
+
+
+
+
