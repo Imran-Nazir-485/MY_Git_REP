@@ -79,7 +79,51 @@ border: 1px solid black;}
 
 $pid=2;
 include 'dbconn.php';
-if(isset($_POST['submit']))
+
+
+
+
+session_start();
+echo $_SESSION["depcity"]."<br>";
+echo $_SESSION["destcity"]."<br>";
+echo $_SESSION["depdate"]."<br>";
+echo $_SESSION["cabin"]."<br>";
+$fromcity=$_SESSION["depcity"];
+$_SESSION["depcity"]=$fromcity;
+$destcity=$_SESSION["destcity"];
+$_SESSION["destcity"]=$destcity;
+$dateofdep=$_SESSION["depdate"];
+$_SESSION["depdate"]=$dateofdep;
+$cabin=$_SESSION["cabin"];
+$_SESSION["cabin"]=$cabin;
+
+
+if (isset($_POST['submit'])) {
+
+
+
+
+
+
+//$depcity=$_SESSION["depcity"];
+//$_SESSION["depcity"]=$depcity;
+
+ //echo $_SESSION["depcity"]."<br>";
+// $_SESSESION["depcity"]=$depcity;
+//header('Location:booking_form.php');
+
+
+
+// sessesion_start();
+// //$depcity=$_SESSESION["depcity"];
+// echo $_SESSESION["depcity"];
+// $_SESSESION["depcity"]=$depcity;
+
+	//header('Location:booking_form.php');
+
+}
+
+if(isset($_POST['']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -89,12 +133,14 @@ if(isset($_POST['submit']))
 	$cnic=$_POST['cnic'];
 	$passport=$_POST['passport'];
 	
-echo "$fname";
 
 
-// 	$insertquery="INSERT INTO `passenger`(`pid`, `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$pid','$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
-// $res=mysqli_query($myconn,$insertquery);
+
+	$insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$othservices','$cnic','$passport')";
+$res=mysqli_query($myconn,$insertquery);
 if ($res) {
+header('Location:booking_form.php');
+
 	?>
 <script type="text/javascript">
 	alert("Data Inserted Successfully");	

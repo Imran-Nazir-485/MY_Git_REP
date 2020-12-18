@@ -81,9 +81,22 @@ border: 1px solid black;}
 
 <?php
 
+session_start();
+$depcity=$_SESSION["depcity"];
+$_SESSION["depcity"]=$depcity;
+
+ echo $_SESSION["depcity"]."<br>";
+// $_SESSESION["depcity"]=$depcity;
+
+
+
 $bid=2;
 include 'dbconn.php';
-if(isset($_POST['submit']))
+if (isset($_POST['submit'])) {
+	sessesion_start();
+	echo $_SESSESION["depcity"];
+}
+if(isset($_POST['']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -96,7 +109,7 @@ if(isset($_POST['submit']))
 	$email=$_POST['email'];
 	$country=$_POST['country'];
 	
-	$insertquery="INSERT INTO `booking`(`bid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$bid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
+	$insertquery="INSERT INTO `booking`( `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`, `pid`) VALUES ('$fname','','','','','','','','','')";
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {$bid=$bid+1;
 	?>

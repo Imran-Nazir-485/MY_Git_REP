@@ -67,6 +67,13 @@ header("Location:searching.php");
 }
 
 
+
+// session_start();
+
+
+// echo $_SESSION["depcity"];
+
+
 ?>
 
 
