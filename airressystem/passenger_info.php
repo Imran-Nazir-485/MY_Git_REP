@@ -31,14 +31,14 @@ Nationality
 </select>
 OtherServices<!-- <input type="text" name="gender"> -->
 <select name="otherservices">
-	<option>None</option>
+	<option>NA</option>
 <option>WheelChair</option>
 <!-- <option>Female</option>
 <option>Other</option> -->
 </select>
 <br>
 CNIC<input type="text" name="cnic">
-PassportNumber<input type="text" name="passport">
+PassportNumber<input type="text" name="passport" maxlength="9" minlength="9">
 
 <input type="submit" name="submit">
 
@@ -91,6 +91,55 @@ echo $_SESSION["deptime"]."<br>";
 echo $_SESSION["tickets"]."<br>";
 echo $_SESSION["cabin"]."<br>";
 
+
+
+
+$flightid=$_SESSION["flightid"];
+$depcity =$_SESSION["depcity"];
+$depdate =$_SESSION["depdate"];
+$deptime =$_SESSION["deptime"];
+$tickets =$_SESSION["tickets"];
+$cabin= $_SESSION["cabin"];
+
+
+
+
+
+
+
+$flightid= $_SESSION["flightid"];
+$depcity= $_SESSION["depcity"];
+$depdate=$_SESSION["depdate"];
+$deptime=$_SESSION["deptime"];
+$tickets=$_SESSION["tickets"];
+$cabin=$_SESSION["cabin"];
+
+
+
+
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+ // $_SESSION["flightid"];
+ // $_SESSION["depcity"];
+ // $_SESSION["depdate"];
+ // $_SESSION["deptime"];
+ // $_SESSION["tickets"];
+ // $_SESSION["cabin"];
+
+
+
 // $fromcity=$_SESSION["depcity"];
 // $_SESSION["depcity"]=$fromcity;
 // $destcity=$_SESSION["destcity"];
@@ -126,7 +175,7 @@ if (isset($_POST['submit'])) {
 
 }
 
-if(isset($_POST['']))
+if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -139,9 +188,16 @@ if(isset($_POST['']))
 
 
 
-	$insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$othservices','$cnic','$passport')";
+	$insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {
+
+
+$last_id = $myconn->insert_id;
+  echo "New record created successfully. Last inserted ID is: " . $last_id;
+$_SESSION["pid"]=$last_id;
+
+
 header('Location:booking_form.php');
 
 	?>
@@ -157,6 +213,25 @@ header('Location:booking_form.php');
 <?php
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//if ($conn->query($sql) === TRUE) {
+  $last_id = $myconn->insert_id;
+  echo "New record created successfully. Last inserted ID is: " . $last_id;
+// } else {
+//   echo "Error: " . $sql . "<br>" . $conn->error;
+// }
+
 ?>
  
  

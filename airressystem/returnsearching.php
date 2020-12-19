@@ -19,13 +19,6 @@
 
 <input type="date" name="retdate" placeholder="Select Return Date">
 <br>
-<label>Passengers</label>
-<br>
-<input type="text" name="passengers" placeholder="Adult, Child, Infrant">
-<br>
-<label>Cabin</label>
-<br>
-<input type="text" name="cabin" placeholder="Economy">
 <input type="submit" name="submit" value="FindFlight">
 
 </form>

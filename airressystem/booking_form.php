@@ -28,7 +28,9 @@ DateOfExpirey<input type="date" name="dateofexpirey">
 <br>
 PlaceOfBirth<!-- <input type="text" name="placeofbirth"> -->
 <select name="placeofbirth">
+<option>PAKISTAN</option>
 <option>IRAN</option>
+
 <option>PALESTINE</option>
 <option>AFGHANISTAN</option>
 <option>SAUDI-ARIBA</option>
@@ -82,21 +84,22 @@ border: 1px solid black;}
 <?php
 
 session_start();
-$depcity=$_SESSION["depcity"];
-$_SESSION["depcity"]=$depcity;
+echo $_SESSION["flightid"]."<br>";
+echo $_SESSION["depcity"]."<br>";
+echo $_SESSION["depdate"]."<br>";
+echo $_SESSION["deptime"]."<br>";
+echo $_SESSION["tickets"]."<br>";
+echo $_SESSION["cabin"]."<br>";
+echo $_SESSION["pid"];
+$pid=$_SESSION["pid"];
 
- echo $_SESSION["depcity"]."<br>";
-// $_SESSESION["depcity"]=$depcity;
 
 
 
 $bid=2;
 include 'dbconn.php';
-if (isset($_POST['submit'])) {
-	sessesion_start();
-	echo $_SESSESION["depcity"];
-}
-if(isset($_POST['']))
+
+if(isset($_POST['submit']))
 {
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -108,10 +111,12 @@ if(isset($_POST['']))
 	$phonenum=$_POST['phonenum'];
 	$email=$_POST['email'];
 	$country=$_POST['country'];
-	
-	$insertquery="INSERT INTO `booking`( `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`, `pid`) VALUES ('$fname','','','','','','','','','')";
+$pid=6;	
+	$insertquery="INSERT INTO `booking`(`pid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$pid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
+
+
 $res=mysqli_query($myconn,$insertquery);
-if ($res) {$bid=$bid+1;
+if ($res) {
 	?>
 <script type="text/javascript">
 	alert("Data Inserted Successfully");	
@@ -125,20 +130,16 @@ if ($res) {$bid=$bid+1;
 <?php
 }
 }
-?>
-
-
-
-
-
-
-
-
-}
-
-
 
 ?>
+
+
+
+
+
+
+
+
 
 
 
