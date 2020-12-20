@@ -20,7 +20,7 @@
 <br>
 <label>Departure Time</label>
 <br>
-<input type="time"   name="deptime" placeholder="DepartureTime">
+<input type="time" name="deptime" placeholder="DepartureTime">
 <br>
 <label>Departure City</label>
 <br>
@@ -130,79 +130,15 @@ echo "</table>  ";
 echo "</center>";
 
 }
-
-
-
-// if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$dateofdep ) 
-// {
-
-// 	if ($count===1) {
-// echo "<center>";
-// echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
-// echo "<tr> ";
-// echo "<td>FlightId</td>  ";
-// echo "<td>DepartureCity</td>  ";
-// echo "<td>DestinationCity</td>  ";
-// echo "<td>DepartureTime</td>  ";
-// echo "<td>DepartureDate</td>  ";
-// echo "<td>DestinationDate</td>  ";
-// echo "<td>Price</td>  ";
-// echo "<td>FlightDuration</td>  ";
-// echo "<td>BusinessClass</td>  ";
-// echo "<td>EconomyClass</td>  ";
-// // echo "<td>SelectFlight</td>  ";
-// echo "</tr> ";
-// echo "<tr>";
-// $count=$count+1;
-// }
-// echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>"."<td>".$myrow['rbseats']."</td>"."<td>".$myrow['reseats']."</td>";
-// echo "</tr>";
-
-// }
-// echo "</table>  ";
-// echo "</center>";
- }
-
-// echo "<br>";echo "<br>";
-// echo "<center>";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if (isset($_POST['submit'])) {
 
 
 $flightid=$_POST['flightid'];
 $depcity=$_POST['depcity'];
-$destcity=$_SESSION["destcity"];
 $deptime=$_POST['deptime'];
 $cabin=$_POST['cabin'];
 $tickets=$_POST['tickets'];
 $depdate=$_POST['depdate'];
-
-
-
-
-
-
 //session_start();
 $_SESSION["flightid"]=$flightid;
 $_SESSION["depcity"]=$depcity;
@@ -210,9 +146,6 @@ $_SESSION["depdate"]=$depdate;
 $_SESSION["deptime"]=$deptime;
 $_SESSION["tickets"]=$tickets;
 $_SESSION["cabin"]=$cabin;
-$_SESSION["destcity"]=$destcity;
-
-
 // && $myrows["deptime"]==$deptime
 
  $myquery = "SELECT * FROM flightschedule ";
@@ -270,59 +203,11 @@ echo "   $tickets  Economy Seats And Business Seats Are Not Available";
     echo "</center>";
 }
 
-
-
-
-
-
-
-
+}
 
 }
 
-
-
-
 }
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if ( $myrow['reseats']<$tickets) {
-// echo "$tickets  Economy Seats are Not Available".$myrow['rbseats'] ."Business Seats Are Available ";	
-// }
-
-// if ($myrow['rbseats']<$tickets ) {
-// echo "$tickets  Business Seats are Not Available".$myrow['rbseats'] ."Economy Seats Are Available ";	
-// }
-
-
-
-// $myrow['rbseats']>=$tickets &&
-
-// && $myrow['reseats']>=$tickets
-
-
-
-
-
 
 ?>
  

@@ -142,6 +142,10 @@ $res3=mysqli_query($myconn,$insertquery3);
 
 if ($res3) {
 	echo "<br>"."Your Seat is Reservesd";
+
+
+
+
 $myquery5 = "SELECT * FROM `flightschedule` ";
  $myresult5=mysqli_query($myconn,$myquery5);
 while($myrows5 = mysqli_fetch_assoc($myresult5)){
@@ -151,7 +155,17 @@ if ("Economy"==$cabin && $myrows5['fid']==$flightid ) {
 $insertquery6="UPDATE `flightschedule` SET `reseats`='$reseats'"; 
 $res6=mysqli_query($myconn,$insertquery6);
 if ($res6) {
+
+
+$_SESSION["bid"]=$last_bid;
+$_SESSION["flightid"]=$flightid;
+$_SESSION["tottalfare"]=$myrows5['ecprice']*$numoftickets;
+
+
 	echo "<br>"."flightschedule Is Updated";
+header("Location:ticketing.php");
+
+
 }}
 
 if ("Business"==$cabin  && $myrows5['fid']==$flightid) {
@@ -161,6 +175,7 @@ $insertquery7="UPDATE `flightschedule` SET `rbseats`='$rbseats'";
 $res7=mysqli_query($myconn,$insertquery7);
 if ($res7) {
 	echo "<br>"."flightschedule Is Updated";
+	header("Location:ticketing.php");
 }}
 }}}}
 	?>
