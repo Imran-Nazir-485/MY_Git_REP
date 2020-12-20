@@ -85,11 +85,17 @@ border: 1px solid black;}
 
 session_start();
 echo $_SESSION["flightid"]."<br>";
+$flightid=$_SESSION["flightid"];
 echo $_SESSION["depcity"]."<br>";
+$depcity=$_SESSION["depcity"];
 echo $_SESSION["depdate"]."<br>";
+$depdate=$_SESSION["depdate"];
 echo $_SESSION["deptime"]."<br>";
+$deptime=$_SESSION["deptime"];
 echo $_SESSION["tickets"]."<br>";
+$numoftickets=$_SESSION["tickets"];
 echo $_SESSION["cabin"]."<br>";
+$cabin=$_SESSION["cabin"];
 echo $_SESSION["pid"];
 $pid=$_SESSION["pid"];
 
@@ -111,12 +117,52 @@ if(isset($_POST['submit']))
 	$phonenum=$_POST['phonenum'];
 	$email=$_POST['email'];
 	$country=$_POST['country'];
-$pid=6;	
+//$pid=6;	
 	$insertquery="INSERT INTO `booking`(`pid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$pid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
-
-
+// $_SESSION["pid"]=$last_id;
 $res=mysqli_query($myconn,$insertquery);
+//  echo "New record created successfully. Last inserted ID is: " . $last_id;
 if ($res) {
+$last_bid = $myconn->insert_id;
+echo "<br>";
+echo "New record created successfully. Last inserted ID is: " . $last_bid;
+ $myquery2 = "SELECT * FROM `flightschedule` ";
+ $myresult2=mysqli_query($myconn,$myquery2);
+while($myrows2 = mysqli_fetch_assoc($myresult2)){
+
+if ($myrows2['fid']==$flightid) {
+	$rid2=$myrows2['rid'];
+	echo "<br>"."$rid2";
+	$flightid=$myrows2['fid'];
+	$destcity=$myrows2['destcity'];
+	echo "<br>"."$flightid";
+$insertquery3="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `date`, `time`, `numoftickets`, `cabin`) VALUES ('$last_bid','$flightid','$depcity','$destcity','$depdate','$deptime','$numoftickets','$cabin')";
+$res3=mysqli_query($myconn,$insertquery3);
+
+
+if ($res3) {
+	echo "<br>"."Your Seat is Reservesd";
+$myquery5 = "SELECT * FROM `flightschedule` ";
+ $myresult5=mysqli_query($myconn,$myquery5);
+while($myrows5 = mysqli_fetch_assoc($myresult5)){
+if ("Economy"==$cabin && $myrows5['fid']==$flightid ) {
+ $myrows5['reseats']=$myrows5['reseats']-$numoftickets;
+ $reseats=$myrows5['reseats'];
+$insertquery6="UPDATE `flightschedule` SET `reseats`='$reseats'"; 
+$res6=mysqli_query($myconn,$insertquery6);
+if ($res6) {
+	echo "<br>"."flightschedule Is Updated";
+}}
+
+if ("Business"==$cabin  && $myrows5['fid']==$flightid) {
+	$myrows5['rbseats']=$myrows5['rbseats']-$numoftickets;
+ $rbseats=$myrows5['rbseats'];
+$insertquery7="UPDATE `flightschedule` SET `rbseats`='$rbseats'"; 
+$res7=mysqli_query($myconn,$insertquery7);
+if ($res7) {
+	echo "<br>"."flightschedule Is Updated";
+}}
+}}}}
 	?>
 <script type="text/javascript">
 	alert("Data Inserted Successfully");	
@@ -130,6 +176,28 @@ if ($res) {
 <?php
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 

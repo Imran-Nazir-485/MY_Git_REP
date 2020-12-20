@@ -20,7 +20,7 @@
 <br>
 <label>Departure Time</label>
 <br>
-<input type="time" name="deptime" placeholder="DepartureTime">
+<input type="time"   name="deptime" placeholder="DepartureTime">
 <br>
 <label>Departure City</label>
 <br>
@@ -192,6 +192,7 @@ if (isset($_POST['submit'])) {
 
 $flightid=$_POST['flightid'];
 $depcity=$_POST['depcity'];
+$destcity=$_SESSION["destcity"];
 $deptime=$_POST['deptime'];
 $cabin=$_POST['cabin'];
 $tickets=$_POST['tickets'];
@@ -209,7 +210,7 @@ $_SESSION["depdate"]=$depdate;
 $_SESSION["deptime"]=$deptime;
 $_SESSION["tickets"]=$tickets;
 $_SESSION["cabin"]=$cabin;
-
+$_SESSION["destcity"]=$destcity;
 
 
 // && $myrows["deptime"]==$deptime

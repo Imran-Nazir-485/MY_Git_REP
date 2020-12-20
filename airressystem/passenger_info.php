@@ -109,6 +109,7 @@ $cabin= $_SESSION["cabin"];
 
 $flightid= $_SESSION["flightid"];
 $depcity= $_SESSION["depcity"];
+$destcity=$_SESSION["destcity"];
 $depdate=$_SESSION["depdate"];
 $deptime=$_SESSION["deptime"];
 $tickets=$_SESSION["tickets"];
