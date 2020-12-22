@@ -6,12 +6,25 @@
 <body>
 
 
+
 <main id="main">
+<!-- 
+<div id="title">
+	<h1>Pakistan Local Airline</h1>
+</div>
+ -->
+<div id="image">
+	<img src="a380.jpg">
+</div>
+
+
 	<form method="POST" id="iform">
 <div id="login"><input class="header" type="submit" name="login" value="LOGIN"></div>
 <div id="signup"><input class="header" type="submit" name="signup" value="SIGNUP"></div>
 <div id="reservation"><input class="header" type="submit" name="reservation" value="RESERRVATION"></div>
 <div id="availableflights"><input class="header" type="submit" name="availableflights" value="AvailableFlights"></div>
+<div id="ticketstatus"><input class="header" type="submit" name="ticketstatus" value="TicketStatus"></div>
+<div id="cancel"><input class="header" type="submit" name="cancel" value="CancelReservation"></div>
 		
 	</form>
 
@@ -34,13 +47,18 @@
 /*margin-left: 40%;}*/
 #iform{display: grid;
 			grid-template-rows: 50px 50px;
-			grid-template-columns: repeat(2,1fr)  ;}
+			grid-template-columns: repeat(3,1fr)  ;}
 #loginorsignup{border: 1px solid black;
 }
 #availableflights{/*border: 1px solid black;*/}
 .header{width: 100%;
 height: 100%;}
 
+#id{width: 100%;
+height: 50%;}
+img{width: 100%;
+height: 400px;}
+h1{text-align: center;}
 </style>
 </body>
 </html>
