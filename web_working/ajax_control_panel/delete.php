@@ -1,17 +1,9 @@
 <?php
 $email = $_GET["v1"];
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "sablayja";
-
-$con = mysqli_connect($servername, $username, $password, $database) or die("Not Connected");
-if ($con->connect_error == false) {
-    $query = "SELECT * FROM 'login' WHERE 'email'=$email";
-    $res = mysqli_query($con, $query);
+    $query = "SELECT * FROM 'members' WHERE 'email'=$email";
+    $res = mysqli_query($conn, $query);
     if (mysqli_num_rows($res) == 0) {
-        $query = "DELETE FROM 'login' WHERE 'email'=$email";
+        $query = "DELETE FROM 'members' WHERE 'email'=$email";
         mysqli_query($con, $query);
 
         echo "Deleted Successfully.....";

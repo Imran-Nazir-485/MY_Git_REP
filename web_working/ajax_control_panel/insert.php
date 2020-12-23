@@ -1,24 +1,34 @@
 <?php
-$name = $_GET["v1"];
-$email = $_GET["v2"];
-$pwd = $_GET["v3"];
+$fname = $_GET["v1"];
+$lname = $_GET["v2"];
+$email = $_GET["v3"];
+$password = $_GET["v4"];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "sablayja";
+include 'dbconn';
 
-$con = mysqli_connect($servername, $username, $password, $database) or die("Not Connected");
-if ($con->connect_error == false) {
-    $query = "SELECT * FROM 'login' WHERE 'email'='$email'";
-    $res = mysqli_query($con, $query);
-    if (mysqli_num_rows($res) == 0) {
-        $query = "INSERT INTO `login` (`email`, `name`, `password`) VALUES ('$email', '$name', '$pwd')";
-        mysqli_query($con, $query);
 
-        echo "Inserted Successfully.......";
-    } 
-    else {
-    }
+
+
+
+
+$insertquery="INSERT INTO `members`( `fname`, `lname`, `email`, `password`) VALUES ('$fname','$lname','$email','$password')";
+$res=mysqli_query($myconn,$insertquery);
+
+
+
+// $insertquery="INSERT INTO `members`(`memid`, `fname`, `lname`, `email`, `password`) VALUES ('26',$fname','$lname','$email','$pwd')";
+// $_SESSION["pid"]=$last_id;
+$res=mysqli_query($myconn,$insertquery);
+//  echo "New record created successfully. Last inserted ID is: " . $last_id;
+if ($res) {
+
+echo "<Record Inserted";
+
 }
+
+
+
+
+
+
 ?>
