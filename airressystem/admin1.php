@@ -92,6 +92,19 @@ header("Location:searching.php");
 // echo $_SESSION["depcity"];
 
 
+
+
+
+$fid=$_GET['fid'];
+
+echo "$fid";
+
+
+
+
+
+
+
 ?>
 
 

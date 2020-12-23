@@ -25,14 +25,108 @@
 </head>
 <body style="width: ">
 
-
+<h1   style="text-align: center;">This Is Working</h1 >
 </body>
 </html>
 
 
 
 
+
+
+
+
 <?php
+
+
+
+
+
+
+
+
+
+
+
+include 'dbconn.php';
+
+$count=0;
+$myquery = "SELECT * FROM flightschedule";
+$myresult = mysqli_query($myconn,$myquery);
+echo "<center>";
+echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
+echo "<tr> ";
+echo "<td>FlightId</td>  ";
+echo "<td>DeptCity</td>  ";
+echo "<td>DestCity</td>  ";
+echo "<td>DepartTime</td>  ";
+echo "<td>DeptDate</td>  ";
+echo "<td>EconomyClass</td>  ";
+echo "<td>BusinessClass</td>  ";
+echo "<td>EconomyPrice</td>  ";
+echo "<td>BusinessPrice</td>  ";
+echo "<td>ReturnDate</td>  ";
+echo "<td>EconomyPrice</td>  ";
+echo "<td>BusinessPrice</td>  ";
+echo "<td>FlightDuration</td>  ";
+echo "<td colspan='2'>Operation</td>  ";
+
+echo "</tr> ";
+echo "<tr>";
+while($myrow = mysqli_fetch_assoc($myresult)){
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."<td>".$myrow['reseats']."</td>"."<td>".$myrow['rbseats']."</td>"."<td>".$myrow['ecprice']."</td>"."<td>".$myrow['bcprice']."</td>"."
+      <td>".$myrow['returndate']."</td>"."<td>".$myrow['reecprice']."</td>"."<td>".$myrow['rebcprice']."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."Oneway"."<input type='radio'   name='SELECT' value='SELECT' onclick=\"location.href='admin1.php?fid=$myrow[fid]'\"  >"."</td>"."<td>"."Return"."<input type='radio'   name='SELECT' value='SELECT' onclick=\"location.href='admin1.php?fid=$myrow[fid]'\"  >"."</td>";
+echo "</tr>";
+
+}
+
+
+echo "</table>";
+echo "</center>";
+
+
+
+
+// <td><a href='admin1.php?fid=$myrow[fid]'>SELECT</a></td></td>
+
+
+
+
+
+
+
+
+
+
+
+
+  ?>
+
+
+
+
+
+
+
+
+
+
+<!-- <?php
 // 1- Connect to database
 $myconn= mysqli_connect("localhost","root","","airressystem");
 
@@ -72,7 +166,7 @@ if($rem%9==0)
 
 
 }
-?>
+?> -->
 
 
 
