@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Control Panel</title>
+    <style>
+        #main-div {
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        #f1sp {
+            margin-top: 55px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-div" class="container">
+        <div class="row">
+            <div class="col">
+                <center>
+                    <h1>Control Panel</h1>
+                </center>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col forms m">
+                <h2>Create Account</h2>
+                <form class="mb-5">
+                    <div class="form-group">
+                        <label for="f1t1">Name</label>
+                        <input type="text" class="form-control" id="f1t1" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="f1t2">Email address</label>
+                        <input type="email" class="form-control" id="f1t2" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="f1t3">Password</label>
+                        <input type="password" class="form-control" id="f1t3" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="Insert()">Insert</button>
+                </form>
+                <span id="f1sp"></span>
+            </div>
+            <div class="col forms">
+                <h2>Update Account</h2>
+                <form class="mb-5">
+                    <div class="form-group">
+                        <label for="f2t2">Email address</label>
+                        <input type="email" class="form-control" id="f2t2" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="f2t1">Name</label>
+                        <input type="text" class="form-control" id="f2t1" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="f2t3">Password</label>
+                        <input type="password" class="form-control" id="f2t3" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="Update()">Update</button>
+                </form>
+                <span id="f2sp"></span>
+            </div>
+            <div class="col forms">
+                <h2>Search Record</h2>
+                <form class="mb-5">
+                    <div class="form-group">
+                        <label for="f3t1">Email address</label>
+                        <input type="email" class="form-control" id="f3t1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="Search()">Search</button>
+                </form>
+                <span id="f3sp"></span>
+            </div>
+            <div class="col forms">
+                <h2>Delete Record</h2>
+                <form class="mb-5">
+                    <div class="form-group">
+                        <label for="f4t1">Email address</label>
+                        <input type="email" class="form-control" id="f4t1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="Delete()">Search</button>
+                </form>
+                <span id="f4sp"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function Insert() {
+            val1 = document.getElementById("f1t1").value;
+            val2 = document.getElementById("f1t2").value;
+            val3 = document.getElementById("f1t3").value;
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    alert(this.responseText);
+                document.getElementById("f1sp").innerHTML = this.responseText;
+
+            }
+            xmlhttp.open("GET", "insert.php?v1=" + val1 + "&v2=" + val2 + "&v3=" + val3, true);
+            xmlhttp.send();
+        }
+
+        function Update() {
+            val1 = document.getElementById("f2t1").value;
+            val2 = document.getElementById("f2t2").value;
+            val3 = document.getElementById("f2t3").value;
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    document.getElementById("f2sp").innerHTML = this.responseText;
+
+            }
+            xmlhttp.open("GET", "update.php?v1=" + val1 + "&v2=" + val2 + "&v3=" + val3, true);
+            xmlhttp.send();
+        }
+
+        function Search(){
+            val1 = document.getElementById("f3t1").value;
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    document.getElementById("f3sp").innerHTML = this.responseText;
+
+            }
+            xmlhttp.open("GET", "search.php?v1=" + val1, true);
+            xmlhttp.send();
+        }
+    
+        function Delete(){
+            val1 = document.getElementById("f4t1").value;
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200)
+                    document.getElementById("f4sp").innerHTML = this.responseText;
+
+            }
+            xmlhttp.open("GET", "delete.php?v1=" + val1, true);
+            xmlhttp.send();
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
