@@ -1,35 +1,52 @@
+
 <?php
+
 include 'dbconn.php';
 
 $count=0;
 $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 echo "<center>";
-echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
+echo "<table border='1'  style=\"border-collapse:collapse ;text-align:center;\">  ";
 echo "<tr> ";
 echo "<td>FlightId</td>  ";
-echo "<td>DepartureCity</td>  ";
-echo "<td>DestinationCity</td>  ";
-echo "<td>DepartureTime</td>  ";
-echo "<td>DepartureDate</td>  ";
-echo "<td>DestinationDate</td>  ";
-echo "<td>Price</td>  ";
+echo "<td>DeptCity</td>  ";
+echo "<td>DestCity</td>  ";
+echo "<td>DepartTime</td>  ";
+echo "<td>DeptDate</td>  ";
+echo "<td>EconomyClass</td>  ";
+echo "<td>BusinessClass</td>  ";
+echo "<td>EconomyPrice</td>  ";
+echo "<td>BusinessPrice</td>  ";
+echo "<td >ReturnDate</td>  ";
+echo "<td>EconomyPrice</td>  ";
+echo "<td>BusinessPrice</td>  ";
 echo "<td>FlightDuration</td>  ";
-
+echo "<td colspan='2'style='text-align:center;' >TourType</td>  ";
 
 echo "</tr> ";
 echo "<tr>";
 while($myrow = mysqli_fetch_assoc($myresult)){
-	$count=$count+1;
-echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>";
-echo "</tr>";
 
+
+	if ($myrow['returndate']==0) {
+ echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."<td>".$myrow['reseats']."</td>"."<td>".$myrow['rbseats']."</td>"."<td>".$myrow['ecprice']."</td>"."<td>".$myrow['bcprice']."</td>"."
+      <td>"."NA"."</td>"."<td>".$myrow['reecprice']."</td>"."<td>".$myrow['rebcprice']."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection.php?fid=$myrow[fid]&depdate=$myrow[depdate]&depcity=$myrow[depcity]&deptime=$myrow[deptime]&returndate=$myrow[returndate]&rid=$myrow[rid]&way=1'\">"."</td>"."<td>"."<input type=\"submit\" Value='Return'   onclick=\"myfun()\">"."</td>";
+echo "</tr>";		
+	}
+	else{
+
+
+  echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."<td>".$myrow['reseats']."</td>"."<td>".$myrow['rbseats']."</td>"."<td>".$myrow['ecprice']."</td>"."<td>".$myrow['bcprice']."</td>"."
+      <td>".$myrow['returndate']."</td>"."<td>".$myrow['reecprice']."</td>"."<td>".$myrow['rebcprice']."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection.php?fid=$myrow[fid]&depdate=$myrow[depdate]&depcity=$myrow[depcity]&deptime=$myrow[deptime]&returndate=$myrow[returndate]&rid=$myrow[rid]&way=1'\">"."</td>"."<td>"."<input type=\"submit\" Value='Return'   onclick=\"location.href='flightselection.php?fid=$myrow[fid]&depdate=$myrow[depdate]&depcity=$myrow[depcity]&deptime=$myrow[deptime]&returndate=$myrow[returndate]&rid=$myrow[rid]&way=2'\">"."</td>";
+echo "</tr>";
+}
 }
 
-
-echo "</table>  ";
+echo "</table>";
 echo "</center>";
 
+// <td><a href='admin1.php?fid=$myrow[fid]'>SELECT</a></td></td>
 
 
 
@@ -41,106 +58,14 @@ echo "</center>";
 
 
 
-?>
+  ?>
 
+<script type="">
+	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <?php -->
- // include 'dbconn.php';
- // if (isset($_POST['submit'])) {
-
-// $cabin=0;
-// $deptime=0;
-// $flightid=0;
-// $tickets=0;
-
- 	
-// $flightid=$_POST['flightid'];
-// $depcity=$_POST['depcity'];
-// $dateofdep=$_POST['depdate'];
-// $deptime=$_POST['deptime'];
-// $tickets=$_POST['tickets'];
-
-
-//require "adsmin1.php";
-
+function myfun()
+{
+	alert("Return Route Is Not Available For This Flight");
 }
 
- //session_start();
-//$cabin=$_SESSION["cabin"];
-
-// $_SESSION["depcity"]=$fromcity;
-// $_SESSION["destcity"]=$destcity;
-// $_SESSION["depdate"]=$dateofdep;
-// $_SESSION["cabin"]=$cabin;
-
-
-// $myquery = "SELECT * FROM flightschedule ";
-// $myresult=mysqli_query($myconn,$myquery);
-// echo "<center>";
-// echo "<table border='1' width='300' style=\"border-collapse:collapse; \">  ";
-// echo "<tr> ";
-// echo "<td>FlightId</td>  ";
-// echo "<td>DepartureCity</td>  ";
-// echo "<td>DestinationCity</td>  ";
-// echo "<td>DepartureTime</td>  ";
-// echo "<td>DepartureDate</td>  ";
-// echo "<td>DestinationDate</td>  ";
-// echo "<td>Price</td>  ";
-// echo "<td>FlightDuration</td>  ";
-// // echo "<td>SelectFlight</td>  ";
-// echo "</tr> ";
-// echo "<tr>";
-
-// while($myrow = mysqli_fetch_assoc($myresult)){
-// if ("Economy"==$cabin) {	
-// if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$dateofdep && $myrow["reseats"]>0) 
-// {
-// echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>";
-// echo "</tr>";
-// }
-// }
-// if ("Business"==$cabin) {
-// if ($myrow["depcity"]==$fromcity && $myrow["destcity"]==$destcity && $myrow["depdate"]==$depdate && $myrow["rbseats"]>0) 
-// {
-// echo   "<td>"  .$myrow['fid']."</td>" ."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destcity']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['deptime']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['depdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['destdate']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['price']."</td>"."&nbsp&nbsp&nbsp&nbsp&nbsp"."<td>".$myrow['flightduration']."</td>"."<td>";
-// echo "</tr>";
-// }
-// echo "</table>  ";
-// echo "</center>";
-
-// }
-// }
-// echo "<br>";echo "<br>";
-// echo "<center>";
-
-// echo    "Flightid" ."<input type=\"text\" name=\"flightid\"   value=\"\" placeholder=\"FlightId\" >". "Flightid" ."DapartureDate"."<input type=\"date\" name=\"depdate\"   value=\"DapartureDate\" >"."<br>" ;
-// echo    "DepartureTime" ."<input type=\"time\" name=\"deptime\"   value=\"DapartureTimw\" >". "Tickets" ."<input type=\"number\" name=\"tickets\"  max=\"5\"  min=\"1\" value=\"Tickets\" >"."<br>" ;
-
-// echo "</center>";
-
-
-// }
-//?> 
+</script>
