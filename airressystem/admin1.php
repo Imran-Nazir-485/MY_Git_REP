@@ -77,7 +77,10 @@ header("Location:signup_form.php");
 }
 if(isset($_POST['availableflights']))
 {
-header("Location:availableflights.php");
+
+
+
+header("Location:availableflights.php?w=12");
 }
 if(isset($_POST['reservation']))
 {
@@ -95,9 +98,9 @@ header("Location:searching.php");
 
 
 
-$fid=$_GET['fid'];
+// $fid=$_GET['fid'];
 
-echo "$fid";
+// echo "$fid";
 
 
 

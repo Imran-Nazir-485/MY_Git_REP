@@ -1,6 +1,5 @@
 <?php 
 
-
 $fid=$_GET['fid'];
 $rid=$_GET['rid'];
 $depdate=$_GET['depdate'];
@@ -16,17 +15,16 @@ echo "$depdate"."<br>";
 echo "$returndate"."<br>";
 echo "$depcity"."<br>";
 echo "$deptime"."<br>";
- echo "$way"."<br>";
+echo "$way"."<br>";
 
 
 
 
 
-// echo "$deptime"."<br>";
-// echo "$depdate"."<br>";
 
 
-//$returndate="NA";
+
+
 
 
 
@@ -35,21 +33,21 @@ if ($returndate==0   && $way==1       || $returndate!=0   && $way==1  ) {
 <main>
 <form method=\"POST\" >
 <label>FlightId</label>
-<input type=\"text\" name=\"flightid\" placeholder=\"FlightId\"    value=\"  $fid \"      >
+<input type=\"text\" name=\"flightid\" placeholder=\"FlightId\"    value=\"  $fid \"      readonly>
 <label>Departure Date</label>
-<input type=\"text\" name=\"depdate\" placeholder=\"Departure Date\"      value=\"  $depdate \" >
+<input type=\"text\" name=\"depdate\" placeholder=\"Departure Date\"      value=\"  $depdate \" readonly>
 <br>
 <label>Departure Time</label>
 <br>
-<input type=\"text\" name=\"deptime\" placeholder=\"DepartureTime\"  value=\"  $deptime \">
+<input type=\"text\" name=\"deptime\" placeholder=\"DepartureTime\"  value=\"  $deptime \" readonly>
 <br>
 <label>Departure City</label>
 <br>
-<input type=\"text\" name=\"depcity\" placeholder=\"DepartureCity\"  value=\"  $depcity \">
+<input type=\"text\" name=\"depcity\" placeholder=\"DepartureCity\"  value=\"  $depcity \" readonly>
 <br>
 <label>Tickets</label>
 <br>
-<input type=\"number\" name=\"tickets\"  max=\"5\"     min=\"1\" placeholder=\"Tickets\">
+<input type=\"number\" name=\"tickets\"  max=\"5\"     min=\"1\" placeholder=\"Tickets\" >
 <br>
 <label>Cabin</label>
 <br>
@@ -70,25 +68,25 @@ if ($returndate!=0   && $way==2 ) {
 <main>
 <form method=\"POST\" >
 <label>FlightId</label>
-<input type=\"text\" name=\"flightid\" placeholder=\"FlightId\"    value=\"  $fid \"      >
+<input type=\"text\" name=\"flightid\" placeholder=\"FlightId\"    value=\"  $fid \"      readonly>
 <label>Departure Date</label>
-<input type=\"text\" name=\"depdate\" placeholder=\"Departure Date\"      value=\"  $depdate \" >
+<input type=\"text\" name=\"depdate\" placeholder=\"Departure Date\"      value=\"  $depdate \" readonly>
 <br>
 <label>Return Date</label>
-<input type=\"text\" name=\"depdate\" placeholder=\"Return Date\"      value=\"  $returndate \" >
+<input type=\"text\" name=\"depdate\" placeholder=\"Return Date\"      value=\"  $returndate \" readonly>
 <br>
 
 <label>Departure Time</label>
 <br>
-<input type=\"text\" name=\"deptime\" placeholder=\"DepartureTime\"  value=\"  $deptime \">
+<input type=\"text\" name=\"deptime\" placeholder=\"DepartureTime\"  value=\"  $deptime \"   readonly>
 <br>
 <label>Departure City</label>
 <br>
-<input type=\"text\" name=\"depcity\" placeholder=\"DepartureCity\"  value=\"  $depcity \">
+<input type=\"text\" name=\"depcity\" placeholder=\"DepartureCity\"  value=\"  $depcity \"   readonly>
 <br>
 <label>Tickets</label>
 <br>
-<input type=\"number\" name=\"tickets\"  max=\"5\"     min=\"1\" placeholder=\"Tickets\">
+<input type=\"number\" name=\"tickets\"  max=\"5\"     min=\"1\" placeholder=\"Tickets\" >
 <br>
 <label>Cabin</label>
 <br>
