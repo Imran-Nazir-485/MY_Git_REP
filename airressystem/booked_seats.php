@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
-
+<link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+ -->
 	<title></title>
 
 <style type="text/css">
@@ -22,6 +22,16 @@ h3{text-align: center;}
 </head>
 <body>
 	<center>
+
+
+  <i id="garbage" class="fas fa-trash"     onclick="myfun();"></i>
+<i id="garbage" class="fas fa-trash"     onclick="myfun();"></i>
+
+  <!-- <i id="garbage" class="fas fa-trash"></i> -->
+
+
+<br>
+
 <input type="number" name="tickets"  id="t1" placeholder="Tickets"     style='width:100px;text-align:center;'    >
 <input type="submit" name="tickets"  id="t2" placeholder="Tickets"     style='width:100px;text-align:center;'    onclick="myfunt();"     >
 		
@@ -54,7 +64,7 @@ $booked=30;
 $myrow = mysqli_fetch_assoc($myresult);
 while($rem<=($myrow["tbseats"]-$booked))
 {
-echo "<input type=\"button\"   id=\"free\"   value=\"Business\" style=\"background-color: green;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+echo "<input type=\"button\"   id=\"free\"   value=\"Business\" style=\"background-color: green;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">"."<input type=\"radio\"   id=\"t3\"   value=\"Business\" style=\"background-color: green;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem=$rem+1;
 if($rem%4==0)
 	{
@@ -207,7 +217,9 @@ function foo() {
     // foo.counter++;
 //alert("Too many Selections");
 counter=counter+1;
-  if (counter>v2) {alert("Too many Selections");}
+  if (counter>v2) {alert("Too many Selections");
+var gar = document.getElementById("t3").checked = false;
+}
 }
 
 
@@ -227,6 +239,23 @@ function background_color_change_function(str) {
 
 if (str) {
  document.getElementById("free").style.backgroundColor = "red"; }}
+
+
+
+function myfun()
+{
+var garbage = document.getElementById("garbage").style.color = "green";;
+
+}
+
+
+// // garbage.addEventListener("click",function()
+// {
+//   // garbage.style.color = "green";
+// }
+
+
+
 
 </script>
 
