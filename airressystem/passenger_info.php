@@ -83,23 +83,23 @@ include 'dbconn.php';
 
 
 
-session_start();
-echo $_SESSION["flightid"]."<br>";
-echo $_SESSION["depcity"]."<br>";
-echo $_SESSION["depdate"]."<br>";
-echo $_SESSION["deptime"]."<br>";
-echo $_SESSION["tickets"]."<br>";
-echo $_SESSION["cabin"]."<br>";
+// session_start();
+// echo $_SESSION["flightid"]."<br>";
+// echo $_SESSION["depcity"]."<br>";
+// echo $_SESSION["depdate"]."<br>";
+// echo $_SESSION["deptime"]."<br>";
+// echo $_SESSION["tickets"]."<br>";
+// echo $_SESSION["cabin"]."<br>";
 
 
 
 
-$flightid=$_SESSION["flightid"];
-$depcity =$_SESSION["depcity"];
-$depdate =$_SESSION["depdate"];
-$deptime =$_SESSION["deptime"];
-$tickets =$_SESSION["tickets"];
-$cabin= $_SESSION["cabin"];
+// $flightid=$_SESSION["flightid"];
+// $depcity =$_SESSION["depcity"];
+// $depdate =$_SESSION["depdate"];
+// $deptime =$_SESSION["deptime"];
+// $tickets =$_SESSION["tickets"];
+// $cabin= $_SESSION["cabin"];
 
 
 
@@ -107,19 +107,20 @@ $cabin= $_SESSION["cabin"];
 
 
 
-$flightid= $_SESSION["flightid"];
-$depcity= $_SESSION["depcity"];
-$depdate=$_SESSION["depdate"];
-$deptime=$_SESSION["deptime"];
-$tickets=$_SESSION["tickets"];
-$cabin=$_SESSION["cabin"];
+// $flightid= $_SESSION["flightid"];
+// $depcity= $_SESSION["depcity"];
+// $depdate=$_SESSION["depdate"];
+// $deptime=$_SESSION["deptime"];
+// $tickets=$_SESSION["tickets"];
+// $cabin=$_SESSION["cabin"];
 
 
 
 
  
  
- 
+$fid=$_GET['fid'];
+echo "$fid"; 
  
 
 

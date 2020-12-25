@@ -78,13 +78,11 @@ header("Location:signup_form.php");
 if(isset($_POST['availableflights']))
 {
 
-
-
 header("Location:availableflights.php?w=12");
 }
 if(isset($_POST['reservation']))
 {
-header("Location:searching.php");
+header("Location:findflight.php");
 }
 
 
