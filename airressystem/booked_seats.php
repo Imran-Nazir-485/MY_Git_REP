@@ -4,6 +4,7 @@
 <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
  -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<title></title>
 
 <style type="text/css">
@@ -18,6 +19,14 @@ div
 	border: 1px solid black;
 }
 h3{text-align: center;}
+/*#free:hover {
+  background-color: #4CAF50; 
+  color: white;
+}*/
+/*#free:focus {
+  background-color: #4CAF50; 
+  color: white;
+}*/
 </style>
 </head>
 <body>
@@ -64,7 +73,7 @@ $booked=30;
 $myrow = mysqli_fetch_assoc($myresult);
 while($rem<=($myrow["tbseats"]-$booked))
 {
-echo "<input type=\"button\"   id=\"free\"   value=\"Business\" style=\"background-color: green;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">"."<input type=\"radio\"   id=\"t3\"   value=\"Business\" style=\"background-color: green;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+echo "<input type=\"button\"   id=\"free\" class=\"js\"   value=\"Business\" style=\"background-color: white;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">";
 $rem=$rem+1;
 if($rem%4==0)
 	{
@@ -254,6 +263,11 @@ var garbage = document.getElementById("garbage").style.color = "green";;
 //   // garbage.style.color = "green";
 // }
 
+
+
+$( "#free" ).click(function() {
+    $( "#free" ).css('background', 'red');
+  });
 
 
 
