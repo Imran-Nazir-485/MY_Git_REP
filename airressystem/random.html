@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-lg-12 col-xs-12" style="text-align: center;">
+    <button type="button"  name="b1" class="featuredBtn " id="btn">BUTTON ONE</button>
+    <button type="button" name="b1"  class="featuredBtn" id="btn">BUTTON TWO</button>
+    <button type="button" name="b1" class="featuredBtn" id="btn">BUTTON THREE</button>
+  </div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+$("button").click(function () {
+      clicked = true;
+      if (clicked) {
+        $(this).toggleClass('active');
+        clicked = true;
+      } else {
+        $(this).removeClass('active');
+        clicked = false;
+      }
+    });
+	
+</script>
+
+
+<style type="text/css">
+
+.featuredBtn.active {
+  background-color: #bf9471;
+  color: white;
+}
+/*
+.featuredBtn {
+  width: 250px;
+  height: 50px;
+  color: #8c8c8c;
+  font-weight: 700;
+  background-color: #f4efeb;
+  border: none;
+  letter-spacing: 2px;
+  outline: none;
+}*/
+	
+
+</style>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

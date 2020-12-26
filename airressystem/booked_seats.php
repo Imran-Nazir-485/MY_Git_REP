@@ -4,7 +4,7 @@
 <link href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" rel="stylesheet">
 <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
  -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<title></title>
 
 <style type="text/css">
@@ -27,15 +27,23 @@ h3{text-align: center;}
   background-color: #4CAF50; 
   color: white;
 }*/
+
+
+.featuredBtn.active {
+  background-color: red;
+  color:black;
+}
+
+
 </style>
 </head>
 <body>
 	<center>
 
 
-  <i id="garbage" class="fas fa-trash"     onclick="myfun();"></i>
+<!--   <i id="garbage" class="fas fa-trash"     onclick="myfun();"></i>
 <i id="garbage" class="fas fa-trash"     onclick="myfun();"></i>
-
+ -->
   <!-- <i id="garbage" class="fas fa-trash"></i> -->
 
 
@@ -73,7 +81,16 @@ $booked=30;
 $myrow = mysqli_fetch_assoc($myresult);
 while($rem<=($myrow["tbseats"]-$booked))
 {
-echo "<input type=\"button\"   id=\"free\" class=\"js\"   value=\"Business\" style=\"background-color: white;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);\">";
+echo "<button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+
+// <button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>
+// <input type=\"button\"    class=\"featuredBtn \" id=\"btn\"  value=\"Business\" style=\"background-color: white;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);
+
+
+// <button type="button"  name="b1" class="featuredBtn " id="btn">BUTTON ONE</button>
+
+
+
 $rem=$rem+1;
 if($rem%4==0)
 	{
@@ -207,29 +224,24 @@ if($rem%4==0)
         counter=0;
 	}
 
-
-
-	// function myfun()
-	// {
-	// 	alert("Too many Selections");
-	// }
-
-
-
-
-
 function foo() {
-
+// alert("this is called");
     // if( typeof foo.counter == 'undefined' ) {
     //     foo.counter = 0;
     // }
     // foo.counter++;
 //alert("Too many Selections");
-counter=counter+1;
-  if (counter>v2) {alert("Too many Selections");
-var gar = document.getElementById("t3").checked = false;
+// counter=counter+1;
+
+
+
+
+//   if (counter>v2) {alert("Too many Selections");}
+
+
+
 }
-}
+
 
 
 
@@ -244,30 +256,28 @@ function myfunb()
 		alert("This is Booked");
 	}
 
-function background_color_change_function(str) {
-
-if (str) {
- document.getElementById("free").style.backgroundColor = "red"; }}
 
 
-
-function myfun()
-{
-var garbage = document.getElementById("garbage").style.color = "green";;
-
+$("button").click(function () {
+      clicked = true;
+      if (clicked) {
+      	counter=counter+1
+  if (counter>v2) {alert("Too many Selections");}
+else{
+	    $(this).toggleClass('active');
+        clicked = true;
+    
 }
+      } 
+      // else {
+      //   $(this).removeClass('active');
+      //   clicked = false;
+      // }
+    });
 
 
-// // garbage.addEventListener("click",function()
-// {
-//   // garbage.style.color = "green";
-// }
 
 
-
-$( "#free" ).click(function() {
-    $( "#free" ).css('background', 'red');
-  });
 
 
 
