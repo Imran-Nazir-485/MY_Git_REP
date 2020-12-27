@@ -78,10 +78,16 @@ $myresult = mysqli_query($myconn,$myquery);
 //4- Show results
 $rem=0;
 $booked=30;
+echo "<form method=\"post\">";
 $myrow = mysqli_fetch_assoc($myresult);
+
 while($rem<=($myrow["tbseats"]-$booked))
 {
-echo "<button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+
+
+
+echo "<button     type=\"submit\"  type=\"button \"    name=\"submit\"   value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+
 
 // <button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>
 // <input type=\"button\"    class=\"featuredBtn \" id=\"btn\"  value=\"Business\" style=\"background-color: white;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);
@@ -98,11 +104,16 @@ if($rem%4==0)
 	}
 	// $rem=$rem+1;
 }
+
+echo "</form>";
+
+
 echo "<br><br>";
 $rem=0;
 echo "<tr>";
 while($rem<=$booked)
 {
+
 echo  "<td>". "<input type=\"button\"  value=\"B$rem\" style=\"background-color: red;width: 50px\" ; onclick=\"myfunb()\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem=$rem+1;
 if($rem%4==0)
@@ -224,23 +235,23 @@ if($rem%4==0)
         counter=0;
 	}
 
-function foo() {
-// alert("this is called");
-    // if( typeof foo.counter == 'undefined' ) {
-    //     foo.counter = 0;
-    // }
-    // foo.counter++;
-//alert("Too many Selections");
-// counter=counter+1;
+// function foo() {
+// // alert("this is called");
+//     // if( typeof foo.counter == 'undefined' ) {
+//     //     foo.counter = 0;
+//     // }
+//     // foo.counter++;
+// //alert("Too many Selections");
+// // counter=counter+1;
 
 
 
 
-//   if (counter>v2) {alert("Too many Selections");}
+// //   if (counter>v2) {alert("Too many Selections");}
 
 
 
-}
+// }
 
 
 
@@ -253,7 +264,7 @@ function foo() {
 
 function myfunb()
 	{
-		alert("This is Booked");
+		alert("This is Not Available");
 	}
 
 
@@ -283,12 +294,25 @@ else{
 
 </script>
 
+<?php
+include 'dbconn.php';
+if (isset($_POST['submit'])) {
+// $ff ="<script>document.getElementById(\"btn\").value;</script>";             
+echo "This is called"."<br>";
+// 	$insertquery="";
+// $res=mysqli_query($myconn,$insertquery);
+// if ($res) {
+
+$val=$_POST['submit'];
+echo "$val";
+// header("Location:admin1.php");
+}
+?>
 
 
 
 </body>
 </html>
-
 
 
 
