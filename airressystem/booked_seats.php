@@ -71,6 +71,25 @@ h3{text-align: center;}
 // 1- Connect to database
 $myconn= mysqli_connect("localhost","root","","airressystem");
 
+
+
+$rem=0;
+$ar = array();
+$myquery = "SELECT * FROM reservations";
+//3- Run Query
+$myresult = mysqli_query($myconn,$myquery);
+// $myrow = mysqli_fetch_assoc($myresult);
+while($myrow = mysqli_fetch_assoc($myresult))
+{
+
+array_push($ar,$myrow['ticketnum']);
+//$rem=$rem+1;
+}
+
+// foreach($ar as $value){
+//     echo $value . "<br>";
+// }
+
 //2- Run SQL Query
 $myquery = "SELECT * FROM flightschedule";
 //3- Run Query
@@ -84,9 +103,18 @@ $myrow = mysqli_fetch_assoc($myresult);
 while($rem<=($myrow["tbseats"]-$booked))
 {
 
+if (in_array("B$rem", $ar)) 
+  { 
+
+echo "<button     type=\"submit\"  type=\"button \"    name=\"submit\"   value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  onclick=\"myfunb();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 
 
+}
+else
+{
 echo "<button     type=\"submit\"  type=\"button \"    name=\"submit\"   value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+
+}
 
 
 // <button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>
