@@ -48,9 +48,10 @@ h3{text-align: center;}
 
 
 <br>
-
-<input type="number" name="tickets"  id="t1" placeholder="Tickets"     style='width:100px;text-align:center;'    >
-<input type="submit" name="tickets"  id="t2" placeholder="Tickets"     style='width:100px;text-align:center;'    onclick="myfunt();"     >
+<form method="post"  action="admin1.php">
+<input type="submit" name="tickets"  id="t2" placeholder="Tickets"     style='width:100px;text-align:center;'     >
+	
+</form>
 		
 	</center>
 
@@ -99,7 +100,7 @@ $rem=0;
 $booked=30;
 //echo "<form method=\"post\">";
 $myrow = mysqli_fetch_assoc($myresult);
-echo "<form method=\"POST\" action=\"booked_seats.php\"  >";
+echo "<form method=\"POST\" action=\"\"  >";
 // onsubmit = function() { location. reload(true); }
 while($rem<=($myrow["tbseats"]-$booked))
 {
@@ -107,13 +108,13 @@ while($rem<=($myrow["tbseats"]-$booked))
 if (in_array("B$rem", $ar)) 
   { 
 
-echo "<input  type=\"submit\"       value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  onclick=\"myfunb();\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+echo "<input  type=\"submit\"       value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem++;
 }
 else
 {
 
-echo "<input  type=\"submit\"   name=\"seat\"    value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\"   >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+echo "<input  type=\"submit\"   name=\"seat\"    value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"     >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem++;
 
 
@@ -157,12 +158,6 @@ echo "</form>";
 // }
 
 ?>
-
-
-	
-
- 
-
 </main>
 
 
@@ -271,10 +266,11 @@ echo "</form>";
 
 <?php
 
+$count=0;
 if (isset($_POST['seat'])) {
 	$seat=$_POST['seat'];
 	// echo "$seat";
-
+// session_start();
 
 
 
@@ -282,13 +278,46 @@ if (isset($_POST['seat'])) {
 
 
 	$insertquery="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `date`, `time`, `numoftickets`, `ticketnum`, `cabin`, `status`) VALUES ('22','pk2300','Karachi','Jeddah','2020-12-06','08:08:00','4','$seat','Business','Booked')";
+	//$count=$count+1
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 
 
+$myquery = "SELECT * FROM reservations";
+$myresult = mysqli_query($myconn,$myquery);
+while($myrow = mysqli_fetch_assoc($myresult))
+{
+
+if ($myrow['bid']==22) {
+	$count++;
+}
 
 
-echo "<meta http-equiv='refresh' content='0'>";
+
+}
+
+
+
+echo "$count";
+
+
+
+if ($count==4) {
+	
+}
+
+
+
+
+// $last_id = $myconn->insert_id["rid"];
+// echo "$last_id";
+
+
+ // $_SESSION['count']++;
+
+
+
+// echo "<meta http-equiv='refresh' content='0'>";
 
 
 
@@ -303,44 +332,13 @@ echo "<meta http-equiv='refresh' content='0'>";
 
 
 
+if (isset($_POST['tickets'])) {
+	
+}
+// buffer_output = on
+// ob_start();
+// header('Location:admin1.php');
 
-
-
-
-
-
-
-
-
-
-
+// ob_end_clean();
+// include 'admin1.php';
   ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
