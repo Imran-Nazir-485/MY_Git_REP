@@ -97,25 +97,30 @@ $myresult = mysqli_query($myconn,$myquery);
 //4- Show results
 $rem=0;
 $booked=30;
-echo "<form method=\"post\">";
+//echo "<form method=\"post\">";
 $myrow = mysqli_fetch_assoc($myresult);
-
+echo "<form method=\"POST\" action=\"booked_seats.php\"  >";
+// onsubmit = function() { location. reload(true); }
 while($rem<=($myrow["tbseats"]-$booked))
 {
 
 if (in_array("B$rem", $ar)) 
   { 
 
-echo "<button     type=\"submit\"  type=\"button \"    name=\"submit\"   value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  onclick=\"myfunb();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-
-
+echo "<input  type=\"submit\"       value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  onclick=\"myfunb();\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+$rem++;
 }
 else
 {
-echo "<button     type=\"submit\"  type=\"button \"    name=\"submit\"   value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+
+echo "<input  type=\"submit\"   name=\"seat\"    value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\"   >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+$rem++;
+
 
 }
 
+}
+echo "</form>";
 
 // <button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>
 // <input type=\"button\"    class=\"featuredBtn \" id=\"btn\"  value=\"Business\" style=\"background-color: white;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);
@@ -125,120 +130,33 @@ echo "<button     type=\"submit\"  type=\"button \"    name=\"submit\"   value=\
 
 
 
-$rem=$rem+1;
-if($rem%4==0)
-	{
-		echo "<br><br>";
-	}
-	// $rem=$rem+1;
-}
-
-echo "</form>";
-
-
-echo "<br><br>";
-$rem=0;
-echo "<tr>";
-while($rem<=$booked)
-{
-
-echo  "<td>". "<input type=\"button\"  value=\"B$rem\" style=\"background-color: red;width: 50px\" ; onclick=\"myfunb()\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-$rem=$rem+1;
-if($rem%4==0)
-	{
-		echo "<br><br>";
-	}
-	// $rem=$rem+1;
-}
-
-
-// echo "<br>";
-// $rem=0;
-// while($rem<=$myrow["rbseats"])
-// {echo "<input type=\"button\"  value=\"UnBooked\" style=\"background-color: white\">";
 // $rem=$rem+1;
-// if($rem%10==0)
+// if($rem%4==0)
 // 	{
-// 		echo "<br>";
+// 		echo "<br><br>";
 // 	}
-	
+// 	// $rem=$rem+1;
 // }
-	
-// echo "<input type=\"button\"  value=\"Booked\" style=\"background-color: red\">";
-// echo $myrow["rollno"] . "    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+// echo "</form>";
 
 
+// echo "<br><br>";
+// $rem=0;
+// echo "<tr>";
+// while($rem<=$booked)
+// {
 
-
+// echo  "<td>". "<input type=\"button\"  value=\"B$rem\" style=\"background-color: red;width: 50px\" ; onclick=\"myfunb()\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+// $rem=$rem+1;
+// if($rem%4==0)
+// 	{
+// 		echo "<br><br>";
+// 	}
+// 	// $rem=$rem+1;
+// }
 
 ?>
-<br><br>
-</div>
-
-<br><br>
-
-
-<!-- <div>
-<?php
-// 1- Connect to database
-$myconn= mysqli_connect("localhost","root","","airressystem");
-
-//2- Run SQL Query
-$myquery = "SELECT * FROM flightschedule";
-//3- Run Query
-$myresult = mysqli_query($myconn,$myquery);
-//4- Show results
-$rem=0;
-$ebooked=20;
-$myrow = mysqli_fetch_assoc($myresult);
-while($rem<=($myrow["tbseats"]-$ebooked))
-{
-echo "<input type=\"button\"  value=\"E$rem\" style=\"background-color: green;width: 50px\"; >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-$rem=$rem+1;
-if($rem%4==0)
-	{
-		echo "<br><br>";
-	}
-	// $rem=$rem+1;
-}
-echo "<br><br>";
-$rem=0;
-while($rem<=$ebooked)
-{
-echo "<input type=\"button\"  value=\"E$rem\" style=\"background-color: red;width: 50px\"; >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-$rem=$rem+1;
-if($rem%4==0)
-	{
-		echo "<br><br>";
-	}
-	// $rem=$rem+1;
-}
-
-
-// echo "<br>";
-// $rem=0;
-// while($rem<=$myrow["rbseats"])
-// {echo "<input type=\"button\"  value=\"UnBooked\" style=\"background-color: white\">";
-// $rem=$rem+1;
-// if($rem%10==0)
-// 	{
-// 		echo "<br>";
-// 	}
-	
-// }
-	
-// echo "<input type=\"button\"  value=\"Booked\" style=\"background-color: red\">";
-// echo $myrow["rollno"] . "    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-
-
-
-
-
-?>
-	
-</div>
-	 -->
-</center>
 
 
 	
@@ -256,63 +174,62 @@ if($rem%4==0)
 
 <script type="text/javascript">
 
-	function myfunt()
-	{
-		 v2=document.getElementById("t1").value;
-        alert(v2);
-        counter=0;
-	}
+// 	function myfunt()
+// 	{
+// 		 v2=document.getElementById("t1").value;
+//         //alert(v2);
+//         counter=0;
+// 	}
 
-// function foo() {
-// // alert("this is called");
-//     // if( typeof foo.counter == 'undefined' ) {
-//     //     foo.counter = 0;
-//     // }
-//     // foo.counter++;
-// //alert("Too many Selections");
-// // counter=counter+1;
+// function myfunb()
+// 	{
+// 		alert("This is Not Available");
+// 	}
 
 
 
-
-// //   if (counter>v2) {alert("Too many Selections");}
-
-
-
+// $("button").click(function () {
+//       clicked = true;
+//       if (clicked) {
+//       	counter=counter+1
+//   if (counter>v2) {alert("Too many Selections");
+//   //counter=counter-1;
 // }
 
 
 
-
-
-
-
-
-
-
-function myfunb()
-	{
-		alert("This is Not Available");
-	}
-
-
-
-$("button").click(function () {
-      clicked = true;
-      if (clicked) {
-      	counter=counter+1
-  if (counter>v2) {alert("Too many Selections");}
-else{
-	    $(this).toggleClass('active');
-        clicked = true;
+// else{
+// 	    $(this).toggleClass('active');
+//         clicked = true;
     
-}
-      } 
-      // else {
-      //   $(this).removeClass('active');
-      //   clicked = false;
-      // }
-    });
+// }
+//       } 
+//       // else {
+//       //   $(this).removeClass('active');
+//       //   clicked = false;
+//       // }
+//     });
+
+
+
+
+
+// $("button").click(function () {
+//       clicked = true;
+//       if (clicked) {
+//         $(this).toggleClass('active');
+//         clicked = true;
+//       } else {
+//         $(this).removeClass('active');
+//         clicked = false;
+//       }
+//     });
+
+
+
+
+
+
 
 
 
@@ -322,20 +239,23 @@ else{
 
 </script>
 
-<?php
-include 'dbconn.php';
-if (isset($_POST['submit'])) {
-// $ff ="<script>document.getElementById(\"btn\").value;</script>";             
-echo "This is called"."<br>";
-// 	$insertquery="";
-// $res=mysqli_query($myconn,$insertquery);
-// if ($res) {
 
-$val=$_POST['submit'];
-echo "$val";
-// header("Location:admin1.php");
-}
-?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -346,6 +266,55 @@ echo "$val";
 
 
 
+
+
+
+<?php
+
+if (isset($_POST['seat'])) {
+	$seat=$_POST['seat'];
+	// echo "$seat";
+
+
+
+
+
+
+
+	$insertquery="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `date`, `time`, `numoftickets`, `ticketnum`, `cabin`, `status`) VALUES ('22','pk2300','Karachi','Jeddah','2020-12-06','08:08:00','4','$seat','Business','Booked')";
+$res=mysqli_query($myconn,$insertquery);
+if ($res) {
+
+
+
+
+echo "<meta http-equiv='refresh' content='0'>";
+
+
+
+// echo "Inserted Suscessfully";
+// header("Location:booked_seats.php");
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  ?>
 
 
 

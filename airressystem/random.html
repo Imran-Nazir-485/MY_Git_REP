@@ -71,6 +71,127 @@ $("button").click(function () {
 
 
 
+// <button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>
+// <input type=\"button\"    class=\"featuredBtn \" id=\"btn\"  value=\"Business\" style=\"background-color: white;width: 50px\"; onclick=\"foo();background_color_change_function(this.value);
+
+
+// <button type="button"  name="b1" class="featuredBtn " id="btn">BUTTON ONE</button>
+
+
+
+$rem=$rem+1;
+if($rem%4==0)
+	{
+		echo "<br><br>";
+	}
+	// $rem=$rem+1;
+}
+
+echo "</form>";
+
+
+echo "<br><br>";
+$rem=0;
+echo "<tr>";
+while($rem<=$booked)
+{
+
+echo  "<td>". "<input type=\"button\"  value=\"B$rem\" style=\"background-color: red;width: 50px\" ; onclick=\"myfunb()\">"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+$rem=$rem+1;
+if($rem%4==0)
+	{
+		echo "<br><br>";
+	}
+	// $rem=$rem+1;
+}
+
+
+// echo "<br>";
+// $rem=0;
+// while($rem<=$myrow["rbseats"])
+// {echo "<input type=\"button\"  value=\"UnBooked\" style=\"background-color: white\">";
+// $rem=$rem+1;
+// if($rem%10==0)
+// 	{
+// 		echo "<br>";
+// 	}
+	
+// }
+	
+// echo "<input type=\"button\"  value=\"Booked\" style=\"background-color: red\">";
+// echo $myrow["rollno"] . "    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+
+
+
+
+?>
+<br><br>
+</div>
+
+<br><br>
+
+
+<!-- <div>
+<?php
+// 1- Connect to database
+$myconn= mysqli_connect("localhost","root","","airressystem");
+
+//2- Run SQL Query
+$myquery = "SELECT * FROM flightschedule";
+//3- Run Query
+$myresult = mysqli_query($myconn,$myquery);
+//4- Show results
+$rem=0;
+$ebooked=20;
+$myrow = mysqli_fetch_assoc($myresult);
+while($rem<=($myrow["tbseats"]-$ebooked))
+{
+echo "<input type=\"button\"  value=\"E$rem\" style=\"background-color: green;width: 50px\"; >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+$rem=$rem+1;
+if($rem%4==0)
+	{
+		echo "<br><br>";
+	}
+	// $rem=$rem+1;
+}
+echo "<br><br>";
+$rem=0;
+while($rem<=$ebooked)
+{
+echo "<input type=\"button\"  value=\"E$rem\" style=\"background-color: red;width: 50px\"; >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+$rem=$rem+1;
+if($rem%4==0)
+	{
+		echo "<br><br>";
+	}
+	// $rem=$rem+1;
+}
+
+
+// echo "<br>";
+// $rem=0;
+// while($rem<=$myrow["rbseats"])
+// {echo "<input type=\"button\"  value=\"UnBooked\" style=\"background-color: white\">";
+// $rem=$rem+1;
+// if($rem%10==0)
+// 	{
+// 		echo "<br>";
+// 	}
+	
+// }
+	
+// echo "<input type=\"button\"  value=\"Booked\" style=\"background-color: red\">";
+// echo $myrow["rollno"] . "    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+
+
+
+
+
+?>
+	
+</div>
+	 -->
 
 
 
