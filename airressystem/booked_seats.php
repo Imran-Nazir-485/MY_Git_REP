@@ -48,11 +48,11 @@ h3{text-align: center;}
 
 
 <br>
-<form method="post"  action="admin1.php">
+<!-- <form method="post"  action="admin1.php">
 <input type="submit" name="tickets"  id="t2" placeholder="Tickets"     style='width:100px;text-align:center;'     >
 	
 </form>
-		
+ -->		
 	</center>
 
 
@@ -303,6 +303,14 @@ echo "$count";
 
 
 if ($count==4) {
+	echo "<br>";
+	echo "<br>";
+	echo "<br>";
+echo "<form method=\"post\"  action=\"admin1.php\">
+<input type=\"submit\" name=\"tickets\"  style='width:100px;text-align:center;'     >
+	
+</form>";
+		
 	
 }
 
