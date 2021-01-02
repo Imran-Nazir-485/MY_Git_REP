@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+function myfun(){
+ v1 = document.getElementById("t1").value;
+ document.getElementById("t2").innerHTML = v1;
+
+document.getElementById("t2").value = v1;
+
+
+
+}
+</script>
+</head>
+<body>
+<center>
+<h1> Javascript || Typing Tutor </h1>
+<form>
+ <input type="text" id="t1" onkeyup="myfun()" autocomplete="off">
+ <br>
+ <input type="text" name=""  id="t2" autocomplete="off">
+ <span id="myspan" >
+ </span>
+</form>
+</center>
+</body>
+</html>

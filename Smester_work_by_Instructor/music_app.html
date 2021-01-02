@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<center  >
+<h1 style="color: #444;text-align: center; padding-bottom: 20px;">&#9834; My Music Player  &#9834;</h1>
+	
+</center>
+
+<main>
+	<div class="a song">a</div>
+	<div class="b song">b</div>
+	<div class="c song">c</div>
+
+<div class="d song">d</div>
+	<div class="e song">e</div>
+	<div class="f song">f</div>
+<div class="g song">g</div>
+	<div class="h song">h</div>
+	<div class="i song">i</div>
+
+
+
+</main>
+
+<style type="text/css">
+main{
+	padding-top: 20px;
+	width: 90%;height: 550px;
+	margin: auto;border:1px solid red;
+	display: flex;/*display divs in horizontal line*/ 
+
+	justify-content: space-around;/*set suitable space among divs*/
+	flex-wrap: wrap;/*it provides sufficient space required to 1 div*/
+}	
+div{
+	width: 30%;
+	height: 160px;
+	/*border:1px solid black;*/
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px  /*2px left and right repest   5px is blur ratio  */ grey;
+	cursor: pointer;
+}
+.a{
+	background-image: url("a.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;/*put full image in given shape here id div*/
+}
+.b{
+	background-image: url("b.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.c{
+	background-image: url("c.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.d{
+	background-image: url("d.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.e{
+	background-image: url("e.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.f{
+	background-image: url("f.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.g{
+	background-image: url("g.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.h{
+	background-image: url("h.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+.i{
+	background-image: url("i.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+}
+
+
+</style>
+
+
+<script type="text/javascript">
+	//var divlength=document.querySelectorAll('.song').length;
+for(var i=0;i<9;i++)
+{
+var demo=document.querySelectorAll('.song')[i].addEventListener('click',playsong);
+var demo=document.querySelectorAll('.song')[i].addEventListener('dblclick',pausesong);
+
+
+}
+var song1=new Audio();
+song1.src="001.mp3";
+var song2=new Audio();
+song2.src="114.mp3";
+
+function playsong()
+{
+var songId=this.innerHTML;
+switch(songId)
+{
+case "a":
+song1.play();
+break;
+case "b":
+song2.play();
+break;
+
+case "c":
+song1.play();
+break;
+case "d":
+song2.play();
+break;
+case "e":
+song1.play();
+break;
+case "f":
+song2.play();
+break;
+case "i":
+song1.play();
+break;
+
+}
+
+}
+
+function pausesong()
+{var songId=this.innerHTML;
+
+switch(songId)
+{
+case "a":
+song1.pause();
+break;
+case "b":
+song2.pause();
+break;
+
+case "c":
+song1.pause();
+break;
+case "d":
+song2.pause();
+break;
+case "e":
+song1.pause();
+break;
+case "f":
+song2.pause();
+break;
+case "i":
+song1.pause();
+break;
+}
+
+}
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

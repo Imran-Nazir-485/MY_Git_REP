@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+function startIt(){
+ timer1 = setInterval(myfun, 1000);
+}
+function stopIt(){
+ clearInterval(timer1);
+}
+function myfun(){
+   d1 = new Date();
+   document.getElementById("t1").value = d1;
+}
+</script>
+</head>
+<body>
+<center>
+<h1> Javascript </h1>
+ <input type="text" id="t1" Size="45"> <br>
+ <input type="button" value="Start" onclick="startIt()"> 
+ <input type="button" value="Stop" onclick="stopIt()">  
+</center>
+</body>
+</html>

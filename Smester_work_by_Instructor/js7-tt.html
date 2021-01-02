@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+function myfun(){
+ v1 = document.getElementById("t1").value;
+ document.getElementById("myspan").innerHTML = v1;
+ 
+ sum = v1.length;
+ document.getElementById("counter").innerHTML = sum;
+ 
+}
+</script>
+</head>
+<body>
+<center>
+<h1> Javascript || Typing Tutor </h1>
+<form>
+ <input type="text" id="t1" onkeyup="myfun()" autocomplete="off">
+ <br>
+ <span id="myspan" style="background-color:pink">
+ </span> <br>
+ Counter: <span id="counter">0
+ </span>
+</form>
+</center>
+</body>
+</html>

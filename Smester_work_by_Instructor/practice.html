@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+
+</head>
+<body>
+<!--
+
+<table  border="1" style="border-collapse: collapse;">
+	<tr>
+		
+		<td>Name of Train</td>
+		<td>Place</td>
+		<td>Destination</td>
+		<td>Train No.</td>
+		<th style="text-align: center;">Time <table border="1" style="border-collapse: collapse;">
+			<tr>
+				<td>Arrival</td>
+				<td>Departure</td>
+			</tr>
+		</table></th>
+
+		<td>Fair</td>
+	</tr>
+	
+		
+	</table>
+
+-->
+
+<!--
+<table border="1">
+<tr>
+	<td >Weather </td>
+	<td>
+	<table border="1">
+
+		<tr>
+		<th>Lahore</th>
+		<th>Multan</th>	
+		</tr>
+
+
+
+		<tr><td>40</td>
+			<td>35</td></tr>
+	</table>
+	
+	</td>
+	
+	
+</tr>
+
+</table>
+
+-->
+<!--
+<table border="1">
+	
+<tr>
+	<td>1</td>
+	<td>2</td>
+	<td>3</td>
+	<td>4</td>
+	
+</tr>
+<tr>
+	<td>5</td>
+	<td colspan="2" rowspan="2">2</td>
+	<td>6</td>
+	
+</tr>
+<tr>
+	<td>7</td>
+	<td>8</td>
+	
+</tr>
+
+<tr>
+	<td>9</td>
+	<td>10</td>
+	<td>11</td>
+	<td>12</td>
+	
+</tr>
+
+
+</table>
+
+-->
+
+<!--
+
+<table border="1">
+	<tr>
+		<td rowspan="10" style="background-color:  blue;">
+		ORANGE	
+		</td>
+		<td rowspan="6">
+		RED
+		</td>
+		<td rowspan="6">
+		GREEN	
+		</td>
+		
+	</tr>
+<tr>
+	<td>Blue</td>
+</tr>
+</table>
+-->
+<!--
+
+<table border="1">
+	
+<tr>
+	<td>Country</td>
+	<td>Population(in Crores)</td>
+</tr>
+<tr>
+	<td>INDIA</td>
+	<td>
+		<table border="1">
+		<tr>
+			<td colspan="2">1998</td>
+			<td colspan="2">85</td>
+		</tr>
+		<tr>
+			<td colspan="2">1999</td>
+			<td colspan="2">90</td>
+		</tr>	
+			<tr>
+			<td colspan="2">2000</td>
+			<td >100</td>
+		</tr>	
+		
+		</table>
+	</td>
+</tr>
+</table>
+-->
+
+
+
+
+<!--
+<ul>
+	<li>
+		<u>APS Tutorial</u>
+		<a href="www.w3schools.com/asp">www.w3schools.com/asp</a>
+	</li>
+</ul>
+-->
+<!--
+<center>
+
+<form>
+<input type="radio" id="male" name="gender" value="male">Mr
+<input type="radio" id="female" name="gender" value="female">Mrs
+<input type="radio" id="other" name="gender" value="other">Ms
+<br>
+<label>First Name</label>
+<input type="text" name="" placeholder="First Name">
+<br>
+<label>Last Name</label>
+<input type="text" name="" placeholder="Last Name">
+<br>
+<label>Mail Address1</label>
+<input type="text" name="" >
+<br>
+<label>Mail Address2</label>
+<input type="text" name="" >
+<br>
+<label>City</label>
+<input type="text" name="" >
+<br>
+<label>State</label>
+<select>
+	<option value="Lahore">
+		Lahore
+	</option>
+
+<option value="Multan">
+		Multan
+	</option>
+<option value="Karachi">
+		Karachi
+	</option>
+
+
+
+</select>
+<br>
+<label>languages Known</label>
+<input type="checkbox" name="" >CPP
+<br>
+<input type="checkbox" name="" >CP
+<br>
+<input type="checkbox" name="" >Java
+
+
+
+</form>
+	
+</center>
+-->
+<!--
+<center>
+	<form id="form">
+<input type="text" name="" id="number" >
+<input type="submit" name="" value="check">
+		<input type="text" name="" id="tr">
+
+	</form>
+<p   id="result"></p>
+
+
+</center>
+
+
+
+
+<script type="text/javascript">
+var frm=document.getElementById("form")	
+frm.onsubmit=function()
+{
+	var user=document.getElementById("number").value;
+	var preview=document.getElementById("result");
+	var i,rev=0;
+	while(user!=0)
+	{
+		rev=(rev*10)+(user%10);
+		user=parseInt(user/10);
+	}
+	document.getElementById("tr").value=rev;
+	return false;
+}
+</script>
+-->
+<!--
+<center>
+	
+<form id="form">
+	<input type="text" name="input" id="instr">
+<input type="submit" name="input" onclick="fun(input.value)">
+
+</form>
+
+</center>
+<script type="text/javascript">
+	var get=document.form.input.value;
+	function fun(get)
+	{
+	
+
+	function alpha_order(str){
+		return str.split("").sort().join("")
+	}
+	res=alpha_order(get);
+res.innerHTML="resut"+res;
+	
+	}
+	
+
+
+
+</script>
+-->
+
+
+<!--
+<input type="text" name="" id="t1">
+<input type="submit" name="" value="ORANGE" onclick="reverse()">
+<br>
+<input type="text" name="" id="t2" >
+
+
+
+<script type="text/javascript">
+var v1=document.getElementById("t1").value;
+function reverse()
+{
+var v1=document.getElementById("t1").value;
+var v2=v1.split("").sort().join("");
+document.getElementById("t2").value=v2;	
+}
+</script>
+-->
+
+
+<!--
+<input type="text" name="" id="t1">
+<input type="submit" name="" value="Count" onclick="vowel_count("lets the hgsad")">
+
+<input type="text" name="" id="t2">
+
+<script type="text/javascript">
+	
+function vowel_count(str)
+{
+	//var v1=document.getElementById("t1").value;
+	vowel_list='aeiouAEIOU';
+	var vc=0;
+	for (var i = 0; i <str.length ; i++) {
+	if (vowel_list.indexof(str[i])!==-1) {
+		vc+=1;
+	}
+	document.getElementById("t2").value=vc;
+}
+
+</script>
+-->
+
+
+
+
+<input type="text" name="" id="t1">
+<input type="submit" name="" onclick="fin()">
+<input type="text" name="" id="t3">
+<input type="text" name="" id="t2">
+
+
+
+<script type="text/javascript">
+
+
+function fin()
+{
+var v1=document.getElementById("t1").value;
+var v2=document.getElementById("t3").value;
+var v3=Math.max(v1,v2)
+document.getElementById("t2").value=v3;
+
+	
+}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

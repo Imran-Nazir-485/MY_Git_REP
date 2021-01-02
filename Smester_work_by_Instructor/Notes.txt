@@ -1,0 +1,156 @@
+PHP: Pre-Hyper Processor
+is a web technology to create the dynamic pages.
+PHP code is processed by some server that is called
+web server. examples of web server are apache,
+tomcat, IIS, JWS etc. we shall use apache as web server
+Q.How to crated you machine as web server?
+A. install web server software at your machine.
+so install XAMPP on your machine.
+what is XAMPP?
+XAMMP is an application software that is:
+X - X windows
+A-Apchae - web server
+M-MySql is a data base 
+P-PHP web technology
+P-PERL - xxxx
+...
+How to install XAMPP?
+it is a simple wizard.
+after installation run it from programs.
+Q. How to run the server at web browser?
+A. run the following URL:
+http://localhost
+.....
+Q. Where to save the server web pages?
+A. save at server. so save the page at sever folder.
+in your machine one folder is web folder. that is 
+so save all pages at 
+C:\xampp\htdocs
+
+---- 24-Sep-2020 ---
+1- Web Page Designing
+ HTML 5.09
+  Hyper Text Markup Language
+  - is a designing language (no constructs like loop, if)
+  - is not standarized 
+  - is not complete
+ 
+ CSS
+2- Web page Development
+  JavaScript, PHP, MySQL, AJAX, Bootstrap, XML
+
+  Ass-1: check font size 1-7
+  ass-2: check heading 1-6
+  and share shapshots at whatsapp group
+---
+CSS: Cascading Style Sheet
+Why CSS?
+--------
+HTML is not complete and does not supports many
+styles therefore these style are used with the
+CSS style.
+How to use CSS?
+----------------
+CSS can be used in 3 ways
+1- embed CSS
+2- Inline CSS
+3- Link CSS
+1- Embed CSS is a part of HTML document.
+2- Inline CSS: applied at char and word
+3- Link CSS
+
+Quiz-1: What are the advantages and disadvantages
+of embed, Inline, Link CSS you observed?
+
+Ali-18-05: 
+Adv:
+
+Disadv:
+---
+Be ready: as you sow, so shall you reap
+-- 15-Oct-2020---
+JavaScript
+---
+For Database in MySQL:
+http://localhost/phpmyadmin/
+it will open the database dashboard
+then create database
+Projects:
+1- Online reservation Railway system
+2- Online Air reservation  system
+3- Online Bus Railway system
+4- Library
+5- Admission System
+6- Exam System
+7- Online Testing system
+8- Online Attendance
+9- Hospital System
+10- Bank System
+11- Bidding system
+12- Weather forcasting system
+13- Stock market
+14- sports/Match system
+15- Online survey
+16- Portal
+17- News system
+18- Bots 
+19- Assitance ( Virtual )
+20- file Conversion system ( mp4 to mp3)
+21- Desktop sharing
+22- Audio conversation
+23- Video conferencing
+24- Online Shopping
+25- Complaint system
+26- Stock maintenance
+27- sale / purchase
+28- Salary system
+29- education system
+30- School System
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

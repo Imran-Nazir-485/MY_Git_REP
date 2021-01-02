@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.1/css/all.min.css" integrity="sha512-9my9Mb2+0YO+I4PUCSwUYO7sEK21Y0STBAiFEYoWtd2VzLEZZ4QARDrZ30hdM1GlioHJ8o8cWQiy8IAb1hy/Hg==" crossorigin="anonymous" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="main_div">
+<div class="music_container">
+<h2 id="title">Surah Fatiha</h2>
+<h3 id="artist">Saud Al-Shuraim</h3>
+<div class="image_container">
+	<img src="Quran.png" >
+</div>
+<audio src="001.mp3"></audio>
+
+
+<div class="music_controls">
+<i class="fas fa-backward"  id="prev" title="previous"></i>
+<i class="fas fa-play main_button"  id="play" title="play"></i>
+<i class="fas fa-forward"  id="next" title="next"></i>
+</div>
+ </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+.main_div{
+	width: 100vw;/*adopt shape of respective device*/
+	height: 100vh;
+	background-color: #f6f6f6;
+	border:1px solid red;
+	display: grid;
+	place-items:center;
+}
+.music_container{
+	width: 35rem;
+	height: 38rem;
+	background-color: #ffffff;
+	border-radius: 2rem;
+	box-shadow: 0 1.2rem 3rem 0.7rem rgba(0,0,0,0.2)/* horizntal vrtical blur spread color*/
+	padding:3rem;
+	text-align: center;
+	border:1px solid red ;
+}
+
+#title{
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	word-spacing: 0.5rem;
+	color:#171717;
+	margin:2rem 0  0.5rem 0;
+	font-size: 2.0rem;
+	font-weight: 500;
+	/*text-shadow: 0 0.3rem 0.5rem rgba(0,0,0,0.3);*/
+}
+
+ #artist{
+	color: #cccaca;
+	text-transform: capitalize;
+	letter-spacing: 0.1rem;
+	font-size: 2rem;
+	margin-bottom: 3rem;
+	font-weight: 300;
+}
+
+.image_container{
+	width: 20rem;
+	height: 20rem;
+	margin: auto;
+	
+}
+img{
+	border-radius: 50%;
+	width: 100%;
+	height: 100%;/*adjust width and height acc to parent div*/
+	object-fit: fill;
+	/*object-fit: fill,cover,conatin;  foit image to parent div
+	*/
+	box-shadow: 0  ;
+	border:1px solid black;
+	 
+}
+.music_controls{
+	width: 17rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 40px;
+	margin: auto;
+}
+
+.music_controls.fas
+{
+	color: #111111;
+	font-size: 1.5rem;
+	cursor: pointer;;
+
+}
+
+#main_button
+{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	color: #f6f6f6;
+	background-color: black;
+	font-size: 1rem;
+	/*to place paly button in center*/
+	display: flex;
+	justify-content: center;/*to place paly button in horizontal center */
+align-items: center;/*to place paly button in  center vertically*/
+
+.anime{
+	animation: rotatePlayer 3s linear infinite; 
+}
+@keyframes rotatePlayer{
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+
+
+}
+
+
+
+</style>
+
+
+<script type="text/javascript">
+const music=document.querySelector("audio");
+const img=document.document.querySelector("img");
+const play=document.getElementById("play");
+play.addEventListener("click" ,()=>
+{music.play();
+	play.classList.replace("fa-play","fa-pause");
+	img.classList.add("anime");
+
+}
+);
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
