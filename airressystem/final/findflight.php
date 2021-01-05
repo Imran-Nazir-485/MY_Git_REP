@@ -2,9 +2,6 @@
 
 
 
-echo "<center>
-<h4>Flights Details</h4>
-</center>";
 
 
 
@@ -182,7 +179,7 @@ $destcity=$_POST['destcity'];
 $depdate=$_POST['depdate'];
 $deptime=$_POST['deptime'];
 $returndate=0;
-$w=12;
+$w=11;
 
 session_start();
 $_SESSION['depcity']=$depcity;
@@ -215,7 +212,7 @@ $depdate=$_POST['depdate'];
 $deptime=$_POST['deptime'];
 $returdate=$_POST['deptime'];
 $returndate=$_POST['returndate'];
-$w=12;
+$w=13;
 
 
 
@@ -226,7 +223,7 @@ $_SESSION['depdate']=$depdate;
 $_SESSION['deptime']=$deptime;
 $_SESSION['returndate']=$returndate;
 $_SESSION['adminside']=$w;
-header("Location:availableflights.php?w=11");
+header("Location:availableflights.php?w=13");
 
 
 
