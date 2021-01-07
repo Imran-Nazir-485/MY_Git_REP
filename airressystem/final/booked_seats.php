@@ -42,15 +42,11 @@ h3{text-align: center;}
 <div>
 <br><br>
  <?php
- include 'dbconn.php';
-
 // // 1- Connect to database
-// $myconn= mysqli_connect("localhost","root","","test");
+ $myconn= mysqli_connect("localhost","root","","test");
 $rem=0;
-
-$arr = array();
 $ar = array();
-$myquery = "SELECT * FROM reservations";
+$myquery = "SELECT * FROM student";
 //3- Run Query
 $myresult = mysqli_query($myconn,$myquery);
 // $myrow = mysqli_fetch_assoc($myresult);
@@ -61,112 +57,55 @@ array_push($ar,$myrow['seatnumber']);
 //$rem=$rem+1;
 }
 
-// foreach($ar as $value){
-//     echo $value . "<br>";
-// }
-$myquery = "SELECT * FROM flightschedule";
+foreach($ar as $value){
+    echo $value . "<br>";
+}
+$myquery = "SELECT * FROM student";
 $myresult = mysqli_query($myconn,$myquery);
-$rem=1;
+$rem=0;
 $myrow = mysqli_fetch_assoc($myresult);
 echo "<form method=\"POST\" action=\"\"  >";
 // onsubmit = function() { location. reload(true); }
-while($rem<=$myrow['tbseats'])
+while($rem<=30)
 {
 
-
- if (in_array("BUS$rem", $ar)) 
+ if (in_array("B$rem", $ar)) 
    { 
 
-if ($rem%4==0) {
-	echo "<br>";
-}
-echo "<input type=\"submit\"     value=\"BUS$rem\"     class=\"featuredBtn\" id=\"btn\" style=\"width: 80px ; background-color:red \"  >
-"."&nbsp&nbsp&nbsp&nbsp";
-$rem++;
-}
-
-
-if (!in_array("BUS$rem", $ar)) 
-{
-
-if ($rem%4==0) {
-	echo "<br>";
-}
-echo "<input  type=\"submit\"   name=\"seat\"    value=\"BUS$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 80px\"     >"."&nbsp&nbsp&nbsp&nbsp";
-$rem++;
-
-
-}
-}
-echo "</form>";
-
-
-
-
-echo "<br>"."<br>";
-	echo "<br>"."<br>";
-
-
-
-$rem=1;
-while($rem<=4)
-{
-
-echo "<input type=\"submit\"    value=\"Space\"     class=\"featuredBtn\" id=\"btn\" style=\"width: 80px ; background-color:red \"  >
-"."&nbsp&nbsp&nbsp&nbsp";
-$rem++;
-}
-
-
-
-
-
-
-
-	echo "<br>"."<br>";
-	echo "<br>"."<br>";
-
-
-
-$myquery = "SELECT * FROM flightschedule";
-$myresult = mysqli_query($myconn,$myquery);
-$rem=1;
-$myrow = mysqli_fetch_assoc($myresult);
-echo "<form method=\"POST\" action=\"\"  >";
-// onsubmit = function() { location. reload(true); }
-while($rem<=$myrow['teseats'])
-{
-
-
- if (in_array("ECO$rem", $ar)) 
-   { 
-
-if ($rem%4==0) {
-	echo "<br>";
-}
-echo "<input type=\"submit\"   name=\"seat\"  value=\"ECO$rem\"     class=\"featuredBtn\" id=\"btn\" style=\"width: 80px ; background-color:red \"  >
-"."&nbsp&nbsp&nbsp&nbsp";
+echo "<input  type=\"button\"       value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  >
+"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem++;
 }
 else
 {
 
-if ($rem%4==0) {
-	echo "<br>";
-}
-echo "<input  type=\"submit\"   name=\"seat\"    value=\"ECO$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 76px\"     >"."&nbsp&nbsp&nbsp&nbsp";
+echo "<input  type=\"submit\"   name=\"seat\"    value=\"B$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"     >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem++;
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 echo "</form>";
 
-
-
-
 ?>
 </main>
+
+
+
 
 
 </body>
@@ -181,10 +120,10 @@ echo "</form>";
 
 <?php
 
-$arr = array();
+
 $count=0;
-$tcounter=0;
-$ttickets=4;
+
+$rem=0;
 
 
 
@@ -194,60 +133,35 @@ $seat=$_POST['seat'];
 echo "$seat";
 
 
-
-
-
-
-
-$rem=0;
-while($rem<=150)
+while(30)
 {
 
- if (in_array("$seat", $ar)) 
+ if (in_array($seat, $ar)) 
    { 
 
 echo "Same button is seleted twice"."<br>";
 $count=1;
-echo "$rem"."<br>";
 break;
-// $rem=$rem+1;
-
 }
 
 
-
-$rem=$rem+1;
-
-//echo "$rem";
 }
 
 
 if ($count==1) {
 	echo "Here We have To Delete The Record";
-
-
-$insertquery="DELETE FROM `student` WHERE seatnumber='$seat'";
-$res=mysqli_query($myconn,$insertquery);
-echo "Deleted";
-
-
-echo "<script type='text/javascript'>
-        window.location=document.location.href;
-        </script>";
-
-
-
-
-
 }
 
 if ($count==0) {
-$insertquery="INSERT INTO `reservations`(`seatnumber`) VALUES ('$seat')";
+	
+
+
+
+
+$insertquery="INSERT INTO `student`(`seatnumber`) VALUES ('$seat')";
 $res=mysqli_query($myconn,$insertquery);
 echo "Inserted";
-
-$tcounter++;
- header("booked_seats.php");
+// header("booked_seats.php");
 echo "<script type='text/javascript'>
         window.location=document.location.href;
         </script>";
@@ -258,15 +172,6 @@ echo "<script type='text/javascript'>
 
 
 }
-
-
-
-
-
-if ($tcounter==$ttickets) {
-	echo "Completed";
-}
-
 
 
 
@@ -293,6 +198,7 @@ if ($tcounter==$ttickets) {
 
 
 ?>
+
 
 
 
