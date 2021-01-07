@@ -7,8 +7,11 @@
 
 
 
+<h4 style="text-align: center;">Booking Credentials</h4>
+
 
 <main>
+
 <form method="POST">
 <div id="main-div">
 
@@ -82,22 +85,23 @@ border: 1px solid black;}
 
 
 <?php
+ 
+$fid=$_GET['fid'];
+$depcity=$_GET['depcity'];
+$destcity=$_GET['destcity'];
+$depdate=$_GET['depdate'];
+$tickets=$_GET['tickets'];
+$cabin=$_GET['cabin'];
 
-session_start();
-echo $_SESSION["flightid"]."<br>";
-$flightid=$_SESSION["flightid"];
-echo $_SESSION["depcity"]."<br>";
-$depcity=$_SESSION["depcity"];
-echo $_SESSION["depdate"]."<br>";
-$depdate=$_SESSION["depdate"];
-echo $_SESSION["deptime"]."<br>";
-$deptime=$_SESSION["deptime"];
-echo $_SESSION["tickets"]."<br>";
-$numoftickets=$_SESSION["tickets"];
-echo $_SESSION["cabin"]."<br>";
-$cabin=$_SESSION["cabin"];
-echo $_SESSION["pid"];
-$pid=$_SESSION["pid"];
+
+
+echo "$fid"."<br>"; 
+echo "$depcity"."<br>"; 
+echo "$destcity"."<br>"; 
+echo "$depdate"."<br>"; 
+echo "$tickets"."<br>"; 
+echo "$cabin"."<br>"; 
+  
 
 
 
@@ -110,7 +114,7 @@ if(isset($_POST['submit']))
 
 
 
-header("Location:ticketing.php");
+header("Location:booked_seats.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&tickets=$tickets&cabin=$cabin");
 
 
 

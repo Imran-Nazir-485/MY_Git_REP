@@ -50,10 +50,10 @@ echo"<label>To Airport & City</label>";
 echo "<br>";
 echo "<select size='1' style=\"width:150px\"    name=\"destcity\">
 
-<option>Beijing</option>
+<option>Karachi</option>
 <option>Rayaz</option>
 <option>AbuDabhi</option>
-<option>Karachi</option>
+<option>Beijing</option>
 <option>Sialkot</option>
 <option>Haidrabad</option>
 <option>Rawalpindi</option>

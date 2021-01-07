@@ -3,72 +3,66 @@
 <head>
 	<title>
 	</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <div class="row">
   <div class="col-lg-12 col-xs-12" style="text-align: center;">
-    <button type="button"  name="b1" class="featuredBtn " id="btn">BUTTON ONE</button>
-    <button type="button" name="b1"  class="featuredBtn" id="btn">BUTTON TWO</button>
-    <button type="button" name="b1" class="featuredBtn" id="btn">BUTTON THREE</button>
+    <button type="button" class="featuredBtn " id="btnOne">BUTTON ONE</button>
+    <button type="button" class="featuredBtn" id="btnTwo">BUTTON TWO</button>
+    <button type="button" class="featuredBtn" id="btnThree">BUTTON THREE</button>
   </div>
 </div>
 
+<?php
 
+
+$tickets=3;
+
+
+?>
 
 
 
 
 <script type="text/javascript">
+	count=1;
+
 $("button").click(function () {
+
+if (count<=2) {
       clicked = true;
-      if (clicked) {
+    count++;}
+    else{
+    	clicked = false;
+    }
+    
+
+	  if (clicked) {
         $(this).toggleClass('active');
         clicked = true;
       } else {
         $(this).removeClass('active');
         clicked = false;
       }
-    });
-	
+    });	
 </script>
-
-
 <style type="text/css">
+	
+
+
 
 .featuredBtn.active {
   background-color: #bf9471;
   color: white;
 }
-/*
-.featuredBtn {
-  width: 250px;
-  height: 50px;
-  color: #8c8c8c;
-  font-weight: 700;
-  background-color: #f4efeb;
-  border: none;
-  letter-spacing: 2px;
-  outline: none;
-}*/
-	
+
+
 
 </style>
-
-
+<!-- 
 
 
 // <button type=\"button\"   class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"  onclick=\"foo();\">B$rem</button>
@@ -132,7 +126,7 @@ if($rem%4==0)
 <br><br>
 
 
-<!-- <div>
+<div>
 <?php
 // 1- Connect to database
 $myconn= mysqli_connect("localhost","root","","airressystem");
@@ -191,8 +185,8 @@ if($rem%4==0)
 ?>
 	
 </div>
-	 -->
-
+	
+ -->
 
 
 

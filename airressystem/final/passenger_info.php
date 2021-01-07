@@ -77,6 +77,40 @@ border: 1px solid black;}
 
 <?php
 
+
+
+ 
+$fid=$_GET['fid'];
+$depcity=$_GET['depcity'];
+$destcity=$_GET['destcity'];
+$depdate=$_GET['depdate'];
+$tickets=$_GET['tickets'];
+$cabin=$_GET['cabin'];
+
+
+
+echo "$fid"."<br>"; 
+echo "$depcity"."<br>"; 
+echo "$destcity"."<br>"; 
+echo "$depdate"."<br>"; 
+echo "$tickets"."<br>"; 
+echo "$cabin"."<br>"; 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $pid=2;
 include 'dbconn.php';
 
@@ -118,12 +152,6 @@ include 'dbconn.php';
 
 
  
- 
-$fid=$_GET['fid'];
-echo "$fid"; 
- 
-
-
 
 
 
@@ -180,7 +208,7 @@ if(isset($_POST['submit']))
 {
 
 
-header('Location:booking_form.php');
+header("Location:booking_form.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&tickets=$tickets&cabin=$cabin");
 
 	
 	$fname=$_POST['fname'];
