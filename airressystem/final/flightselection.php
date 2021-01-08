@@ -124,6 +124,7 @@ if (isset($_POST['submit'])) {
 
 $numoftickets=$_POST['tickets'];
 $cabin=$_POST['cabin'];
+$deptime=$_POST['deptime'];
 
 
 
@@ -140,10 +141,10 @@ while($myrows = mysqli_fetch_assoc($myresult)){
 if ($myrows["fid"]==$fid && $myrows["depcity"]==$depcity && $myrows["depdate"]==$depdate    && $myrows["destcity"]==$destcity) {
 if ("Economy"==$cabin    && $myrows['reseats']>=$tickets) {
 
-header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
 }
 if ("Business"==$cabin    && $myrows['rbseats']>=$tickets) {
-header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
 }
 
 

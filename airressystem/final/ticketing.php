@@ -4,23 +4,35 @@ include 'dbconn.php';
 
 
 
-session_start();
+
+$fid=$_GET['fid'];
+$depcity=$_GET['depcity'];
+$destcity=$_GET['destcity'];
+$depdate=$_GET['depdate'];
+$deptime=$_GET['deptime'];
+$lastbid=$_GET['lastbid'];
+$tickets=$_GET['tickets'];
+$cabin=$_GET['cabin'];
+$lastpid=$_GET['lastpid'];
 
 
 
 
 
-echo "<br>".$_SESSION["flightid"];
-echo "<br>".$_SESSION["bid"];
-echo "<br>".$_SESSION["tottalfare"];
-
-$tottalfare=$_SESSION["tottalfare"];
-echo "$tottalfare";
 
 
- //$flightid=$_SESSION["rid"]=$flightid;
- $bookingid=$_SESSION["bid"];
- //$totalprice=$_SESSION["totalprice"];
+echo "$fid"."<br>"; 
+echo "$depcity"."<br>"; 
+echo "$destcity"."<br>"; 
+echo "$depdate"."<br>"; 
+echo "$tickets"."<br>"; 
+echo "$cabin"."<br>"; 
+echo "$lastbid"."<br>"; 
+echo "$deptime"."<br>"; 
+echo "$lastpid"."<br>"; 
+
+
+
 
 if (isset($_POST['submit'])) {
 	$tottalfare=$_POST['tottalfare'];

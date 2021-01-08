@@ -34,7 +34,7 @@ h3{text-align: center;}
 <body>
 	<center>
 <br>
-<form method="POST"  action="admin1.php">
+<form method="POST"  >
 	
 <input  type="submit"    name="t" value="tickets"  >
 
@@ -48,6 +48,25 @@ h3{text-align: center;}
 <div>
 <br><br>
  <?php
+
+$fid=$_GET['fid'];
+$depcity=$_GET['depcity'];
+$destcity=$_GET['destcity'];
+$depdate=$_GET['depdate'];
+$deptime=$_GET['deptime'];
+$lastbid=$_GET['bid'];
+$tickets=$_GET['tickets'];
+$cabin=$_GET['cabin'];
+$lastpid=$_GET['pid'];
+
+
+
+
+
+
+
+
+
 // // 1- Connect to database
  $myconn= mysqli_connect("localhost","root","","airressystem");
 $rem=0;
@@ -82,6 +101,39 @@ array_push($arr,$myrow['seatnumber']);
 // foreach($arr as $value){
 //     echo $value . "<br>";
 // }
+
+
+
+
+
+
+
+
+if (isset($_POST['t'])) {
+	
+
+$a=sizeof($ar);
+// echo "$a";
+if ($a==$tickets) {
+	// echo "This is called";
+
+// echo "$lastpid";
+
+header("Location:ticketing.php?fid=$fid&lastpid=$lastpid&lastbid=$lastbid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+
+
+}
+
+}
+
+
+
+
+
+
+
+
+
 $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while ($myrow = mysqli_fetch_assoc($myresult)) {
@@ -278,6 +330,26 @@ echo "</form>";
 <?php
 
 
+// $fid=$_GET['fid'];
+// $depcity=$_GET['depcity'];
+// $destcity=$_GET['destcity'];
+// $depdate=$_GET['depdate'];
+// $deptime=$_GET['deptime'];
+// $lastbid=$_GET['bid'];
+// $tickets=$_GET['tickets'];
+// $cabin=$_GET['cabin'];
+// $lastpid=$_GET['pid'];
+
+
+
+
+
+
+
+
+
+
+
 $count=0;
 
 $rem=1;
@@ -338,18 +410,20 @@ echo "<script type='text/javascript'>
         </script>";
 }
 
-$a=sizeof($ar);
+// $a=sizeof($ar);
 
 
 // echo "$a";
 
-if (isset($_POST['t'])) {
+// if (isset($_POST['t'])) {
 
 
-// if ($a==3) {
-	header("Location:admin1.php");
+//  if ($a==3) {
+	
+// // header("Location:booked_seats.php?fid=$fid&pid=$pid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+
+//  }
 // }
-}
 
 
 }
@@ -357,22 +431,26 @@ if (isset($_POST['t'])) {
 
 
 
-// $fid=$_GET['fid'];
-// $depcity=$_GET['depcity'];
-// $destcity=$_GET['destcity'];
-// $depdate=$_GET['depdate'];
-// $tickets=$_GET['tickets'];
-// $cabin=$_GET['cabin'];
 
 
 
-// echo "$fid"."<br>"; 
-// echo "$depcity"."<br>"; 
-// echo "$destcity"."<br>"; 
-// echo "$depdate"."<br>"; 
-// echo "$tickets"."<br>"; 
-// echo "$cabin"."<br>"; 
-  
+
+
+
+
+
+
+
+echo "$fid"."<br>"; 
+echo "$depcity"."<br>"; 
+echo "$destcity"."<br>"; 
+echo "$depdate"."<br>"; 
+echo "$tickets"."<br>"; 
+echo "$cabin"."<br>"; 
+echo "$lastbid"."<br>"; 
+  echo "$deptime"."<br>"; 
+echo "$lastpid"."<br>"; 
+
 
 
 

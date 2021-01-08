@@ -90,8 +90,10 @@ $fid=$_GET['fid'];
 $depcity=$_GET['depcity'];
 $destcity=$_GET['destcity'];
 $depdate=$_GET['depdate'];
+$deptime=$_GET['deptime'];
 $tickets=$_GET['tickets'];
 $cabin=$_GET['cabin'];
+$pid=$_GET['pid'];
 
 
 
@@ -101,6 +103,8 @@ echo "$destcity"."<br>";
 echo "$depdate"."<br>"; 
 echo "$tickets"."<br>"; 
 echo "$cabin"."<br>"; 
+echo "$deptime"."<br>"; 
+echo "$pid"."<br>"; 
   
 
 
@@ -114,8 +118,6 @@ if(isset($_POST['submit']))
 
 
 
-header("Location:booked_seats.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&tickets=$tickets&cabin=$cabin");
-
 
 
 	$fname=$_POST['fname'];
@@ -128,83 +130,93 @@ header("Location:booked_seats.php?fid=$fid&depcity=$depcity&destcity=$destcity&d
 	$phonenum=$_POST['phonenum'];
 	$email=$_POST['email'];
 	$country=$_POST['country'];
-//$pid=6;	
-	// $insertquery="INSERT INTO `booking`(`pid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$pid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
-// $_SESSION["pid"]=$last_id;
+	$insertquery="INSERT INTO `booking`(`pid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$pid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
 $res=mysqli_query($myconn,$insertquery);
 //  echo "New record created successfully. Last inserted ID is: " . $last_id;
 if ($res) {
 $last_bid = $myconn->insert_id;
+
+header("Location:booked_seats.php?fid=$fid&pid=$pid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+
 echo "<br>";
-echo "New record created successfully. Last inserted ID is: " . $last_bid;
- $myquery2 = "SELECT * FROM `flightschedule` ";
- $myresult2=mysqli_query($myconn,$myquery2);
-while($myrows2 = mysqli_fetch_assoc($myresult2)){
+// echo "New record created successfully. Last inserted ID is: " . $last_bid;
+ 
 
-if ($myrows2['fid']==$flightid) {
-	$rid2=$myrows2['rid'];
-	echo "<br>"."$rid2";
-	$flightid=$myrows2['fid'];
-	$destcity=$myrows2['destcity'];
-	echo "<br>"."$flightid";
-$insertquery3="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `date`, `time`, `numoftickets`, `cabin`) VALUES ('$last_bid','$flightid','$depcity','$destcity','$depdate','$deptime','$numoftickets','$cabin')";
-$res3=mysqli_query($myconn,$insertquery3);
-
-
-if ($res3) {
-	echo "<br>"."Your Seat is Reservesd";
-
-
-
-
-$myquery5 = "SELECT * FROM `flightschedule` ";
- $myresult5=mysqli_query($myconn,$myquery5);
-while($myrows5 = mysqli_fetch_assoc($myresult5)){
-if ("Economy"==$cabin && $myrows5['fid']==$flightid ) {
- $myrows5['reseats']=$myrows5['reseats']-$numoftickets;
- $reseats=$myrows5['reseats'];
-$insertquery6="UPDATE `flightschedule` SET `reseats`='$reseats'"; 
-$res6=mysqli_query($myconn,$insertquery6);
-if ($res6) {
-
-
-$_SESSION["bid"]=$last_bid;
-$_SESSION["flightid"]=$flightid;
-$_SESSION["tottalfare"]=$myrows5['ecprice']*$numoftickets;
-
-
-	echo "<br>"."flightschedule Is Updated";
-header("Location:ticketing.php");
-
-
-}}
-
-if ("Business"==$cabin  && $myrows5['fid']==$flightid) {
-	$myrows5['rbseats']=$myrows5['rbseats']-$numoftickets;
- $rbseats=$myrows5['rbseats'];
-$insertquery7="UPDATE `flightschedule` SET `rbseats`='$rbseats'"; 
-$res7=mysqli_query($myconn,$insertquery7);
-if ($res7) {
-	echo "<br>"."flightschedule Is Updated";
-	header("Location:ticketing.php");
-}}
-}}}}
-	?>
-<script type="text/javascript">
-	alert("Data Inserted Successfully");	
-</script>
-<?php
-}else{
-	?>
-<script type="text/javascript">
-	alert("Data Not Inserted Successfully");
-</script>
-<?php
 }
 }
 
 
 
+
+
+//  $myquery2 = "SELECT * FROM `flightschedule` ";
+//  $myresult2=mysqli_query($myconn,$myquery2);
+// while($myrows2 = mysqli_fetch_assoc($myresult2)){
+
+// if ($myrows2['fid']==$flightid) {
+// 	$rid2=$myrows2['rid'];
+// 	echo "<br>"."$rid2";
+// 	$flightid=$myrows2['fid'];
+// 	$destcity=$myrows2['destcity'];
+// 	echo "<br>"."$flightid";
+// $insertquery3="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `date`, `time`, `numoftickets`, `cabin`) VALUES ('$last_bid','$flightid','$depcity','$destcity','$depdate','$deptime','$numoftickets','$cabin')";
+// $res3=mysqli_query($myconn,$insertquery3);
+
+
+// if ($res3) {
+// 	echo "<br>"."Your Seat is Reservesd";
+
+
+
+
+// $myquery5 = "SELECT * FROM `flightschedule` ";
+//  $myresult5=mysqli_query($myconn,$myquery5);
+// while($myrows5 = mysqli_fetch_assoc($myresult5)){
+// if ("Economy"==$cabin && $myrows5['fid']==$flightid ) {
+//  $myrows5['reseats']=$myrows5['reseats']-$numoftickets;
+//  $reseats=$myrows5['reseats'];
+// $insertquery6="UPDATE `flightschedule` SET `reseats`='$reseats'"; 
+// $res6=mysqli_query($myconn,$insertquery6);
+// if ($res6) {
+
+
+// $_SESSION["bid"]=$last_bid;
+// $_SESSION["flightid"]=$flightid;
+// $_SESSION["tottalfare"]=$myrows5['ecprice']*$numoftickets;
+
+
+// 	echo "<br>"."flightschedule Is Updated";
+
+// header("Location:booked_seats.php?fid=$fid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+
+
+// }}
+
+// if ("Business"==$cabin  && $myrows5['fid']==$flightid) {
+// 	$myrows5['rbseats']=$myrows5['rbseats']-$numoftickets;
+//  $rbseats=$myrows5['rbseats'];
+// $insertquery7="UPDATE `flightschedule` SET `rbseats`='$rbseats'"; 
+// $res7=mysqli_query($myconn,$insertquery7);
+// if ($res7) {
+// 	echo "<br>"."flightschedule Is Updated";
+	
+// header("Location:booked_seats.php?fid=$fid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+
+// }}
+// }}}}
+// 	?>
+// <script type="text/javascript">
+// 	alert("Data Inserted Successfully");	
+// </script>
+// <?php
+// }else{
+// 	?>
+// <script type="text/javascript">
+// 	alert("Data Not Inserted Successfully");
+// </script>
+ //<?php
+// }
+// }
 
 
 

@@ -84,6 +84,7 @@ $fid=$_GET['fid'];
 $depcity=$_GET['depcity'];
 $destcity=$_GET['destcity'];
 $depdate=$_GET['depdate'];
+$deptime=$_GET['deptime'];
 $tickets=$_GET['tickets'];
 $cabin=$_GET['cabin'];
 
@@ -95,6 +96,7 @@ echo "$destcity"."<br>";
 echo "$depdate"."<br>"; 
 echo "$tickets"."<br>"; 
 echo "$cabin"."<br>"; 
+echo "$deptime"."<br>"; 
   
 
 
@@ -208,7 +210,6 @@ if(isset($_POST['submit']))
 {
 
 
-header("Location:booking_form.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&tickets=$tickets&cabin=$cabin");
 
 	
 	$fname=$_POST['fname'];
@@ -222,15 +223,16 @@ header("Location:booking_form.php?fid=$fid&depcity=$depcity&destcity=$destcity&d
 
 
 
-	// $insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
+	$insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 
 
-$last_id = $myconn->insert_id;
-  echo "New record created successfully. Last inserted ID is: " . $last_id;
-$_SESSION["pid"]=$last_id;
+$last_pid = $myconn->insert_id;
+//   echo "New record created successfully. Last inserted ID is: " . $last_id;
+// $_SESSION["pid"]=$last_id;
 
+header("Location:booking_form.php?fid=$fid&pid=$last_pid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
 
 // header('Location:booking_form.php');
 
