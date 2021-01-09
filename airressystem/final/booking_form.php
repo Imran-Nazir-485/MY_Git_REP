@@ -94,6 +94,7 @@ $deptime=$_GET['deptime'];
 $tickets=$_GET['tickets'];
 $cabin=$_GET['cabin'];
 $pid=$_GET['pid'];
+$returndate=$_GET['returndate'];
 
 
 
@@ -105,6 +106,7 @@ echo "$tickets"."<br>";
 echo "$cabin"."<br>"; 
 echo "$deptime"."<br>"; 
 echo "$pid"."<br>"; 
+echo "$returndate"."<br>"; 
   
 
 
@@ -136,7 +138,7 @@ $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 $last_bid = $myconn->insert_id;
 
-header("Location:booked_seats.php?fid=$fid&pid=$pid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+header("Location:booked_seats.php?fid=$fid&pid=$pid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
 
 echo "<br>";
 // echo "New record created successfully. Last inserted ID is: " . $last_bid;

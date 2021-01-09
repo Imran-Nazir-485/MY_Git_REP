@@ -87,6 +87,7 @@ $depdate=$_GET['depdate'];
 $deptime=$_GET['deptime'];
 $tickets=$_GET['tickets'];
 $cabin=$_GET['cabin'];
+$returndate=$_GET['returndate'];
 
 
 
@@ -97,6 +98,7 @@ echo "$depdate"."<br>";
 echo "$tickets"."<br>"; 
 echo "$cabin"."<br>"; 
 echo "$deptime"."<br>"; 
+echo "$returndate"."<br>"; 
   
 
 
@@ -232,7 +234,7 @@ $last_pid = $myconn->insert_id;
 //   echo "New record created successfully. Last inserted ID is: " . $last_id;
 // $_SESSION["pid"]=$last_id;
 
-header("Location:booking_form.php?fid=$fid&pid=$last_pid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+header("Location:booking_form.php?fid=$fid&pid=$last_pid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
 
 // header('Location:booking_form.php');
 

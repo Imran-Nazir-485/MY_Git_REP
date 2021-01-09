@@ -84,7 +84,7 @@ $destcity=$_GET['destcity'];
 <input type=\"text\" name=\"depdate\" placeholder=\"Departure Date\"      value=\"  $depdate \"     style='width:100px;text-align:center;'     readonly>
 <br>
 <label>Return Date</label>
-<input type=\"text\" name=\"depdate\" placeholder=\"Return Date\"      value=\"  $returndate \"     style='width:100px;text-align:center;'      readonly>
+<input type=\"text\" name=\"returndate\" placeholder=\"Return Date\"      value=\"  $returndate \"     style='width:100px;text-align:center;'      readonly>
 <br>
 
 <label>Departure Time</label>
@@ -127,7 +127,8 @@ $cabin=$_POST['cabin'];
 $deptime=$_POST['deptime'];
 
 
-
+$returndate=$_POST['returndate'];
+// echo "$returndate";
 
 
 
@@ -141,10 +142,10 @@ while($myrows = mysqli_fetch_assoc($myresult)){
 if ($myrows["fid"]==$fid && $myrows["depcity"]==$depcity && $myrows["depdate"]==$depdate    && $myrows["destcity"]==$destcity) {
 if ("Economy"==$cabin    && $myrows['reseats']>=$tickets) {
 
-header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
 }
 if ("Business"==$cabin    && $myrows['rbseats']>=$tickets) {
-header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
 }
 
 

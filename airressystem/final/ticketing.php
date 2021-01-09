@@ -3,8 +3,6 @@
 include 'dbconn.php';
 
 
-
-
 $fid=$_GET['fid'];
 $depcity=$_GET['depcity'];
 $destcity=$_GET['destcity'];
@@ -14,6 +12,7 @@ $lastbid=$_GET['lastbid'];
 $tickets=$_GET['tickets'];
 $cabin=$_GET['cabin'];
 $lastpid=$_GET['lastpid'];
+$returndate=$_GET['returndate'];
 
 
 
@@ -21,15 +20,91 @@ $lastpid=$_GET['lastpid'];
 
 
 
-echo "$fid"."<br>"; 
-echo "$depcity"."<br>"; 
-echo "$destcity"."<br>"; 
-echo "$depdate"."<br>"; 
-echo "$tickets"."<br>"; 
-echo "$cabin"."<br>"; 
-echo "$lastbid"."<br>"; 
-echo "$deptime"."<br>"; 
-echo "$lastpid"."<br>"; 
+//  $myconn= mysqli_connect("localhost","root","","airressystem");
+// $arr = array();
+// $myquery = "SELECT * FROM reservations";
+// //3- Run Query
+// $myresult = mysqli_query($myconn,$myquery);
+// // $myrow = mysqli_fetch_assoc($myresult);
+// while($myrow = mysqli_fetch_assoc($myresult))
+// {
+
+// if ($myrow['rid']=='$fid') {
+
+// if ($myrow['status']=='ND') {
+// array_push($ar,$myrow['seatnumber']);	
+// }
+// }
+
+
+// }
+
+
+
+
+
+//$rem=$rem+1;
+// }
+
+// foreach($arr as $value){
+//     echo $value . "<br>";
+// }
+
+
+
+
+
+
+
+ $myconn= mysqli_connect("localhost","root","","airressystem");
+$arr = array();
+$myquery = "SELECT * FROM flightschedule";
+//3- Run Query
+$myresult = mysqli_query($myconn,$myquery);
+// $myrow = mysqli_fetch_assoc($myresult);
+while($myrow = mysqli_fetch_assoc($myresult))
+{
+
+if ($myrow['fid']=='pk2300'   && $returndate!=0) {
+
+$rebcprice=$myrow['rebcprice'];
+$reecprice=$myrow['reecprice'];
+
+
+
+}
+
+
+else
+{
+
+$bcprice=$myrow['bcprice'];
+$ecprice=$myrow['ecprice'];
+
+}
+
+
+
+}
+
+
+echo "$bcprice"."<br>";
+echo "$ecprice"."<br>";
+
+
+
+
+
+// echo "$fid"."<br>"; 
+// echo "$depcity"."<br>"; 
+// echo "$destcity"."<br>"; 
+// echo "$depdate"."<br>"; 
+// echo "$tickets"."<br>"; 
+// echo "$cabin"."<br>"; 
+// echo "$lastbid"."<br>"; 
+// echo "$deptime"."<br>"; 
+// echo "$lastpid"."<br>"; 
+// echo "$returndate"."<br>";
 
 
 

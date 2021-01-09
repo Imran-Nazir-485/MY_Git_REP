@@ -59,6 +59,8 @@ $tickets=$_GET['tickets'];
 $cabin=$_GET['cabin'];
 $lastpid=$_GET['pid'];
 
+$returndate=$_GET['returndate'];
+
 
 
 
@@ -119,7 +121,7 @@ if ($a==$tickets) {
 
 // echo "$lastpid";
 
-header("Location:ticketing.php?fid=$fid&lastpid=$lastpid&lastbid=$lastbid&depcity=$depcity&destcity=$destcity&depdate=$depdate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+header("Location:ticketing.php?fid=$fid&lastpid=$lastpid&lastbid=$lastbid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
 
 
 }
@@ -450,6 +452,17 @@ echo "$cabin"."<br>";
 echo "$lastbid"."<br>"; 
   echo "$deptime"."<br>"; 
 echo "$lastpid"."<br>"; 
+
+echo "$returndate"."<br>";
+
+
+
+
+
+
+
+
+
 
 
 
