@@ -1,11 +1,17 @@
 <?php
 
-
-
-
-
-
-
+echo "<style>
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+";
 
 
 
@@ -15,10 +21,12 @@ echo "<br>";
 echo "<br>";
 echo "<form method=\"post\">";
 echo "<input  type=\"submit\" name=\"interchnage\" value=\"OneWay Ticket Reservation\"     >";
-echo "<input  type=\"submit\" name=\"interchnage1\" value=\"Return  Ticket Reservation\"     >";
+echo "<input  type=\"submit\" name=\"interchnage1\" value=\"Return  Ticket Reservation\"   onclick=\"submitButtonStyle()\"  >";
 echo "</form>";
 echo "</center>";
-if (isset($_POST['interchnage'])) {
+ if (1  ||  isset($_POST['interchnage']) ) {
+
+ 	ob_start();
 echo "<center>";
 echo "<input type=\"submit\" name=\"submit\" value=\"OneWay\">"."<input type=\"radio\" name=\"triptype\" value=\"v1\"  checked=\"checked\" >";
 echo "<br>";
@@ -94,6 +102,7 @@ echo "</center>";
 
 
 if (isset($_POST['interchnage1'])) {
+	 ob_clean(); 
 echo "<center>";
 echo "<input type=\"submit\" name=\"submit\" value=\"Return\">"."<input type=\"radio\" name=\"triptype\" value=\"v1\"  checked=\"checked\" >";
 echo "<br>";
@@ -256,3 +265,17 @@ header("Location:availableflights.php?w=13");
 
 
  ?>
+
+
+<script type="text/javascript">
+	function submitButtonStyle() { 
+document.getElementsByClassName("stylebutton").style.backgroundColor = "red"; }﻿
+</script>
+
+
+
+
+
+
+
+
