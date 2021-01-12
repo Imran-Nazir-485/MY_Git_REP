@@ -86,27 +86,33 @@ border: 1px solid black;}
 
 <?php
  
-$fid=$_GET['fid'];
-$depcity=$_GET['depcity'];
-$destcity=$_GET['destcity'];
-$depdate=$_GET['depdate'];
-$deptime=$_GET['deptime'];
-$tickets=$_GET['tickets'];
-$cabin=$_GET['cabin'];
-$pid=$_GET['pid'];
-$returndate=$_GET['returndate'];
+
+// $pid=$_GET['pid'];
+// echo "$pid";
 
 
 
-echo "$fid"."<br>"; 
-echo "$depcity"."<br>"; 
-echo "$destcity"."<br>"; 
-echo "$depdate"."<br>"; 
-echo "$tickets"."<br>"; 
-echo "$cabin"."<br>"; 
-echo "$deptime"."<br>"; 
-echo "$pid"."<br>"; 
-echo "$returndate"."<br>"; 
+// $fid=$_GET['fid'];
+// $depcity=$_GET['depcity'];
+// $destcity=$_GET['destcity'];
+// $depdate=$_GET['depdate'];
+// $deptime=$_GET['deptime'];
+// $tickets=$_GET['tickets'];
+// $cabin=$_GET['cabin'];
+// $pid=$_GET['pid'];
+// $returndate=$_GET['returndate'];
+
+
+
+// echo "$fid"."<br>"; 
+// echo "$depcity"."<br>"; 
+// echo "$destcity"."<br>"; 
+// echo "$depdate"."<br>"; 
+// echo "$tickets"."<br>"; 
+// echo "$cabin"."<br>"; 
+// echo "$deptime"."<br>"; 
+// echo "$pid"."<br>"; 
+// echo "$returndate"."<br>"; 
   
 
 
@@ -114,6 +120,65 @@ echo "$returndate"."<br>";
 
 $bid=2;
 include 'dbconn.php';
+
+
+
+$bis=2;
+
+
+session_start();
+$fid=$_SESSION['fid'];
+$rid=$_SESSION['rid'];
+$depcity=$_SESSION['depcity'];
+$destcity=$_SESSION['destcity'];
+$depdate=$_SESSION['depdate'];
+$deptime=$_SESSION['deptime'];
+$returndate=$_SESSION['returndate'];
+$tickets=$_SESSION['tickets'];
+$cabin=$_SESSION['cabin'];
+$way=$_SESSION['way'];
+
+
+echo "$fid"."<br>";
+
+echo "$rid"."<br>";
+
+echo "$depcity"."<br>";
+
+echo "$destcity"."<br>";
+
+echo "$depdate"."<br>";
+
+echo "$deptime"."<br>";
+
+
+echo "$returndate"."<br>";
+
+echo "$tickets"."<br>";
+
+
+echo "$cabin"."<br>";
+
+echo "$way"."<br>";
+
+
+
+
+
+
+
+	 // $insertquery="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `depdate`, `deptime`, `numoftickets`, `cabin`, `way`, `status`) VALUES ('$bid','$rid','$depcity','$destcity','depdate','$deptime','$tickets','$cabin','$way','ND')";
+$res=mysqli_query($myconn,$insertquery);
+if ($res) {
+
+
+
+echo "inserted";
+header("Location:booked_seats.php");
+}
+
+
+
 
 if(isset($_POST['submit']))
 {
@@ -131,18 +196,22 @@ if(isset($_POST['submit']))
 	$placeofbirth=$_POST['placeofbirth'];
 	$phonenum=$_POST['phonenum'];
 	$email=$_POST['email'];
-	$country=$_POST['country'];
-	$insertquery="INSERT INTO `booking`(`pid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$pid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
+	// $country=$_POST['country'];
+	// $insertquery="INSERT INTO `booking`(`pid`, `fname`, `lname`, `gender`, `passportnum`, `dateofissue`, `dateofexpirey`, `placeofbirth`, `phonenum`, `email`, `country`) VALUES ('$pid','$fname','$lname','$gender','$passportnum','$dateofissue','$dateofexpirey','$placeofbirth','$phonenum','$email','$country')";
 $res=mysqli_query($myconn,$insertquery);
 //  echo "New record created successfully. Last inserted ID is: " . $last_id;
 if ($res) {
 $last_bid = $myconn->insert_id;
 
-header("Location:booked_seats.php?fid=$fid&pid=$pid&bid=$last_bid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+header("Location:booked_seats.php?bid=$last_bid");
 
 echo "<br>";
 // echo "New record created successfully. Last inserted ID is: " . $last_bid;
  
+
+
+
+
 
 }
 }
@@ -207,16 +276,16 @@ echo "<br>";
 // }}
 // }}}}
 // 	?>
-// <script type="text/javascript">
+ <script type="text/javascript">
 // 	alert("Data Inserted Successfully");	
 // </script>
-// <?php
+ <?php
 // }else{
 // 	?>
-// <script type="text/javascript">
+ <script type="text/javascript">
 // 	alert("Data Not Inserted Successfully");
 // </script>
- //<?php
+ <?php
 // }
 // }
 

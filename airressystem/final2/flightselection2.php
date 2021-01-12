@@ -4,16 +4,52 @@ echo "<center>
 <h4>Flights Details</h4>
 </center>";
 
-
-
+include 'dbconn.php';
 $fid=$_GET['fid'];
-$rid=$_GET['rid'];
-$depdate=$_GET['depdate'];
-$returndate=$_GET['returndate'];
-$depcity=$_GET['depcity'];
-$deptime=$_GET['deptime'];
 $way=$_GET['way'];
-$destcity=$_GET['destcity'];
+
+// $rid=$_GET['rid'];
+// $depdate=$_GET['depdate'];
+// $returndate=$_GET['returndate'];
+// $depcity=$_GET['depcity'];
+// $deptime=$_GET['deptime'];
+// $way=$_GET['way'];
+// $destcity=$_GET['destcity'];
+
+
+
+
+$myquery = "SELECT * FROM flightschedule";
+$myresult = mysqli_query($myconn,$myquery);
+while($myrow = mysqli_fetch_assoc($myresult)){
+
+
+if ($myrow['fid']==$fid) {
+
+
+
+$depdate=$myrow['depdate'];
+$returndate=$myrow['returndate'];
+$depcity=$myrow['depcity'];
+$deptime=$myrow['deptime'];
+$destcity=$myrow['destcity'];
+
+
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // echo "$fid"."<br>";
@@ -142,10 +178,30 @@ while($myrows = mysqli_fetch_assoc($myresult)){
 if ($myrows["fid"]==$fid && $myrows["depcity"]==$depcity && $myrows["depdate"]==$depdate    && $myrows["destcity"]==$destcity) {
 if ("Economy"==$cabin    && $myrows['reseats']>=$tickets) {
 
-header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info2.php");	
+session_start();
+$_SESSION['fid']=$fid;
+$_SESSION['rid']=$myrows['rid'];
+$_SESSION['depcity']=$depcity;
+$_SESSION['destcity']=$destcity;
+$_SESSION['depdate']=$depdate;
+$_SESSION['deptime']=$deptime;
+$_SESSION['returndate']=$returndate;
+$_SESSION['tickets']=$numoftickets;
+$_SESSION['cabin']=$cabin;
+$_SESSION['way']=$way;
+
+
+
+
+// fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin
+
+
+
+
 }
 if ("Business"==$cabin    && $myrows['rbseats']>=$tickets) {
-header("Location:passenger_info.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info2.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
 }
 
 

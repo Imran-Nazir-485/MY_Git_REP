@@ -80,25 +80,25 @@ border: 1px solid black;}
 
 
  
-$fid=$_GET['fid'];
-$depcity=$_GET['depcity'];
-$destcity=$_GET['destcity'];
-$depdate=$_GET['depdate'];
-$deptime=$_GET['deptime'];
-$tickets=$_GET['tickets'];
-$cabin=$_GET['cabin'];
-$returndate=$_GET['returndate'];
+// $fid=$_GET['fid'];
+// $depcity=$_GET['depcity'];
+// $destcity=$_GET['destcity'];
+// $depdate=$_GET['depdate'];
+// $deptime=$_GET['deptime'];
+// $tickets=$_GET['tickets'];
+// $cabin=$_GET['cabin'];
+// $returndate=$_GET['returndate'];
 
 
 
-echo "$fid"."<br>"; 
-echo "$depcity"."<br>"; 
-echo "$destcity"."<br>"; 
-echo "$depdate"."<br>"; 
-echo "$tickets"."<br>"; 
-echo "$cabin"."<br>"; 
-echo "$deptime"."<br>"; 
-echo "$returndate"."<br>"; 
+// echo "$fid"."<br>"; 
+// echo "$depcity"."<br>"; 
+// echo "$destcity"."<br>"; 
+// echo "$depdate"."<br>"; 
+// echo "$tickets"."<br>"; 
+// echo "$cabin"."<br>"; 
+// echo "$deptime"."<br>"; 
+// echo "$returndate"."<br>"; 
   
 
 
@@ -213,6 +213,8 @@ if(isset($_POST['submit']))
 
 
 
+header("Location:booking_form2.php?pid=2");
+
 	
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];
@@ -225,7 +227,7 @@ if(isset($_POST['submit']))
 
 
 
-	$insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
+	// $insertquery="INSERT INTO `passenger`( `fname`, `lname`, `dob`, `nationality`, `othservices`, `cnic`, `passport`) VALUES ('$fname','$lname','$dob','$nationality','$otherservices','$cnic','$passport')";
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 
@@ -234,7 +236,7 @@ $last_pid = $myconn->insert_id;
 //   echo "New record created successfully. Last inserted ID is: " . $last_id;
 // $_SESSION["pid"]=$last_id;
 
-header("Location:booking_form.php?fid=$fid&pid=$last_pid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+header("Location:booking_form.php?pid=$last_pid");
 
 // header('Location:booking_form.php');
 

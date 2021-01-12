@@ -1,18 +1,5 @@
 <?php
 
-echo "<style>
-input[type=button], input[type=submit], input[type=reset] {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-</style>
-";
-
 
 
 echo "<center>";
@@ -187,18 +174,14 @@ $depcity=$_POST['depcity'];
 $destcity=$_POST['destcity'];
 $depdate=$_POST['depdate'];
 $deptime=$_POST['deptime'];
-$returndate=0;
-$w=11;
 
 session_start();
 $_SESSION['depcity']=$depcity;
 $_SESSION['destcity']=$destcity;
 $_SESSION['depdate']=$depdate;
 $_SESSION['deptime']=$deptime;
-$_SESSION['returndate']=-1;
-$_SESSION['adminside']=$w;
 
-header("Location:availableflights.php?w=11");
+header("Location:availableflights2.php?way=1");
 
 
 
@@ -221,8 +204,6 @@ $depdate=$_POST['depdate'];
 $deptime=$_POST['deptime'];
 $returdate=$_POST['deptime'];
 $returndate=$_POST['returndate'];
-$w=13;
-
 
 
 session_start();
@@ -231,8 +212,7 @@ $_SESSION['destcity']=$destcity;
 $_SESSION['depdate']=$depdate;
 $_SESSION['deptime']=$deptime;
 $_SESSION['returndate']=$returndate;
-$_SESSION['adminside']=$w;
-header("Location:availableflights.php?w=13");
+header("Location:availableflights2.php?way=2");
 
 
 

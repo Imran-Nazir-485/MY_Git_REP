@@ -78,7 +78,7 @@ header("Location:signup_form.php");
 if(isset($_POST['availableflights']))
 {
 
-header("Location:availableflights2.php?w=12");
+header("Location:availableflights2.php?way=adminside");
 }
 if(isset($_POST['reservation']))
 {

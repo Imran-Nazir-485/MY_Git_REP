@@ -49,17 +49,24 @@ h3{text-align: center;}
 <br><br>
  <?php
 
-$fid=$_GET['fid'];
-$depcity=$_GET['depcity'];
-$destcity=$_GET['destcity'];
-$depdate=$_GET['depdate'];
-$deptime=$_GET['deptime'];
-$lastbid=$_GET['bid'];
-$tickets=$_GET['tickets'];
-$cabin=$_GET['cabin'];
-$lastpid=$_GET['pid'];
+// $fid=$_GET['fid'];
 
-$returndate=$_GET['returndate'];
+// $resid=$_GET['resid'];
+
+// $way=$_GET['way'];
+
+
+
+// $depcity=$_GET['depcity'];
+// $destcity=$_GET['destcity'];
+// $depdate=$_GET['depdate'];
+// $deptime=$_GET['deptime'];
+// $lastbid=$_GET['bid'];
+// $tickets=$_GET['tickets'];
+// $cabin=$_GET['cabin'];
+// $lastpid=$_GET['pid'];
+
+// $returndate=$_GET['returndate'];
 
 
 
@@ -74,7 +81,7 @@ $returndate=$_GET['returndate'];
 $rem=0;
 $ar = array();
 $arr = array();
-$myquery = "SELECT * FROM reservations";
+$myquery = "SELECT * FROM ticketing";
 //3- Run Query
 $myresult = mysqli_query($myconn,$myquery);
 // $myrow = mysqli_fetch_assoc($myresult);
@@ -382,7 +389,7 @@ if ($count==1) {
 
 
 
-$insertquery="DELETE FROM `reservations` WHERE seatnumber='$seat'";
+$insertquery="DELETE FROM `ticketing` WHERE seatnumber='$seat'";
 $res=mysqli_query($myconn,$insertquery);
 echo "Deleted";
 
