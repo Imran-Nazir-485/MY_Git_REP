@@ -174,7 +174,7 @@ if ($res) {
 
 
 echo "inserted";
-header("Location:booked_seats.php");
+header("Location:booked_seats.php?fid=$fid&tickets=$tickets&bid=2");
 }
 
 
@@ -183,9 +183,9 @@ header("Location:booked_seats.php");
 if(isset($_POST['submit']))
 {
 
+header("Location:booked_seats2.php?fid=$fid&tickets=$tickets&bid='2'");
 
-
-
+$last_bid=2;
 
 	$fname=$_POST['fname'];
 	$lname=$_POST['lname'];

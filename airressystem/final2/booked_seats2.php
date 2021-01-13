@@ -49,7 +49,9 @@ h3{text-align: center;}
 <br><br>
  <?php
 
-// $fid=$_GET['fid'];
+$fid=$_GET['fid'];
+$bid=$_GET['bid'];
+$tickets=$_GET['tickets'];
 
 // $resid=$_GET['resid'];
 
@@ -88,9 +90,9 @@ $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult))
 {
 
-if ($myrow['rid']=='pk2300') {
+if ($myrow['bid']=="2") {
 
-if ($myrow['status']=='ND') {
+if ($myrow['status']=="ND") {
 array_push($ar,$myrow['seatnumber']);	
 }
 if ($myrow['status']=="Booked") {
@@ -107,7 +109,7 @@ array_push($arr,$myrow['seatnumber']);
 //$rem=$rem+1;
 }
 
-// foreach($arr as $value){
+// foreach($ar as $value){
 //     echo $value . "<br>";
 // }
 
@@ -128,7 +130,7 @@ if ($a==$tickets) {
 
 // echo "$lastpid";
 
-header("Location:ticketing.php?fid=$fid&lastpid=$lastpid&lastbid=$lastbid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$tickets&cabin=$cabin");
+header("Location:ticketing2.php?fid=$fid&bid=2");
 
 
 }
@@ -147,7 +149,7 @@ $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while ($myrow = mysqli_fetch_assoc($myresult)) {
 
-if ($myrow['fid']=='pk2300') {
+if ($myrow['fid']=="$fid") {
 	$tbseats=$myrow['tbseats'];
 	$teseats=$myrow['teseats'];
 
@@ -195,10 +197,6 @@ $rem++;
 
 if (in_array("BUS$rem", $arr)) 
    { 
-
-
-// echo "This is called";
-
 echo "<input  type=\"button\"       value=\"BUS$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px ; background-color:red \"  >
 "."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem++;
@@ -209,33 +207,9 @@ if (!in_array("BUS$rem", $arr) && !in_array("BUS$rem", $ar))
 // echo "This is called";
 echo "<input  type=\"submit\"   name=\"seat\"    value=\"BUS$rem\"      class=\"featuredBtn\" id=\"btn\" style=\"width: 50px\"     >"."&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
 $rem++;
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 echo "</form>";
-
-
-
-
-
-
-
-
 echo "<br><br>";
 
 
@@ -401,6 +375,8 @@ echo "<script type='text/javascript'>
 
 }
 
+
+
 if ($count==0) {
 	
 
@@ -408,9 +384,32 @@ if ($count==0) {
 
 // INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `date`, `time`, `numoftickets`, `seatnumber`, `cabin`, `status`) VALUES ([value-1],[value-2],[value-3],[value-4],[value-5],[value-6],[value-7],[value-8],[value-9],[value-10])
 
+// echo "this is called";
+
+$bid=2;
 
 
-$insertquery="INSERT INTO `reservations`( `rid`,  `seatnumber`, `status`) VALUES ('pk2300','$seat','ND')";
+
+$a=sizeof($ar);
+// echo "$a";
+if ($a+1>$tickets) {
+$bid=-1;
+?>
+<script type="text/javascript">
+	alert("Too Many Selections")
+</script>
+
+<?php
+
+}
+
+
+
+
+
+
+
+$insertquery="INSERT INTO `ticketing`(`tid`, `bid`, `tfare`, `paymethod`, `seatnumber`, `status`, `accnum`) VALUES ('','$bid','0','NA','$seat','ND','0')";
 $res=mysqli_query($myconn,$insertquery);
 echo "Inserted";
 // header("booked_seats.php");
@@ -450,17 +449,17 @@ echo "<script type='text/javascript'>
 
 
 
-echo "$fid"."<br>"; 
-echo "$depcity"."<br>"; 
-echo "$destcity"."<br>"; 
-echo "$depdate"."<br>"; 
-echo "$tickets"."<br>"; 
-echo "$cabin"."<br>"; 
-echo "$lastbid"."<br>"; 
-  echo "$deptime"."<br>"; 
-echo "$lastpid"."<br>"; 
+// echo "$fid"."<br>"; 
+// echo "$depcity"."<br>"; 
+// echo "$destcity"."<br>"; 
+// echo "$depdate"."<br>"; 
+// echo "$tickets"."<br>"; 
+// echo "$cabin"."<br>"; 
+// echo "$lastbid"."<br>"; 
+//   echo "$deptime"."<br>"; 
+// echo "$lastpid"."<br>"; 
 
-echo "$returndate"."<br>";
+// echo "$returndate"."<br>";
 
 
 
