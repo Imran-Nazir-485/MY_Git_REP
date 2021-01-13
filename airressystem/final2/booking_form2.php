@@ -183,7 +183,7 @@ header("Location:booked_seats.php?fid=$fid&tickets=$tickets&bid=2");
 if(isset($_POST['submit']))
 {
 
-header("Location:booked_seats2.php?fid=$fid&tickets=$tickets&bid='2'");
+header("Location:booked_seats2.php?fid=$fid&way=$way&cabin=$cabin&tickets=$tickets&bid='2'");
 
 $last_bid=2;
 

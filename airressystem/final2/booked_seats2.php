@@ -53,6 +53,12 @@ $fid=$_GET['fid'];
 $bid=$_GET['bid'];
 $tickets=$_GET['tickets'];
 
+$way=$_GET['way'];
+$cabin=$_GET['cabin'];
+
+
+
+
 // $resid=$_GET['resid'];
 
 // $way=$_GET['way'];
@@ -130,7 +136,7 @@ if ($a==$tickets) {
 
 // echo "$lastpid";
 
-header("Location:ticketing2.php?fid=$fid&bid=2");
+header("Location:ticketing2.php?fid=$fid&way=$way&tickets=$tickets&cabin=$cabin&bid='2'");
 
 
 }
@@ -172,7 +178,7 @@ if ($myrow['fid']=="$fid") {
 $rem=1;
 echo "<form method=\"POST\" action=\"\"  >";
 // onsubmit = function() { location. reload(true); }
-while($rem<=$tbseats)
+while($rem<=$tbseats && $cabin=="Business")
 {
 
 
@@ -223,7 +229,7 @@ echo "<br><br>";
 $rem=1;
 echo "<form method=\"POST\" action=\"\"  >";
 // onsubmit = function() { location. reload(true); }
-while($rem<=$teseats)
+while($rem<=$teseats  && $cabin=="Economy")
 {
 
 

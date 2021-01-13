@@ -201,7 +201,22 @@ $_SESSION['way']=$way;
 
 }
 if ("Business"==$cabin    && $myrows['rbseats']>=$tickets) {
-header("Location:passenger_info2.php?fid=$fid&depcity=$depcity&destcity=$destcity&depdate=$depdate&returndate=$returndate&deptime=$deptime&tickets=$numoftickets&cabin=$cabin");	
+header("Location:passenger_info2.php");	
+session_start();
+$_SESSION['fid']=$fid;
+$_SESSION['rid']=$myrows['rid'];
+$_SESSION['depcity']=$depcity;
+$_SESSION['destcity']=$destcity;
+$_SESSION['depdate']=$depdate;
+$_SESSION['deptime']=$deptime;
+$_SESSION['returndate']=$returndate;
+$_SESSION['tickets']=$numoftickets;
+$_SESSION['cabin']=$cabin;
+$_SESSION['way']=$way;
+
+
+
+
 }
 
 

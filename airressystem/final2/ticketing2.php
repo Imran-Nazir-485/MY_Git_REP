@@ -45,11 +45,14 @@
 
 <?php
 
-
+include 'dbconn.php';
 
 $fid=$_GET['fid'];
 $bid=$_GET['bid'];
 
+$way=$_GET['way'];
+$cabin=$_GET['cabin'];
+$tickets=$_GET['tickets'];
 
 echo "$fid"."<br>";
 echo "$bid"."<br>";
@@ -61,12 +64,28 @@ $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while ($myrow = mysqli_fetch_assoc($myresult)) {
 
-if ($myrow['fid']=="$fid") {
-	$tbseats=$myrow['tbseats'];
-	$teseats=$myrow['teseats'];
+if ($myrow['fid']=="$fid"  && $cabin=="Business" && $way==1) {
+$tfare=$tickets*$myrow['bcprice'];
+echo "this is called";
 
-$tfare=3*myrow['bcprice'];
+}
 
+if ($myrow['fid']=="$fid"  && $cabin=="Economy" && $way==1) {
+$tfare=$tickets*$myrow['ecprice'];
+}
+
+
+if ($myrow['fid']=="$fid"  && $cabin=="Business" && $way==2) {
+$tfare=$tickets*$myrow['retbcprice'];
+
+}
+
+
+
+if ($myrow['fid']=="$fid"  && $cabin=="Economy" && $way==2) {
+$tfare=$tickets*$myrow['retecprice'];
+
+}
 
 }
 
@@ -77,7 +96,7 @@ echo ";
 <main>
 <form method=\"post\">
 <label>Total Fare</label><br>
-<input type=\"text\" name=\"tottalfare\"   value=\"TotalFare\">
+<input type=\"text\" name=\"tottalfare\"   value=\"$tfare\">
 <br>
 <label>Payment Method</label>
 <br>
