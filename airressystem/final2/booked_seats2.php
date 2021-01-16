@@ -53,6 +53,9 @@ $fid=$_GET['fid'];
 $bid=$_GET['bid'];
 $tickets=$_GET['tickets'];
 
+
+
+
 $way=$_GET['way'];
 $cabin=$_GET['cabin'];
 
@@ -61,7 +64,12 @@ $cabin=$_GET['cabin'];
 
 // $resid=$_GET['resid'];
 
-// $way=$_GET['way'];
+$way=$_GET['way'];
+
+
+
+
+echo "$tickets"."<br>";
 
 
 
@@ -70,7 +78,7 @@ $cabin=$_GET['cabin'];
 // $depdate=$_GET['depdate'];
 // $deptime=$_GET['deptime'];
 // $lastbid=$_GET['bid'];
-// $tickets=$_GET['tickets'];
+//$tickets=$_GET['tickets'];
 // $cabin=$_GET['cabin'];
 // $lastpid=$_GET['pid'];
 
@@ -84,7 +92,7 @@ $cabin=$_GET['cabin'];
 
 
 
-// // 1- Connect to database
+// // // 1- Connect to database
  $myconn= mysqli_connect("localhost","root","","airressystem");
 $rem=0;
 $ar = array();
@@ -115,10 +123,104 @@ array_push($arr,$myrow['seatnumber']);
 //$rem=$rem+1;
 }
 
-// foreach($ar as $value){
-//     echo $value . "<br>";
-// }
+// // foreach($ar as $value){
+// //     echo $value . "<br>";
+// // }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$date = date("Y-m-d");
+$myquery = "SELECT * FROM flightschedule";
+$myresult = mysqli_query($myconn,$myquery);
+while ($myrow = mysqli_fetch_assoc($myresult)) {
+
+
+if ($myrow['depdate']>=$date && $myrow['fid']=="$fid"){
+$fid=$myrow['fid'];
+$rid=$myrow['rid'];
+}
+}
+
+
+
+
+
+
+
+$myquery1 = "SELECT * FROM  flights WHERE fid='$fid'";
+$myresult1 = mysqli_query($myconn,$myquery1);
+$myrow1 = mysqli_fetch_assoc($myresult1);
+{
+$tbseats=$myrow1['bseats'];
+$teseats=$myrow1['eseats'];
+
+}
+
+
+
+
+
+
+
+
+
+$myquery2 = "SELECT * FROM  routes WHERE rid='$rid'";
+$myresult2 = mysqli_query($myconn,$myquery2);
+$myrow2 = mysqli_fetch_assoc($myresult2);
+{
+if ($way==1  && $cabin=="Economy") {
+
+$ecprice=$myrow2['ecprice'];
+$tfare=$ecprice*$tickets;
+}
+if ($way==1 &&  $cabin=="Business") {
+
+$bcprice=$myrow2['bcprice'];
+$tfare=$bcprice*$tickets;		
+}
+if ($way==2 && $cabin=="Economy") {
+
+$reecprice=$myrow2['reecprice'];
+$tfare=	$reecprice*$tickets;
+}
+
+
+
+if ($way==2 && $cabin=="Business") {
+
+$rebcprice=$myrow2['rebcprice'];
+$tfare=	$rebcprice*$tickets;
+}
+}
+
+
+
+
+// $rebcprice=$rebcprice*5;
+// echo "$tfare"."<br>";
+// $reecprice=$reecprice*5;
+
+// echo "$reecprice"."<br>";
+
+// echo "$bcprice"."<br>";
+// echo "$ecprice"."<br>";
+
+
+
+// $fare=($rebcprice*5);
+// echo "$fare";
 
 
 
@@ -136,7 +238,10 @@ if ($a==$tickets) {
 
 // echo "$lastpid";
 
-header("Location:ticketing2.php?fid=$fid&way=$way&tickets=$tickets&cabin=$cabin&bid='2'");
+
+// $fare=$rebcprice*$tickets+$reecprice*$tickets+$bcprice*$tickets+$ecprice*$tickets;
+
+header("Location:ticketing2.php?fid=$fid&way=$way&tickets=$tickets&cabin=$cabin&bid=2&tfare=$tfare");
 
 
 }
@@ -149,22 +254,6 @@ header("Location:ticketing2.php?fid=$fid&way=$way&tickets=$tickets&cabin=$cabin&
 
 
 
-
-
-$myquery = "SELECT * FROM flightschedule";
-$myresult = mysqli_query($myconn,$myquery);
-while ($myrow = mysqli_fetch_assoc($myresult)) {
-
-if ($myrow['fid']=="$fid") {
-	$tbseats=$myrow['tbseats'];
-	$teseats=$myrow['teseats'];
-
-
-
-}
-
-
-}
 
 
 

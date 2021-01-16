@@ -50,6 +50,11 @@ include 'dbconn.php';
 $fid=$_GET['fid'];
 $bid=$_GET['bid'];
 
+
+$tfare=$_GET['tfare'];
+
+
+
 $way=$_GET['way'];
 $cabin=$_GET['cabin'];
 $tickets=$_GET['tickets'];
@@ -60,34 +65,34 @@ echo "$bid"."<br>";
 
 
 
-$myquery = "SELECT * FROM flightschedule";
-$myresult = mysqli_query($myconn,$myquery);
-while ($myrow = mysqli_fetch_assoc($myresult)) {
+// $myquery = "SELECT * FROM flightschedule";
+// $myresult = mysqli_query($myconn,$myquery);
+// while ($myrow = mysqli_fetch_assoc($myresult)) {
 
-if ($myrow['fid']=="$fid"  && $cabin=="Business" && $way==1) {
-$tfare=$tickets*$myrow['bcprice'];
-echo "this is called";
+// if ($myrow['fid']=="$fid"  && $cabin=="Business" && $way==1) {
+// $tfare=$tickets*$myrow['bcprice'];
+// echo "this is called";
 
-}
+// }
 
-if ($myrow['fid']=="$fid"  && $cabin=="Economy" && $way==1) {
-$tfare=$tickets*$myrow['ecprice'];
-}
-
-
-if ($myrow['fid']=="$fid"  && $cabin=="Business" && $way==2) {
-$tfare=$tickets*$myrow['retbcprice'];
-
-}
+// if ($myrow['fid']=="$fid"  && $cabin=="Economy" && $way==1) {
+// $tfare=$tickets*$myrow['ecprice'];
+// }
 
 
+// if ($myrow['fid']=="$fid"  && $cabin=="Business" && $way==2) {
+// $tfare=$tickets*$myrow['retbcprice'];
 
-if ($myrow['fid']=="$fid"  && $cabin=="Economy" && $way==2) {
-$tfare=$tickets*$myrow['retecprice'];
+// }
 
-}
 
-}
+
+// if ($myrow['fid']=="$fid"  && $cabin=="Economy" && $way==2) {
+// $tfare=$tickets*$myrow['retecprice'];
+
+// }
+
+// }
 
 
 

@@ -160,7 +160,7 @@ $deptime=$_POST['deptime'];
 
 
 $returndate=$_POST['returndate'];
-echo "$returndate";
+// echo "$returndate";
 
 
 
@@ -177,7 +177,7 @@ $rid=$myrow['rid'];
 $myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
 $myresult1 = mysqli_query($myconn,$myquery1);
 $myrow1 = mysqli_fetch_assoc($myresult1);
-if ($myrows["fid"]==$fid&&$myrow1["depcity"]==$depcity&&$myrows["depdate"]==$depdate&&$myrow1["destcity"]==$destcity&&$myrow['rid']==$myrow1['rid']&&$myrow['depdate']>=$date) {
+if ($myrows["fid"]==$fid && $myrows['depdate']>=$date) {
 if ("Economy"==$cabin    && $myrows['reseats']>=$tickets) {
 
 header("Location:passenger_info2.php");	
