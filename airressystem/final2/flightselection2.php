@@ -22,23 +22,19 @@ $way=$_GET['way'];
 $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult)){
-
-
-if ($myrow['fid']==$fid) {
-
-
-
+$date = date("Y-m-d");
+$rid=$myrow['rid'];
+$myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
+$myresult1 = mysqli_query($myconn,$myquery1);
+$myrow1 = mysqli_fetch_assoc($myresult1);
+if ($myrow['fid']==$fid && $myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
 $depdate=$myrow['depdate'];
 $returndate=$myrow['returndate'];
-$depcity=$myrow['depcity'];
+$depcity=$myrow1['depcity'];
 $deptime=$myrow['deptime'];
-$destcity=$myrow['destcity'];
-
-
-
+$destcity=$myrow1['destcity'];
 }
 }
-
 
 
 
@@ -164,7 +160,7 @@ $deptime=$_POST['deptime'];
 
 
 $returndate=$_POST['returndate'];
-// echo "$returndate";
+echo "$returndate";
 
 
 
@@ -175,7 +171,13 @@ include  'dbconn.php';
  $myresult=mysqli_query($myconn,$myquery);
 while($myrows = mysqli_fetch_assoc($myresult)){
 
-if ($myrows["fid"]==$fid && $myrows["depcity"]==$depcity && $myrows["depdate"]==$depdate    && $myrows["destcity"]==$destcity) {
+
+$date = date("Y-m-d");
+$rid=$myrow['rid'];
+$myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
+$myresult1 = mysqli_query($myconn,$myquery1);
+$myrow1 = mysqli_fetch_assoc($myresult1);
+if ($myrows["fid"]==$fid&&$myrow1["depcity"]==$depcity&&$myrows["depdate"]==$depdate&&$myrow1["destcity"]==$destcity&&$myrow['rid']==$myrow1['rid']&&$myrow['depdate']>=$date) {
 if ("Economy"==$cabin    && $myrows['reseats']>=$tickets) {
 
 header("Location:passenger_info2.php");	

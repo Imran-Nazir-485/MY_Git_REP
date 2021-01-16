@@ -50,19 +50,38 @@ echo "<tr>";
 while($myrow = mysqli_fetch_assoc($myresult)){
 
 
+
 if ($way=="adminside") {
+
+
+
+$date = date("Y-m-d");
+$rid=$myrow['rid'];
+$myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
+$myresult1 = mysqli_query($myconn,$myquery1);
+$myrow1 = mysqli_fetch_assoc($myresult1);
+if ($myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
 if ($myrow['returndate']==0) {
-echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
+echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>"."NA"."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='   NA    '   onclick=\"fun()\">"."</td>";
 echo "</tr>";		
 }
  if ($myrow['returndate']!=0){
-echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
+echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>".$myrow['returndate']."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='Return'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=2'\">"."</td>";
 echo "</tr>";
- }
 }
 }
+}
+}
+
+
+
+
+
+
+
+
 $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult)){
@@ -70,14 +89,23 @@ while($myrow = mysqli_fetch_assoc($myresult)){
 
 if ($way==1) {
 
-if ($myrow['returndate']==0 && $destcity==$myrow['destcity'] && $depcity==$myrow['depcity']) {
-echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
+
+$date = date("Y-m-d");
+$rid=$myrow['rid'];
+$myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
+$myresult1 = mysqli_query($myconn,$myquery1);
+$myrow1 = mysqli_fetch_assoc($myresult1);
+if ($myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
+
+
+if ($myrow['returndate']==0 && $destcity==$myrow1['destcity'] && $depcity==$myrow1['depcity']) {
+echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>"."NA"."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='   NA    '   onclick=\"fun()\">"."</td>";
 echo "</tr>";		
 		
 }
-if ($myrow['returndate']!=0 && $destcity==$myrow['destcity'] && $depcity==$myrow['depcity']){
-echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
+if ($myrow['returndate']!=0 && $destcity==$myrow1['destcity'] && $depcity==$myrow1['depcity']){
+echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>".$myrow['returndate']."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='Return'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=2'\">"."</td>";
 echo "</tr>";
 
@@ -86,15 +114,31 @@ echo "</tr>";
 
 
 }
-
+}
 $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult)){
 
 
 if ($way==2) {
-if ($myrow['returndate']!=0   && $destcity==$myrow['destcity'] && $depcity==$myrow['depcity']){
-echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow['depcity']."</td>"." <td>".$myrow['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
+
+
+
+$date = date("Y-m-d");
+$rid=$myrow['rid'];
+$myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
+$myresult1 = mysqli_query($myconn,$myquery1);
+$myrow1 = mysqli_fetch_assoc($myresult1);
+if ($myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
+
+
+
+
+
+
+
+if ($myrow['returndate']!=0   && $destcity==$myrow1['destcity'] && $depcity==$myrow1['depcity']){
+echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>".$myrow['returndate']."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='Return'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=2'\">"."</td>";
 echo "</tr>";
 
@@ -102,7 +146,7 @@ echo "</tr>";
 }
 }
 
-
+}
 
 
 
