@@ -1,6 +1,5 @@
 <center>
 <?php
-include 'dbconn.php';
 // $myquery = "SELECT * FROM `routes` WHERE rid=(SELECT MAX(rid) FROM `routes`)";
 // $myresult = mysqli_query($myconn,$myquery);
 // $myrow = mysqli_fetch_assoc($myresult);
@@ -25,48 +24,49 @@ echo "<main  style=\"border:1px solid red; padding-top:5%;\"><form method='post'
 <br>
 <input type='text' name='depcity' placeholder='DepartureCity'    required><br>
 <br>
-<input type='submit' name='adroute' value='   ADD  '><br>
+<lable>DestinationCity</lable>
+<br>
+<input type='text' name='destcity' placeholder='DestinationCity'    required><br>
+<br>
+
+
+
+
+<input type='submit' name='uproute' value='Update'><br>
 </form><main>";
 
 
-
-
-if(isset($_POST['adroute']))
+if(isset($_POST['uproute']))
 {
 $depcity=$_POST['depcity'];
 $destcity=$_POST['destcity'];
-$bclass=$_POST['bclass'];
-$eclass=$_POST['eclass'];
-$rbclass=$_POST['rbclass'];
-$reclass=$_POST['reclass'];
+$rid=0;
+include 'dbconn.php';
 $myquery = "SELECT * FROM routes ";
 $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult)){
 if ($myrow['depcity']==$depcity && $myrow['destcity']==$destcity) {
 
-$rid=-1;
+$rid=1;
 
 }
 
 }
-if ($rid==-1) {
+
+if ($rid!=1) {
 	?>
 <script >
-	alert("This Route Is Exists Already");
+	alert("No Such Route Exists");
 </script>
 <?php
 }
 
 
-if ($rid!=-1) {
-	
+if ($rid==1) {
 
-$insertquery="INSERT INTO `routes`(`rid`, `depcity`, `destcity`, `ecprice`, `bcprice`, `reecprice`, `rebcprice`) VALUES ('','$depcity','$destcity','$eclass','$bclass','reclass','rbclass')";
-$res=mysqli_query($myconn,$insertquery);
+header("Location:modifyroute.php?depcity=$depcity&destcity=$destcity");
 
-if ($res) {
-echo "Route Is Inserted Successfully";
-}
+
 }
 
 }
