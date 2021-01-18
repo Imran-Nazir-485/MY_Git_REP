@@ -11,6 +11,7 @@ $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult)){
 if ($myrow['depcity']==$depcity && $myrow['destcity']==$destcity) {
 
+$rid=$myrow['rid'];
 $depcity=$myrow['depcity'];
 $destcity=$myrow['destcity'];
 $bcprice=$myrow['bcprice'];
@@ -47,6 +48,58 @@ echo "<center><main  style=\"border:1px solid red; padding-top:5%;\"><form metho
 <br>
 <input type='submit' name='modify' value='Modify'><br>
 </form><main></center>";
+
+
+
+
+
+
+
+
+
+
+
+
+if (isset($_POST['modify'])) {
+
+$depcity=$_POST['depcity'];
+$destcity=$_POST['destcity'];
+$bcprice=$_POST['bclass'];
+$ecprice=$_POST['eclass'];
+$rebcprice=$_POST['rbclass'];
+$reecprice=$_POST['reclass'];
+
+
+
+
+
+
+
+
+
+
+$myquery = "UPDATE `routes` SET `rid`='$rid',`depcity`='$depcity',`destcity`='$destcity',`ecprice`='$ecprice',`bcprice`='$bcprice',`reecprice`='$reecprice',`rebcprice`='$rebcprice' WHERE rid='$rid'";
+$myresult = mysqli_query($myconn,$myquery);
+if ($myresult) {
+	// header("Refresh: 0");
+}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
 </center>
