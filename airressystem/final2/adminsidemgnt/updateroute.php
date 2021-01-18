@@ -47,6 +47,13 @@ $myresult = mysqli_query($myconn,$myquery);
 while($myrow = mysqli_fetch_assoc($myresult)){
 if ($myrow['depcity']==$depcity && $myrow['destcity']==$destcity) {
 
+
+$bcprice=$myrow['bcprice'];
+$ecprice=$myrow['ecprice'];
+$rebcprice=$myrow['rebcprice'];
+$reecprice=$myrow['reecprice'];
+$rid=$myrow['rid'];
+
 $rid=1;
 
 }
@@ -64,7 +71,7 @@ if ($rid!=1) {
 
 if ($rid==1) {
 
-header("Location:modifyroute.php?depcity=$depcity&destcity=$destcity");
+header("Location:modifyroute.php?rid=$rid1&depcity=$depcity&destcity=$destcity&bcprice=$bcprice&ecprice=$ecprice&rebcprice=$rebcprice&reecprice=$reecprice");
 
 
 }

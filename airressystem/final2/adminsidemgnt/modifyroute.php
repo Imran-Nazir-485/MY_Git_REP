@@ -1,7 +1,12 @@
 <center>
 	<?php
 $depcity=$_GET['depcity'];
+$bcprice=$_GET['bcprice'];
+$ecprice=$_GET['ecprice'];
+$rebcprice=$_GET['rebcprice'];
+$reecprice=$_GET['reecprice'];
 $destcity=$_GET['destcity'];
+$rid=$_GET['rid'];
 
 
 
@@ -73,21 +78,15 @@ $reecprice=$_POST['reclass'];
 
 
 
-
-
-
-
-
 $myquery = "UPDATE `routes` SET `rid`='$rid',`depcity`='$depcity',`destcity`='$destcity',`ecprice`='$ecprice',`bcprice`='$bcprice',`reecprice`='$reecprice',`rebcprice`='$rebcprice' WHERE rid='$rid'";
 $myresult = mysqli_query($myconn,$myquery);
 if ($myresult) {
-	// header("Refresh: 0");
+}
 }
 
 
 
 
-}
 
 
 
