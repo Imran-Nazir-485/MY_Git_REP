@@ -1,15 +1,15 @@
 <?php
 // 1- Connect to database
-$myconn= mysqli_connect("localhost","root","","bscs52020");
+$myconn= mysqli_connect("localhost","root","","airressystem");
 // 2- Run SQL Query
-$myquery = "SELECT * FROM student";
-// 3- Run Query
-$myresult = mysqli_query($myconn,$myquery);
-// 4- Show results
-while($myrow = mysqli_fetch_assoc($myresult)){
-echo $myrow["rollno"];
-echo $myrow["name"];
-echo $myrow["marks"] . "<br>";
-}
+// $myquery = "SELECT * FROM student";
+// // 3- Run Query
+// $myresult = mysqli_query($myconn,$myquery);
+// // 4- Show results
+// while($myrow = mysqli_fetch_assoc($myresult)){
+// echo $myrow["rollno"];
+// echo $myrow["name"];
+// echo $myrow["marks"] . "<br>";
+// }
 
 ?>
