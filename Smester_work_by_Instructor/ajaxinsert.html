@@ -1,0 +1,31 @@
+<html>
+<head>
+<script>
+function myfun(){
+   rr = document.getElementById("t1").value;
+   nn = document.getElementById("t2").value;
+//   mm = document.getElementById("t3").value;   
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function(){
+   if( this.readyState == 4 && this.status == 200)
+    document.getElementById("myspan").innerHTML=this.responseText;
+   };
+   xmlhttp.open("GET","ajaxdbinsert.php?v1="+rr+"&v2="+nn,true);
+   xmlhttp.send();
+
+} // function
+
+</script>
+</head>
+<body>
+<center>
+<h1> Add Record using AJAX </h1>
+RollNo: <input type="text" id="t1" autocomplete="off"><br>
+Name:  <input type="text" id="t2" autocomplete="off"><br>
+<!-- Marks: <input type="text" id="t3" autocomplete="off"><br> -->
+<input type="button" value="Insert" onClick="myfun()"> <br>
+<span id="myspan">
+</span>
+</center>
+</body>
+</html>

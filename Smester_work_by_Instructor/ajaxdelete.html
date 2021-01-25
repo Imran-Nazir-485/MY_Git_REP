@@ -1,0 +1,27 @@
+<html>
+<head>
+<script>
+function myfun(){
+   str = document.getElementById("t1").value;
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function(){
+   if( this.readyState == 4 && this.status == 200)
+    document.getElementById("myspan").innerHTML=this.responseText;
+   };
+   xmlhttp.open("GET","ajaxdbdelete.php?v1="+str,true);
+   xmlhttp.send();
+
+} // function
+</script>
+</head>
+<body>
+<center>
+<h1> AJAX </h1>
+<input type="text" id="t1" autocomplete="off">
+<br>
+<input type="button" value="Delete" onClick="myfun()"> <br>
+<span id="myspan">
+</span>
+</center>
+</body>
+</html>

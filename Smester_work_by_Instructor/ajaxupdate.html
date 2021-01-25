@@ -1,0 +1,34 @@
+<html>
+<head>
+<script>
+function myfun(){
+   rr = document.getElementById("t1").value;
+   nm = document.getElementById("t2").value;
+
+   var xmlhttp = new XMLHttpRequest();
+   xmlhttp.onreadystatechange = function() {
+   if (this.readyState == 4 && this.status == 200)
+     document.getElementById("myspan").innerHTML = this.responseText;
+   };
+   
+   xmlhttp.open("GET", "ajaxupdate.php?r1="+rr+"&m1="+nm, true);
+   xmlhttp.send();
+
+}
+
+</script>
+</head>
+<body>
+<center>
+<h1> Update Record using AJAX </h1>
+Roll# <input type="text" autocomplete="off" id="t1" ><br>
+Name <input type="text" autocomplete="off" id="t2" ><br>
+<input type="button" value="Update" onclick="myfun()"><br>
+<span id="myspan">
+</span>
+</center>
+</body>
+</html>
+
+
+
