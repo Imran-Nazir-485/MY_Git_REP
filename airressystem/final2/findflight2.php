@@ -59,6 +59,7 @@ echo "<select size='1' style=\"width:150px\"    name=\"destcity\">
 <option>Sharjah</option>
 <option>Quetta</option>
 <option>Chitral</option>
+<option>Lahore</option>
 
 
 

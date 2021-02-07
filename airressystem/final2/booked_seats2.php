@@ -146,8 +146,8 @@ $myquery = "SELECT * FROM flightschedule";
 $myresult = mysqli_query($myconn,$myquery);
 while ($myrow = mysqli_fetch_assoc($myresult)) {
 
-
-if ($myrow['depdate']>=$date && $myrow['fid']=="$fid"){
+// $myrow['depdate']>=$date &&
+if ( $myrow['fid']=="$fid"){
 $fid=$myrow['fid'];
 $rid=$myrow['rid'];
 }

@@ -1,35 +1,3 @@
-<!-- <center>
-<main>
-<form method=\"post\">
-<label>Total Fare</label>
-<input type=\"text\" name="tottalfare"   value="<?php   ;       ?>">
-<br>
-<br>
-<label>Payment Method</label>
-<select name="paymentmethod">
-<br>
-<br>
-<option>Credit Card</option>
-<option>PayPal</option>
-</select>
-<br>
-<br>
-<label>Account Number</label>
-<input type="text" name="accnum" placeholder="Account Number">
-<br>
-<br>
-<input type="submit" name="submit" >	
-</form>
-</main>
-	
-</center>
- -->
-
-
-
-
-
-
 
 
 

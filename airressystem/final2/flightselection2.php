@@ -27,7 +27,11 @@ $rid=$myrow['rid'];
 $myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
 $myresult1 = mysqli_query($myconn,$myquery1);
 $myrow1 = mysqli_fetch_assoc($myresult1);
-if ($myrow['fid']==$fid && $myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
+if ($myrow['fid']==$fid && $myrow['rid']==$myrow1['rid'] ) {
+
+// && $myrow['depdate']>=$date
+
+
 $depdate=$myrow['depdate'];
 $returndate=$myrow['returndate'];
 $depcity=$myrow1['depcity'];
@@ -177,9 +181,9 @@ $rid=$myrow['rid'];
 $myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
 $myresult1 = mysqli_query($myconn,$myquery1);
 $myrow1 = mysqli_fetch_assoc($myresult1);
-if ($myrows["fid"]==$fid && $myrows['depdate']>=$date) {
+if ($myrows["fid"]==$fid ) {
 if ("Economy"==$cabin    && $myrows['reseats']>=$tickets) {
-
+// && $myrows['depdate']>=$date
 header("Location:passenger_info2.php");	
 session_start();
 $_SESSION['fid']=$fid;

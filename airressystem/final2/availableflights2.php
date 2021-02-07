@@ -26,7 +26,7 @@ $depcity=$_SESSION['depcity'];
 $destcity=$_SESSION['destcity'];
 $depdate=$_SESSION['depdate'];
 $deptime=$_SESSION['deptime'];
-$returndate=$_SESSION['returndate'];
+// $returndate=$_SESSION['returndate'];
 
 
 
@@ -60,7 +60,11 @@ $rid=$myrow['rid'];
 $myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
 $myresult1 = mysqli_query($myconn,$myquery1);
 $myrow1 = mysqli_fetch_assoc($myresult1);
-if ($myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
+if ($myrow['rid']==$myrow1['rid'] ) {
+
+
+	// && $myrow['depdate']>=$date
+
 if ($myrow['returndate']==0) {
 echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>"."NA"."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='   NA    '   onclick=\"fun()\">"."</td>";
@@ -95,9 +99,12 @@ $rid=$myrow['rid'];
 $myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
 $myresult1 = mysqli_query($myconn,$myquery1);
 $myrow1 = mysqli_fetch_assoc($myresult1);
-if ($myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
+if ($myrow['rid']==$myrow1['rid']) {
+
+ // && $myrow['depdate']>=$date
 
 
+	
 if ($myrow['returndate']==0 && $destcity==$myrow1['destcity'] && $depcity==$myrow1['depcity']) {
 echo   "<td>".$myrow['fid']."</td>"."<td>".$myrow1['depcity']."</td>"." <td>".$myrow1['destcity']."</td>"."<td>".$myrow['deptime']."</td>"."<td>".$myrow['depdate']."</td>"."
 <td>"."NA"."</td>"."<td>".$myrow['flightduration']."</td>"."<td>"."<input type=\"submit\" Value='OneWay'   onclick=\"location.href='flightselection2.php?fid=$myrow[fid]&way=1'\">"."</td>"."<td>"."</td>"."<td>"."<input type=\"submit\" Value='   NA    '   onclick=\"fun()\">"."</td>";
@@ -129,11 +136,11 @@ $rid=$myrow['rid'];
 $myquery1 = "SELECT * FROM  routes WHERE rid='$rid'";
 $myresult1 = mysqli_query($myconn,$myquery1);
 $myrow1 = mysqli_fetch_assoc($myresult1);
-if ($myrow['rid']==$myrow1['rid'] && $myrow['depdate']>=$date) {
+if ($myrow['rid']==$myrow1['rid'] ) {
 
 
 
-
+// && $myrow['depdate']>=$date
 
 
 

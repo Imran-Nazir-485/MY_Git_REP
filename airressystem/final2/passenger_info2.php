@@ -10,6 +10,7 @@
 
 <main>
 <form method="POST">
+<h3>Personal Information</h3>
 <div id="main-div">
 
 F-Name<input type="text" name="fname">

@@ -167,7 +167,7 @@ echo "$way"."<br>";
 
 
 
-	 // $insertquery="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `depdate`, `deptime`, `numoftickets`, `cabin`, `way`, `status`) VALUES ('$bid','$rid','$depcity','$destcity','depdate','$deptime','$tickets','$cabin','$way','ND')";
+	 $insertquery="INSERT INTO `reservations`(`bid`, `rid`, `depcity`, `destcity`, `depdate`, `deptime`, `numoftickets`, `cabin`, `way`, `status`) VALUES ('$bid','$rid','$depcity','$destcity','depdate','$deptime','$tickets','$cabin','$way','ND')";
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 
