@@ -14,26 +14,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </head>
-<title>Routes_Management</title>
+<title>FS_Management</title>
 <body>
 
 
 
 <div  class="container text-center" style="padding: 5%;">
 <center>
-<p class="h2 " >Flight Routes Management System</p>
+<p class="h2 " >Flight Schedule Management System</p>
 <br><br>
 <form method="post">
 <div class="row ml-5">
     
-<input type="submit" name="newroute" value="Add New Route" class="row mt-2 col-sm-5    btn btn-secondary  m-1  ">
+<input type="submit" name="newfs" value="Add New FS" class="row mt-2 col    btn btn-dark  m-1  ">
  
-<input type="submit" name="updateroute"value="Update Route"class=" row mt-2 col-sm-5  btn btn-secondary    m-1">
+<input type="submit" name="updatefs"value="Update FS"class=" row mt-2 col  btn btn-dark    m-1">
 <div class="w-100"></div>
 
-<input type="submit" name="deleteroute"   value="Delete Route"    class="row mt-2 col-sm-5    btn btn-secondary  m-1 ">
  
-<input type="submit" name="management" value="GoTo Management"  class="row mt-2 col-sm-5 btn btn-secondary  m-1">
+<input type="submit" name="management" value="GoTo Management"  class="row mt-2 col btn btn-dark  m-1">
 
 
 </div>
@@ -45,26 +44,27 @@
 
 
 
+
+
 <?php
-
-if (isset($_POST['newroute'])) {
-header("Location:adroute.php"); 
+if (isset($_POST['newfs'])) {
+    header("Location:addfs.php");
 }
 
-if (isset($_POST['updateroute'])) {
-header("Location:updateroute.php"); 
-    
+
+if (isset($_POST['updatefs'])) {
+    header("Location:updatefs.php");
 }
-if (isset($_POST['deleteroute'])) {
-header("Location:delroute.php"); 
-    
-}
+
 if (isset($_POST['management'])) {
-
-header("Location:airresmgmntsystm.php");
+    header("Location:airresmgmntsystm.php");
 }
-
 
 
 
 ?>
+
+
+
+
+

@@ -93,10 +93,10 @@ $reecprice=$myrow['reecprice'];
 <div class="w-100"></div>
 <br>
 <div class="col">
-    <input type="submit" class="form-control btn btn-primary" value="UPDATE" name="modify">
+    <input type="submit" class="form-control btn btn-secondary" value="UPDATE" name="modify">
 </div>
 <div class="col">
-    <input type="submit" class="form-control btn btn-primary" value="GoTo Route Management" name="routemanagement">
+    <input type="submit" class="form-control btn btn-secondary" value="GoTo Route Management" name="routemanagement">
 </div>
   
 

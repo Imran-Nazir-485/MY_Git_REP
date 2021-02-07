@@ -43,3 +43,39 @@
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+<?php
+
+
+if (isset($_POST['newflight'])) {
+header("Location:newflight.php"); 
+}
+
+// if (isset($_POST['updateroute'])) {
+// header("Location:updateroute.php"); 
+    
+// }
+// if (isset($_POST['deleteroute'])) {
+// header("Location:delroute.php"); 
+    
+// }
+// if (isset($_POST['management'])) {
+
+// header("Location:airresmgmntsystm.php");
+// }
+
+
+?>
+
+
+
+
+

@@ -43,10 +43,10 @@
 <div class="w-100"></div>
 <br>
 <div class="col">
-    <input type="submit" class="form-control btn btn-primary" value="FIND" name="modifyroute">
+    <input type="submit" class="form-control btn btn-secondary" value="FIND" name="modifyroute">
 </div>
 <div class="col">
-    <input type="submit" class="form-control btn btn-primary" value="GoTo Route Management" name="routemanagement">
+    <input type="submit" class="form-control btn btn-secondary" value="GoTo Route Management" name="routemanagement">
 </div>
   
 
@@ -151,6 +151,17 @@ header("Location:modifyroute.php?rid=$rid1&depcity=$depcity&destcity=$destcity&b
 }
 
 }
+
+
+
+if (isset($_POST['routemanagement'])) {
+  header("Location:routemgmnt.php");
+}
+
+
+
+
+
 ?>
 </center>
 

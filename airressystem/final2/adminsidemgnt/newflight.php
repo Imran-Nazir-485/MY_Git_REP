@@ -137,6 +137,7 @@ $life=$_POST['life'];
 include 'dbconn.php';
 $insertquery="INSERT INTO `flights`(`fid`, `apcode`, `model`, `life`, `dateofoperation`, `dateofexpirey`, `bseats`, `eseats`, `engines`, `maintservices`, `status`) VALUES ('$flightid','MUL60000
 ','$model','$life','$operation','$expirey','$bseats','$eseats','$engines','$maintenace','$status')";
+echo "Inserted";
 $res=mysqli_query($myconn,$insertquery);
 if ($res) {
 	echo "Flight Inserted";

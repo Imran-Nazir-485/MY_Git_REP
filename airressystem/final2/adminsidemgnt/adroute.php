@@ -61,10 +61,10 @@
 <div class="w-100"></div>
 <br>
 <div class="col">
-    <input type="submit" class="form-control btn btn-primary" value="ADD" name="adroute">
+    <input type="submit" class="form-control btn btn-secondary" value="ADD" name="adroute">
 </div>
 <div class="col">
-    <input type="submit" class="form-control btn btn-primary" value="GoTo Route Management" name="routemanagement">
+    <input type="submit" class="form-control btn btn-secondary" value="GoTo Route Management" name="routemanagement">
 </div>
   
 

@@ -50,14 +50,29 @@ header("Location:routemgmnt.php");
 }
 
 if (isset($_POST['flightsmanagement'])) {
+header("Location:flightsmanagement.php"); 
     
 }
 if (isset($_POST['fsmanagement'])) {
+header("Location:fsmanagement.php"); 
     
 }
 if (isset($_POST['airportmanagement'])) {
 
+// header("Location:routemgmnt.php"); 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

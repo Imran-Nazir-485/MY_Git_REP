@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+
+
+ <!DOCTYPE html>
 <html>
 <head>
 	<title>Admin1</title>
@@ -8,11 +11,11 @@
 
 
 <main id="main">
-<!-- 
+
 <div id="title">
 	<h1>Pakistan Local Airline</h1>
 </div>
- -->
+ 
 <div id="image">
 	<img src="a380.jpg">
 </div>
@@ -25,6 +28,8 @@
 <div id="availableflights"><input class="header" type="submit" name="availableflights" value="AvailableFlights"></div>
 <div id="ticketstatus"><input class="header" type="submit" name="ticketstatus" value="TicketStatus"></div>
 <div id="cancel"><input class="header" type="submit" name="cancel" value="CancelReservation"></div>
+<div id="admngmnt"><input class="header" type="submit" name="admngmnt" value="Admin"></div>
+<div id="about"><input class="header" type="submit" name="about" value="About"></div>
 		
 	</form>
 
@@ -46,8 +51,10 @@
 #signup{border: 1px solid red;
 /*margin-left: 40%;}*/
 #iform{display: grid;
-			grid-template-rows: 50px 50px;
-			grid-template-columns: repeat(3,1fr)  ;}
+			grid-template-rows: 30px 30px 30px 30px;
+			grid-template-columns: repeat(2,1fr)  ;}
+
+
 #loginorsignup{border: 1px solid black;
 }
 #availableflights{/*border: 1px solid black;*/}
@@ -84,6 +91,10 @@ if(isset($_POST['reservation']))
 {
 header("Location:findflight2.php");
 }
+if(isset($_POST['admngmnt']))
+{
+header("Location:adminsidemgnt/airresmgmntsystm.php");
+}
 
 
 
@@ -107,8 +118,6 @@ header("Location:findflight2.php");
 
 
 ?>
-
-
 
 
 
